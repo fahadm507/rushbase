@@ -4,25 +4,9 @@
 <%= devise_error_messages! %>
 
 <div class="form-group">
-    <%= f.label :name, class: 'col-sm-2 control-label'  %>
+    <%= f.label :email, class: 'col-sm-2 control-label'  %>
     <div class="col-sm-6">
-        <%= f.text_field :name, autofocus: true, class: 'form-control'  %>
-    </div>
-</div>
-
-<div class="form-group">
-    <%= f.label :is_female, "Gender", class: 'col-sm-2 control-label'  %>
-    <div class="col-sm-6">
-        <%= f.radio_button :is_female, true %> <%= f.label :is_female, "Female" %>
-        <%= f.radio_button :is_female, false %> <%= f.label :is_female, "Male" %>
-    </div>
-</div>
-
-
-<div class="form-group">
-    <%= f.label :date_of_birth, class: 'col-sm-2 control-label'  %>
-    <div class="col-sm-6">
-        <%= f.date_select :date_of_birth, start_year: 1920, end_year: 2000, class: 'form-control'  %>
+        <%= f.text_field :email, autofocus: true, class: 'form-control'  %>
     </div>
 </div>
 
@@ -63,7 +47,7 @@
 
 <div class="form-group">
     <div class="col-sm-offset-2 col-sm-6">
-        <%= render "users/shared/links" %>
+        <%= render "devise/shared/links" %>
     </div>
 </div>
 <% end %>
