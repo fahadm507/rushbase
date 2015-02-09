@@ -7,11 +7,10 @@ Rails.application.routes.draw do
     root 'welcome#index'
 
 
-    resources :users do
-      resources :organizations
-    end
-
+    resources :users
+    resources :organizations
     resources :profile,  only: [:index]
+
   # Example of regular route:
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
