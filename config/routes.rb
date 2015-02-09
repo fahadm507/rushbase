@@ -7,10 +7,10 @@ Rails.application.routes.draw do
     root 'welcome#index'
 
 
-    resources :users do 
+    resources :users do
       resources :organizations
     end
-    
+
     resources :profile,  only: [:index]
   # Example of regular route:
 
