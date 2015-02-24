@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
 
     resources :users
-    resources :organizations
+    resources :organizations do
+      resources :courses
+    end
     resources :profile,  only: [:index]
 
   # Example of regular route:

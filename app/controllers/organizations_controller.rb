@@ -1,15 +1,10 @@
 class OrganizationsController < ApplicationController
-  before_action :authenticate_user!,:set_organization,  only: [:create,:update, :destroy]
+  before_action :authenticate_user!,  only: [:create,:update,:new,:destroy]
 
-  # GET /organizations
-  # GET /organizations.json
   def index
     @organizations = Organization.all
-    render json: @organizatons
   end
 
-  # GET /organizations/1
-  # GET /organizations/1.json
   def show
     @organization = Organization.find(params[:id])
   end
@@ -18,11 +13,9 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new
   end
 
-  # POST /organizations
-  # POST /organizations.json
   def create
-    @user = User.find(params[:user_id])
-    @organization = @user.organizations.build(organization_params)
+    @organization = Organization.new(params_organization)
+    @organization.user_id = current_user.id
 
     respond_to do |format|
       if @organization.save
@@ -35,8 +28,6 @@ class OrganizationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /organizations/1
-  # PATCH/PUT /organizations/1.json
   def update
     respond_to do |format|
       @organization = Organization.find(params[:organization_id])
@@ -50,8 +41,6 @@ class OrganizationsController < ApplicationController
     end
   end
 
-  # DELETE /organizations/1
-  # DELETE /organizations/1.json
   def destroy
     @organization.destroy
     respond_to do |format|
@@ -62,12 +51,9 @@ class OrganizationsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_organization
-      @organization = Organization.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def organization_params
-      params[:organization]
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def params_organization
+    params.require(:organization).permit(:name, :description)
+  end
 end
