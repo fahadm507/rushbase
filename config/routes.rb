@@ -11,6 +11,14 @@ Rails.application.routes.draw do
     resources :organizations do
       resources :courses
     end
+
+    resources :courses do
+      resources :posts
+    end
+
+    resources :course_posts do
+      resources :course_comments
+    end
     resources :profile,  only: [:index]
 
   # Example of regular route:
