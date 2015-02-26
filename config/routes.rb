@@ -12,6 +12,13 @@ Rails.application.routes.draw do
       resources :courses
     end
 
+    resources :posts do
+      resources :comments, only: [:destroy]
+      member do
+        get 'likes'
+      end
+    end
+
     resources :courses do
       resources :posts
     end
@@ -19,7 +26,7 @@ Rails.application.routes.draw do
     resources :course_posts do
       resources :course_comments
     end
-    resources :profile,  only: [:index]
+    resources :profile, only: [:index, :edit, :update]
 
   # Example of regular route:
 

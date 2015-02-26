@@ -6,4 +6,7 @@ class ProfileController < ApplicationController
     @user = current_user
     respond_with @user
   end
+
+  def edit
+  end
 end

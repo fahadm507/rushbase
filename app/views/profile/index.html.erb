@@ -1,5 +1,22 @@
+<div class="container">
+  <div class="row">
+    <section class="col-md-8 profile-info">
+      <div ="class user-info">
+        <p><%= current_user.first_name%> <%= current_user.last_name %></p>
 
-<div ng-controller="TestController">
-  <h1>{{hello}}</h1>
+      </div>
+    </section>
+    <aside class="col-md-4 aside-info">
+
+    </aside>
+  </div>
+
+  <div class="row">
+    <div class=" col-md-8 about-info">
+    <p><%= current_user.about %></p>
+    <p><%= current_user.interests %></p>
+
+    </div>
+  </div>
+
 </div>
-
