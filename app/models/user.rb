@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   has_many  :course_posts
   has_many  :course_comments
   has_many  :user_posts
+
+  def full_name
+  	"#{first_name} #{last_name}"
+  end
 end

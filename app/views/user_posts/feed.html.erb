@@ -1,0 +1,10 @@
+<%= bootstrap_form_for(@user_post, layout: :horizontal, label_col: "col-sm-1", control_col: "col-sm-10") do |f| %>
+  <%= f.text_area :description %>
+  <div class="row col-sm-6 col-sm-offset-1">
+  	<%= f.submit class: "btn btn-primary btn" %>
+  </div>
+<% end %>
+
+<div class="posts-wrapper">
+
+</div>

@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
   def index
-  	#redirects to the welcome index page
+  	if current_user.present?
+  	  redirect_to profile_index_path
+  	end
   end
 end

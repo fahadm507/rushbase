@@ -7,14 +7,13 @@ class UserPostsController < ApplicationController
     @user_posts = UserPost.all
   end
 
+  def feed
+    @user_post = UserPost.new
+  end
+
   # GET /user_posts/1
   # GET /user_posts/1.json
   def show
-  end
-
-  # GET /user_posts/new
-  def new
-    @user_post = UserPost.new
   end
 
   # GET /user_posts/1/edit
@@ -24,11 +23,11 @@ class UserPostsController < ApplicationController
   # POST /user_posts
   # POST /user_posts.json
   def create
-    @user_post = UserPost.new(user_post_params)
+    @user_post = current_user.user_posts.build(user_post_params)
 
     respond_to do |format|
       if @user_post.save
-        format.html { redirect_to @user_post, notice: 'User post was successfully created.' }
+        format.html { redirect_to feed_path, notice: 'User post was successfully created.' }
         format.json { render :show, status: :created, location: @user_post }
       else
         format.html { render :new }
@@ -42,7 +41,7 @@ class UserPostsController < ApplicationController
   def update
     respond_to do |format|
       if @user_post.update(user_post_params)
-        format.html { redirect_to @user_post, notice: 'User post was successfully updated.' }
+        format.html { redirect_to feed_path, notice: 'User post was successfully updated.' }
         format.json { render :show, status: :ok, location: @user_post }
       else
         format.html { render :edit }
@@ -69,6 +68,6 @@ class UserPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_post_params
-      params[:user_post]
+      params.require(:user_post).permit(:description)
     end
 end

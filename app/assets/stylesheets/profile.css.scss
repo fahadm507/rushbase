@@ -1,10 +1,13 @@
-.profile-info {
+section .profile-info {
   border:1px solid #e8eaed;
   background-color: #f9fafc;
   height:120px;
+  width:200px;
 }
 
-.user-info {
-
+aside .user-info {
+  width:150px;
+  height:100px;
+  border-bottom:5px solid black;
 }
 
