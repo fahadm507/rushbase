@@ -9,19 +9,16 @@ class UserPostsController < ApplicationController
 
   def feed
     @user_post = UserPost.new
+    @user_posts = UserPost.all
   end
 
-  # GET /user_posts/1
-  # GET /user_posts/1.json
   def show
+    @user_post = UserPost.find(params[:user_post_id])
   end
 
-  # GET /user_posts/1/edit
   def edit
   end
 
-  # POST /user_posts
-  # POST /user_posts.json
   def create
     @user_post = current_user.user_posts.build(user_post_params)
 
@@ -36,8 +33,6 @@ class UserPostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /user_posts/1
-  # PATCH/PUT /user_posts/1.json
   def update
     respond_to do |format|
       if @user_post.update(user_post_params)
@@ -50,8 +45,6 @@ class UserPostsController < ApplicationController
     end
   end
 
-  # DELETE /user_posts/1
-  # DELETE /user_posts/1.json
   def destroy
     @user_post.destroy
     respond_to do |format|
