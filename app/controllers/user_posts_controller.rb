@@ -1,22 +1,27 @@
 class UserPostsController < ApplicationController
-  before_action :set_user_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
+  respond_to :json, :html
 
   # GET /user_posts
   # GET /user_posts.json
   def index
     @user_posts = UserPost.all
+    respond_to do |format|
+      format.html { @user_posts }
+      format.json { render json: @user_posts }
+    end
   end
 
   def feed
-    @user_post = UserPost.new
     @user_posts = UserPost.all
   end
 
   def show
-    @user_post = UserPost.find(params[:user_post_id])
-  end
-
-  def edit
+    binding.pry
+    @user_post = UserPost.find(params[:id])
+    respond_to do |format|
+      format.json { render json: [@user_post, current_user] }
+    end
   end
 
   def create
@@ -25,7 +30,7 @@ class UserPostsController < ApplicationController
     respond_to do |format|
       if @user_post.save
         format.html { redirect_to feed_path, notice: 'User post was successfully created.' }
-        format.json { render :show, status: :created, location: @user_post }
+        format.json { render json: @user_post, status: :created, location: @user_post }
       else
         format.html { render :new }
         format.json { render json: @user_post.errors, status: :unprocessable_entity }
@@ -37,7 +42,7 @@ class UserPostsController < ApplicationController
     respond_to do |format|
       if @user_post.update(user_post_params)
         format.html { redirect_to feed_path, notice: 'User post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user_post }
+        format.json { render json: @user_post, status: :ok, location: @user_post }
       else
         format.html { render :edit }
         format.json { render json: @user_post.errors, status: :unprocessable_entity }
@@ -46,19 +51,19 @@ class UserPostsController < ApplicationController
   end
 
   def destroy
-    @user_post.destroy
+    @user_post = prams[:user_post_id]
     respond_to do |format|
-      format.html { redirect_to user_posts_url, notice: 'User post was successfully destroyed.' }
-      format.json { head :no_content }
+      if @user_post.destroy
+        format.html { redirect_to user_posts_url, notice: 'User post was successfully destroyed.' }
+        format.json { render json: @user_post }
+      else
+        format.html { redirect_to user_posts_url }
+        format.json { render json: @user_post.errors }
+      end
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user_post
-      @user_post = UserPost.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_post_params
       params.require(:user_post).permit(:description)

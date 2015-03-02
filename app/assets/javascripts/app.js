@@ -1,5 +1,3 @@
-angular.module('RushBase',['ngResource','ngRoute'])
+angular.module('rushBase',
+  ['ngResource','ngRoute'])
 
-.controller('TestController', function($scope){
-  $scope.hello = "hello World";
-})

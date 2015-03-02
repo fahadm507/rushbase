@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="RushBase">
+<html ng-app="rushBase">
 <head>
   <title>Rushbase</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <span ng-init ='currentUser ="<%= current_user %>" '></span>
 	<header>
 		<div class="container-narrow">
 		  <div class="masthead">

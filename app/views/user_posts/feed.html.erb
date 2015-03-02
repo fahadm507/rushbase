@@ -1,16 +1,21 @@
 <div class="container">
+
   <div class="row">
-    <%= bootstrap_form_for(@user_post, layout: :horizontal, label_col: "col-sm-1", control_col: "col-sm-10") do |f| %>
-      <%= f.text_area :description %>
-      <div class="row col-sm-6 col-sm-offset-1">
-        <%= f.submit class: "btn btn-primary btn" %>
-      </div>
-    <% end %>
+  </div>
+  <div ng-controller="UserPostController">
+  <span ng-init='currentUser = "<%= current_user.id %>" '></span>
+    <div ng-repeat="post in user_posts">
+      <p>{{ post.description}}</p>
+      <p>{{ currentUser.first_name }}</p>
+    </div>
+    <div ng-repeat="user in all_users ">
+    <p> {{user.first_name}} - {{user.last_name}}</p>
+  </div>
   </div>
 
+</div>
+<div>
   <div class="posts-wrapper">
-    <% @user_posts.each do |post| %>
-      <p><%= post.description%></p>
-    <%end%>
+
   </div>
 </div>

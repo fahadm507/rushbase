@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
     root 'welcome#index'
     get '/feed' => 'user_posts#feed'
-    
+    resources :users
+
     resources :organizations do
       resources :courses
     end
