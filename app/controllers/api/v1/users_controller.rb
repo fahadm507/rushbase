@@ -1,8 +1,7 @@
-class UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
-  respond_to :json, :html
-  # GET /users
-  # GET /users.json
+  respond_to :json
+
   def index
     @users = User.all
     render json: @users
@@ -10,8 +9,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    respond_to do |format|
-      format.json {render json: @user }
-    end
+    render json: @user
   end
 end

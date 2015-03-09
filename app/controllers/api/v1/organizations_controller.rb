@@ -1,16 +1,20 @@
-class OrganizationsController < ApplicationController
+class Api::V1::OrganizationsController < ApplicationController
   before_action :authenticate_user!,  only: [:create,:update,:new,:destroy]
+  respond_to :json
 
   def index
     @organizations = Organization.all
+    render json: @organizations
   end
 
   def show
     @organization = Organization.find(params[:id])
+    render json: @organization
   end
 
   def new
     @organization = Organization.new
+    render json:@organization
   end
 
   def create
@@ -19,10 +23,8 @@ class OrganizationsController < ApplicationController
 
     respond_to do |format|
       if @organization.save
-        format.html { redirect_to @organization, notice: 'Organization was successfully created.' }
         format.json { render json: @organizaton, status: :created, location: @organization }
       else
-        format.html { render :new }
         format.json { render json: @organization.errors, status: :unprocessable_entity }
       end
     end
@@ -32,20 +34,21 @@ class OrganizationsController < ApplicationController
     respond_to do |format|
       @organization = Organization.find(params[:organization_id])
       if @organization.update(organization_params)
-        format.html { redirect_to @organization, notice: 'Organization was successfully updated.' }
         format.json { render json: @organization, status: :ok, location: @organization }
       else
-        format.html { render :edit }
         format.json { render json: @organization.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
-    @organization.destroy
+    @organization = Organization.find(params[:id])
     respond_to do |format|
-      format.html { redirect_to organizations_url, notice: 'Organization was successfully destroyed.' }
-      format.json { head :no_content }
+      if @organization.destroy
+        format.json { render json: @organization }
+      else
+        format.json { render json: @organization.errors }
+      end
     end
   end
 
