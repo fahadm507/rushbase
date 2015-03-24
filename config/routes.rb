@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get '/feed' => 'user_posts#feed'
     resources :profile, only: [:index, :edit, :update]
 
-    namespace :api do
+    namespace :api, defaults: { format: :json } do
       namespace :v1 do
         resources :users
 

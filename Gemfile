@@ -34,6 +34,8 @@ gem 'devise'
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'pry-rails'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
 end
 
 # Use ActiveModel has_secure_password
