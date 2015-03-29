@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:account_update) << [:first_name, :last_name, :about, :interests]
+    devise_parameter_sanitizer.for(:account_update) << [:first_name, :last_name, :about, :interests, :avatar]
   end
 
   def after_sign_in_path_for(resource)
-    profile_index_path
+    profile_path
   end
 
   def after_sign_out_path_for(resource)
