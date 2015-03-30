@@ -6,32 +6,29 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
     root 'welcome#index'
     get '/feed' => 'user_posts#feed'
-    resources :profile, only: [:index, :edit, :update]
+    get '/profile' => 'users#show'
 
-    namespace :api, defaults: { format: :json } do
-      namespace :v1 do
-        resources :users
+    resources :users
 
-        resources :organizations do
-          resources :courses
-        end
+    resources :organizations do
+      resources :courses
+    end
 
-        resources :user_posts do
-          resources :comments, only: [:destroy]
-          member do
-            get 'likes'
-          end
-        end
-
-        resources :courses do
-          resources :posts
-        end
-
-        resources :course_posts do
-          resources :course_comments
-        end
+    resources :user_posts do
+      resources :comments, only: [:destroy]
+      member do
+        get 'likes'
       end
     end
+
+    resources :courses do
+      resources :posts
+    end
+
+    resources :course_posts do
+      resources :course_comments
+    end
+
 
   # Example of regular route:
 

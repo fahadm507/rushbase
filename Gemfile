@@ -22,6 +22,7 @@ gem 'turbolinks'
 gem 'rails_layout'
 gem "bower-rails", "~> 0.9.2"
 gem 'bootstrap_form'
+gem 'aws-sdk', '~> 1.5.7'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -30,6 +31,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 gem 'devise'
+gem "paperclip", "~> 4.2"
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
