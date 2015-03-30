@@ -2,25 +2,35 @@
 
 <div class="container">
   <div class="row">
-    <div class"user-avatar"> avatar: <%= image_tag current_user.avatar.url(:thumb), :class => "img-circle"%></div>
-  </div>
-</div>
-    <section class="col-md-8 profile-info">
-      <div ="class user-info">
-        <p><%= current_user.full_name %></p>
-
+    <p><%= current_user.full_name %></p>
+    <div class"user-avatar"><%= image_tag current_user.avatar.url(:thumb), :class => "img-circle"%></div>
+    </div>
+    <section class="row">
+      <div class="user-post col-md-3">
+        <%= bootstrap_form_for(@user_post) do |f| %>
+          <% if @user_post.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@user_post.errors.count, "error") %> prohibited this post from being saved:</h2>
+              <ul>
+              <% @user_post.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <%= f.text_area :description %>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        <% end %>
       </div>
     </section>
-    <aside class="col-md-4 aside-info">
-      <p>fjdfsfjsklfjskljfkldfsfdf</p>
-    </aside>
   </div>
 
-  <div class="row">
-    <div class=" col-md-8 about-info">
-      <p><%= current_user.about %></p>
-      <p><%= current_user.interests %></p>
-    </div>
+    <aside class="col-md-6 aside-info">
+      <p>User Detailed information goes here</p>
+    </aside>
+
   </div>
 
 </div>

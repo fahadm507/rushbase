@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user_post = UserPost.new
     if user_signed_in?
       @user = current_user
     else
