@@ -4,17 +4,19 @@ class OrganizationsController < ApplicationController
 
   def index
     @organizations = Organization.all
-    render json: @organizations
+    respond_to do |format|
+      format.html {}
+      format.json { render json: @organizaton, status: :created, location: @organization }
+      format.js {}
+    end
   end
 
   def show
     @organization = Organization.find(params[:id])
-    render json: @organization
   end
 
   def new
     @organization = Organization.new
-    render json:@organization
   end
 
   def create
@@ -23,9 +25,13 @@ class OrganizationsController < ApplicationController
 
     respond_to do |format|
       if @organization.save
+        format.html { redirect_to organizations_path,  notice: "organization was created"}
         format.json { render json: @organizaton, status: :created, location: @organization }
+        format.js {}
       else
+        format.html { render :new }
         format.json { render json: @organization.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end
