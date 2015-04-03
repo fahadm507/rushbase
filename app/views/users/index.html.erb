@@ -1,24 +1,15 @@
-<h1>Listing users</h1>
+<div class ="container">
+  <h1> All Users</h1>
+  <hr>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <% @users.each do |user| %>
+    <div class="row col-md-3">
+      <div class"user-avatar col-md-4"><%= image_tag user.avatar.url(:thumb), :class => "img-circle"%></div>
+      <ul class="col-md-3">
+        <li><%= user.email %></li>
+        <%= link_to 'view', user, class: "btn btn-primary btn-lg" %>
+      </ul>
+    </div>
+  <% end %>
+</div>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.email %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
