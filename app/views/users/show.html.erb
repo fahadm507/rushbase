@@ -1,35 +1,40 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
-  <div class="row">
-    <p><%= current_user.full_name %></p>
-    <div class"user-avatar"><%= image_tag current_user.avatar.url(:thumb), :class => "img-circle"%></div>
-    </div>
-    <section class="row">
-      <div class="user-post col-md-3">
-        <%= bootstrap_form_for(@user_post) do |f| %>
-          <% if @user_post.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@user_post.errors.count, "error") %> prohibited this post from being saved:</h2>
-              <ul>
-              <% @user_post.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-              </ul>
-            </div>
-          <% end %>
-          <%= f.text_area :description %>
-          <div class="actions">
-            <%= f.submit %>
-          </div>
-        <% end %>
-      </div>
+
+  <div class="row user-info-section">
+
+    <!-- <aside class="col-md-3 aside-user-info">
+    </aside> -->
+
+    <section class="col-md-8 left-user-info text-center">
+      <h3 class="user-name"><%= current_user.full_name %></p>
+      <div class"user-avatar col-md-4"><%= image_tag current_user.avatar.url(:thumb), :class => "img-circle"%></div>
     </section>
-  </div>
 
-  <aside class="col-md-6 aside-info">
-    <p>User Detailed information goes here</p>
-  </aside>
+    <aside class="col-md-3 aside-user-menu">
+    </aside>
 
   </div>
+  <hr>
 
+  <div class="row">
+    <section class="col-md-8 user-post-section">
+      <% current_user.user_posts.each do |user_post| %>
+        <ul>
+          <li><%= user_post.description %></li>
+          <li><%= link_to 'Edit', edit_user_post_path(user_post) , class: "icon-github"%></li>
+          <li><%= link_to 'Destroy', user_post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        </ul>
+      <% end %>
+    </section>
+
+    <aside class="col-md-3 aside-user-suggestion">
+      <p>klncknklnz</p>
+    </aside>
+
+    <aside class="col-md-3 aside-course-suggestion">
+      <p>klncknklnz</p>
+    </aside>
+
+  </div>
 </div>

@@ -11,3 +11,51 @@ aside .user-info {
   border-bottom:5px solid black;
 }
 
+.user-info-section {
+  height:360px;
+  .left-user-info {
+    height: 360px;
+    padding:30px;
+    margin-right:30px;
+    border:1px solid black;
+  }
+}
+.aside-user-menu{
+  height: 360px;
+  padding:30px;
+  margin-left:30px;
+  background-color: #9098a3;
+  color:#fff;
+
+}
+
+.user-name {
+  color:#42ab6a !important;
+}
+
+.user-post-section {
+  margin-right: 30px;
+  border:2px solid black;
+}
+
+.aside-user-suggestion{
+  height: 360px;
+  padding:30px;
+  margin-left:30px;
+  background-color: #67B5D2;
+  color:#fff;
+
+}
+
+.aside-course-suggestion {
+  height: 360px;
+  padding:30px;
+  margin-left:30px;
+  background-color: #52c286;
+  color:#fff;
+  margin-top:40px;
+}
+
+
+
+

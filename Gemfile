@@ -32,6 +32,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'devise'
 gem "paperclip", "~> 4.2"
+gem 'will_paginate', '~> 3.0.6'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

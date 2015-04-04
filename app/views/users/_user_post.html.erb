@@ -1,0 +1,20 @@
+<section class="row">
+  <div class="user-post col-md-3">
+    <%= bootstrap_form_for(@user_post) do |f| %>
+      <% if @user_post.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user_post.errors.count, "error") %> prohibited this post from being saved:</h2>
+          <ul>
+          <% @user_post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= f.text_area :description %>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </div>
+</section>
