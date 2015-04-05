@@ -2,32 +2,52 @@
 <div class="container">
 
   <div class="row user-info-section">
-
-    <!-- <aside class="col-md-3 aside-user-info">
-    </aside> -->
-
     <section class="col-md-8 left-user-info text-center">
-      <h3 class="user-name"><%= current_user.full_name %></p>
-      <div class"user-avatar col-md-4"><%= image_tag current_user.avatar.url(:thumb), :class => "img-circle"%></div>
+      <div class="main-profile">
+        <h3 class="user-name"><%= current_user.full_name %></p>
+        <div class"user-avatar col-md-4"><%= image_tag current_user.avatar.url(:thumb), :class => "img-circle"%>
+        </div>
+      </div>
+
+      <div class="row profile-footer">
+        <div class="user-stats col-sm-6">
+          <div class="col-sm-4 stat">
+            <a href="">0</a>
+            <div>Posts</div>
+          </div>
+          <div class="col-sm-4 stat">
+            <a href="">0</a>
+            <div>Followers</div>
+          </div>
+          <div class="col-sm-4 stat">
+            <a href="">0</a>
+            <div>Following</div>
+          </div>
+        </div>
+        <div class="user-action-icons col-sm-6">
+          <a class="icon circle" href="/users/edit"><span class="glyphicon glyphicon-edit gi-3x"></span></a>
+          <a class=" icon circle" href="/user_posts/new"><span class="glyphicon glyphicon-plus gi-3x"></span></a>
+          <a class=" icon circle" href="/edit"><span class="glyphicon glyphicon-chevron-down gi-3x"></span></a>
+        </div>
+      </div>
     </section>
 
     <aside class="col-md-3 aside-user-menu">
       <div class="list-group">
         <a href="#" class="list-group-item">
-        <span class="glyphicon glyphicon-camera"></span> contrubutions <span class="badge">25</span>
+        <span class="glyphicon glyphicon-camera"></span>contrubutions<span class="badge">25</span>
         </a>
-    <a href="#" class="list-group-item">
-        <span class="glyphicon glyphicon-file"></span> Favorites  <span class="badge">145</span>
-    </a>
-    <a href="#" class="list-group-item">
-        <span class="glyphicon glyphicon-music"></span> saved <span class="badge">50</span>
-    </a>
-    <a href="#" class="list-group-item">
-        <span class="glyphicon glyphicon-film"></span> points  <span class="badge">8</span>
-    </a>
-</div>
+        <a href="#" class="list-group-item">
+            <span class="glyphicon glyphicon-file"></span>Favorites<span class="badge">145</span>
+        </a>
+        <a href="#" class="list-group-item">
+            <span class="glyphicon glyphicon-music"></span>saved<span class="badge">50</span>
+        </a>
+        <a href="#" class="list-group-item">
+            <span class="glyphicon glyphicon-film"></span>points<span class="badge">8</span>
+        </a>
+      </div>
     </aside>
-
   </div>
   <hr>
 
