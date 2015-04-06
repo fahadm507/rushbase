@@ -13,6 +13,10 @@ class UserPostsController < ApplicationController
     render json: @user_post
   end
 
+  def new
+    @user_post = UserPost.new
+  end
+
   def create
     @user_post = current_user.user_posts.build(user_post_params)
 
@@ -39,18 +43,21 @@ class UserPostsController < ApplicationController
   end
 
   def destroy
-    @user_post = prams[:user_post_id]
+    @user_post = UserPost.find(params[:id])
     respond_to do |format|
       if @user_post.destroy
-        format.json { render json: @user_post }
+        format.html { redirect_to user_path(@user_post.user) }
+        format.json { render json: @user_post, status: :created }
+        format.js {}
       else
-        format.json { render json: @user_post.errors }
+        format.html { render :new }
+        format.json { render json: @user_post.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end
 
   private
-
     def user_post_params
       params.require(:user_post).permit(:description)
     end

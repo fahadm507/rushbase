@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 <div class="container">
 
   <div class="row user-info-section">
@@ -35,16 +35,16 @@
     <aside class="col-md-3 aside-user-menu">
       <div class="list-group">
         <a href="#" class="list-group-item">
-        <span class="glyphicon glyphicon-camera"></span>contrubutions<span class="badge">25</span>
+        <span class="glyphicon glyphicon-camera"></span> contrubutions <span class="badge">25</span>
         </a>
         <a href="#" class="list-group-item">
-            <span class="glyphicon glyphicon-file"></span>Favorites<span class="badge">145</span>
+            <span class="glyphicon glyphicon-file"></span> Favorites <span class="badge">145</span>
         </a>
         <a href="#" class="list-group-item">
-            <span class="glyphicon glyphicon-music"></span>saved<span class="badge">50</span>
+            <span class="glyphicon glyphicon-music"></span> saved <span class="badge">50</span>
         </a>
         <a href="#" class="list-group-item">
-            <span class="glyphicon glyphicon-film"></span>points<span class="badge">8</span>
+            <span class="glyphicon glyphicon-film"></span> points <span class="badge">8</span>
         </a>
       </div>
     </aside>
@@ -53,22 +53,13 @@
 
   <div class="row">
     <section class="col-md-8 user-post-section">
-      <% current_user.user_posts.each do |user_post| %>
-        <ul>
-          <li><%= user_post.description %></li>
-          <li><%= link_to 'Edit', edit_user_post_path(user_post) , class: "icon-github"%></li>
-          <li><%= link_to 'Destroy', user_post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-        </ul>
-      <% end %>
+      <%= render partial: "user_posts/post", locals: { collection: @user_posts }%>
     </section>
 
-    <aside class="col-md-3 user-suggestion">
-      <h3 class="aside-header">Suggested Users</h3>
+    <aside>
+      <div class="col-md-3 user-suggestion">
+        <h3 class="aside-header">Suggested Users</h3>
+      </div>
     </aside>
-
-    <aside class="col-md-3 course-suggestion">
-      <h3 class="aside-header">Suggested Courses</h3>
-    </aside>
-
   </div>
 </div>

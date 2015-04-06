@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def show
     @user_post = UserPost.new
+    @user_posts = UserPost.all
     if user_signed_in?
       @user = current_user
     else

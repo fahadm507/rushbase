@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325034524) do
+ActiveRecord::Schema.define(version: 20150405034904) do
 
   create_table "course_comments", force: true do |t|
     t.string   "description", null: false
@@ -55,10 +55,10 @@ ActiveRecord::Schema.define(version: 20150325034524) do
   end
 
   create_table "post_comments", force: true do |t|
-    t.string   "body",       null: false
-    t.integer  "post_id",    null: false
+    t.string   "body",         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_post_id"
   end
 
   create_table "user_posts", force: true do |t|

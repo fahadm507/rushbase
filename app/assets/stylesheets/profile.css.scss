@@ -105,12 +105,15 @@
   margin-left:30px;
   background-color: #67B5D2;
   color:#fff;
+  border:1px solid black;
 }
 
 .course-suggestion {
+  display: block;
   height:360px;
   padding:0px;
   margin-left:30px;
+  position: absolute;
   background-color: #52c286;
   margin-top:40px;
 }
