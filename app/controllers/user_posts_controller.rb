@@ -5,7 +5,7 @@ class UserPostsController < ApplicationController
   def index
     @user_posts = UserPost.all
 
-    render json: user_posts
+    render json: @user_posts
   end
 
   def show

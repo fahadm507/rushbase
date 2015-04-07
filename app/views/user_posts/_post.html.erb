@@ -1,16 +1,30 @@
-<div class="row">
-  <% @user_posts.order(created_at: :desc).each do |post| %>
-    <div class="poster circle col-md-2">
-      <div class="image-for-poster"><%=link_to (image_tag post.user.avatar.url(:thumb), class: "img-circle ", size:'50x50'), user_path(current_user) %>
-      </div>
+
+<% @user_posts.order(created_at: :desc).each do |post| %>
+  <div class="poster circle col-md-2">
+    <div class="image-for-poster text-center"><%=link_to (image_tag post.user.avatar.url(:thumb), class: "img-circle ", size:'50x50'), user_path(current_user) %>
     </div>
+  </div>
+
     <div class="posts-area col-md-8">
-      <div class="">
-        <div class="user-name"><%= link_to "#{post.user.first_name} #{post.user.last_name}", user_path(@user) %></div>
-        <div class="time">posted on <%=post.created_at.strftime("%B %d, %Y, %I:%M %p") %></div>
-      </div>
-      <div class="post-body"><%= post.description %>
-      </div>
-    </div><!-- Post body ends here-->
-  <%end%>
-</div>
+      <div class="post-wrapper">
+        <div class="post-header">
+          <div class="user-name"><%= link_to "#{post.user.first_name} #{post.user.last_name}", user_path(@user) %></div>
+          <div class="time">posted on <%=post.created_at.strftime("%B %d, %Y, %I:%M %p") %></div>
+        </div>
+        <div class="post-body"><%= post.description %>
+        </div>
+
+        <div class="post-comments">
+        <ul class="list-inline">
+          <li><i class="glyphicon glyphicon-comment"></i> 12 comments</li>
+          <li>
+          <li><i class="glyphicon glyphicon-star"></i> favorites</li>
+          <li><i class="glyphicon glyphicon-thumbs-up"></i> Likes</li>
+        </ul>
+
+        </div>
+      </div><!-- Post body ends here-->
+    </div>
+
+<%end%>
+
