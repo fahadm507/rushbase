@@ -34,6 +34,8 @@ gem 'devise'
 gem "paperclip", "~> 4.2"
 gem 'will_paginate', '~> 3.0.6'
 gem "font-awesome-rails"
+gem 'country_select', github: 'stefanpenner/country_select'
+gem 'city-state'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

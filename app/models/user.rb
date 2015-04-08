@@ -14,11 +14,13 @@ class User < ActiveRecord::Base
 
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
-  has_many  :organizations
-  has_many  :course_posts
-  has_many  :course_comments
-  has_many  :user_posts
-  has_many  :user_comments
+  has_many   :organizations
+  has_many   :course_posts
+  has_many   :course_comments
+  has_many   :user_posts
+  has_many   :user_comments
+  belongs_to :location
+  belongs_to  :industry
 
   def full_name
   	"#{first_name} #{last_name}"

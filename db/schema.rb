@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150405034904) do
+ActiveRecord::Schema.define(version: 20150408023504) do
 
   create_table "course_comments", force: true do |t|
     t.string   "description", null: false
@@ -39,9 +39,23 @@ ActiveRecord::Schema.define(version: 20150405034904) do
     t.datetime "updated_at"
   end
 
+  create_table "industries", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "instructors", force: true do |t|
     t.integer  "organization_id", null: false
     t.integer  "user_id",         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locations", force: true do |t|
+    t.string   "country"
+    t.string   "city"
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -90,6 +104,7 @@ ActiveRecord::Schema.define(version: 20150405034904) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "location_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
