@@ -1,0 +1,14 @@
+<div>
+  <% if current_user.following(user)%>
+      <%= bootstrap_form_for(current_user.all_following.find_by(id: user)), html: {method: :delete}  do |f| %>
+       %>
+      <%= f.submit "following", class: "btn" %>
+    <%end%>
+
+    <%else%>
+      <%= bootstrap_form_for(user), follows_path(user)  do |f| %>
+       %>
+      <%= f.submit "follow", class: "btn" %>
+    <%end%>
+ <%end%>
+</div>

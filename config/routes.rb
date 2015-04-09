@@ -8,13 +8,22 @@ Rails.application.routes.draw do
     get '/feed' => 'user_posts#feed'
     get '/profile' => 'users#show'
 
-    resources :users
+    resources :users do
+      member do
+        get :following, :followers
+      end
+    end
+
+    resources :follows, only: [:create, :destroy]
 
     resources :organizations do
       resources :courses
     end
 
     resources :user_posts do
+      member do
+        get 'upvotes'
+      end
       resources :comments, only: [:destroy]
       member do
         get 'likes'

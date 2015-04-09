@@ -19,4 +19,12 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
   end
+
+  def following
+    @following = current_user.followers_by_type("User")
+  end
+
+  def followers
+    @followers = current_user.followers_by_type("User")
+  end
 end

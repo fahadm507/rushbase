@@ -3,6 +3,5 @@ angular.module("rushBase")
     function($scope,$resource, UserPost){
 
       $scope.userPosts = UserPost.query();
-
   }]);
 

@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  acts_as_followable
+  acts_as_follower
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -18,11 +20,13 @@ class User < ActiveRecord::Base
   has_many   :course_posts
   has_many   :course_comments
   has_many   :user_posts
-  has_many   :user_comments
+  has_many   :upvotes
+  has_many   :post_comments
   belongs_to :location
   belongs_to  :industry
 
   def full_name
   	"#{first_name} #{last_name}"
   end
+
 end

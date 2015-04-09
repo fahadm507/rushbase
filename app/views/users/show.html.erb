@@ -32,22 +32,7 @@
       </div>
     </section>
 
-    <aside class="col-md-3 aside-user-menu">
-      <div class="list-group">
-        <a href="#" class="list-group-item">
-        <span class="glyphicon glyphicon-camera"></span> contrubutions <span class="badge">25</span>
-        </a>
-        <a href="#" class="list-group-item">
-            <span class="glyphicon glyphicon-file"></span> Favorites <span class="badge">145</span>
-        </a>
-        <a href="#" class="list-group-item">
-            <span class="glyphicon glyphicon-music"></span> saved <span class="badge">50</span>
-        </a>
-        <a href="#" class="list-group-item">
-            <span class="glyphicon glyphicon-film"></span> points <span class="badge">8</span>
-        </a>
-      </div>
-    </aside>
+    <%= render partial: 'users/user_stats'%>
   </div>
   <hr>
 
