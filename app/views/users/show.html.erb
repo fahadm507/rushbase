@@ -4,9 +4,10 @@
   <div class="row user-info-section">
     <section class="col-md-8 left-user-info text-center">
       <div class="main-profile">
-        <h3 class="user-name"><%= current_user.full_name %></p>
-        <div class"user-avatar col-md-4"><%= image_tag current_user.avatar.url(:thumb), :class => "img-circle"%>
+        <h3 class="user-name"><%= @user.full_name %></p>
+        <div class"user-avatar col-md-4"><%= image_tag @user.avatar.url(:thumb), :class => "img-circle"%>
         </div>
+
       </div>
 
       <div class="row profile-footer">

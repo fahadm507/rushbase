@@ -1,14 +1,14 @@
 
 <% @user_posts.order(created_at: :desc).each do |post| %>
   <div class="poster circle col-md-2">
-    <div class="image-for-poster text-center"><%=link_to (image_tag post.user.avatar.url(:thumb), class: "img-circle ", size:'50x50'), user_path(current_user) %>
+    <div class="image-for-poster text-center"><%=link_to (image_tag post.user.avatar.url(:thumb), class: "img-circle ", size:'50x50'), user_path(post.user) %>
     </div>
   </div>
 
     <div class="posts-area col-md-8">
       <div class="post-wrapper">
         <div class="post-header">
-          <div class="user-name"><%= link_to "#{post.user.first_name} #{post.user.last_name}", user_path(@user) %></div>
+          <div class="user-name"><%= link_to "#{post.user.first_name} #{post.user.last_name}", user_path(post.user) %></div>
           <div class="time">posted on <%=post.created_at.strftime("%B %d, %Y, %I:%M %p") %></div>
         </div>
         <div class="post-body"><%= post.description %>

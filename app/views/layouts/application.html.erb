@@ -7,21 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <span ng-init ='currentUser ="<%= current_user %>" '></span>
-	<header>
-		<div class="container-narrow">
-		  <div class="masthead">
-		    <%= render 'layouts/user_header' %>
-		    <h3 class="muted"><%= link_to "RushBase", root_path %></h3>
-		  </div>
-		  <hr />
-		</div>
-	</header>
-
-	<p class="notice"><%= notice %></p>
+  <header>
+    <% if user_signed_in? %>
+      <li><%= link_to 'organization', new_organization_path %></li>
+      <li><%= link_to 'edit user profile', edit_user_registration_path %></li>
+      <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+    <% end %>
+    <%= render partial: "layouts/home_nav"%>
+  </header>
+  <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
   <%= yield %>
+
+
 
 </body>
 </html>
