@@ -1,5 +1,6 @@
-<div>
-  <%= bootstrap_form_for((Follow.find_by(follower_id: user)), html: {method: :delete})  do |f| %>
-  <%= f.submit "following", class: "btn" %>
-  <%end%>
+<div id="follow-partial">
+  <div class="following-partial">
+    <%= bootstrap_form_for(current_user.follows.find_by(followable_id: user.id), html: {method: :delete},remote: true ) do |f| %>
+    <%= f.submit "following", class: " following-btn btn btn-success" %>
+    <%end%>
 </div>

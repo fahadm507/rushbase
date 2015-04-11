@@ -1,10 +1,12 @@
 class FollowsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
+
   def create
-    @user = User.find(params[:id])
+    user_id = params[:user_id].first.first.to_i
+    @user = User.find(user_id)
     respond_to do |format|
       if current_user.follow(@user)
-        format.js {} 
+        format.js {}
       else
         format.js {}
       end
@@ -12,10 +14,10 @@ class FollowsController < ApplicationController
   end
 
   def destroy
-    binding.pry
-    @unfollow = Follow.find_by(followable_id: params[:id])
+    @followed = Follow.find(params[:id])
+    @user = @followed.followable
     respond_to do |format|
-      if current_user.stop_following(@ufollow)
+      if current_user.stop_following(@user)
         format.js {}
       else
         format.js {}

@@ -1,8 +1,7 @@
 <div class ="container">
-  <h1> All Users</h1>
+  <h1> <%= @user.followers.count %> Followers</h1>
   <hr>
   <div class="row">
-    dsfkldjskfj
   </div>
   <% @followers.each do |user| %>
     <div class="row">
@@ -10,7 +9,9 @@
       <ul class="col-md-3 col-sm-3 col-xs-6">
         <li><%= user.email %></li>
         <%= link_to 'view', user, class: "btn btn-primary btn-lg" %>
-        <%= render partial: 'follows/follow', locals: { user: user} %>
+        <li id="<%= user.id %>-follow-form" class="follow-form" >
+          <%= render partial: 'follows/follow_form', locals: { user: user} %>
+        </li>
       </ul>
     </div>
     <hr>

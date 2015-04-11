@@ -1,0 +1,4 @@
+
+$("#<%= @user.id %>-follow-form").html("<%= j(render partial: 'follows/follow', locals: {
+  user: @user
+})%>");

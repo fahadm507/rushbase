@@ -1,14 +1,7 @@
-<div>
-  <% if current_user.following(user)%>
-      <%= bootstrap_form_for(Follow.find_by(followable_id: user) html: {method: :delete} ), follow_path(user) do |f| %>
-       %>
-      <%= f.submit "following", class: "btn" %>
-    <%end%>
-
-    <%else%>
-      <%= bootstrap_form_for(user), follows_path  do |f| %>
-       %>
-      <%= f.submit "follow", class: "btn" %>
-    <%end%>
- <%end%>
+<div class="follow-partial">
+  <%= form_for(current_user.follows.build, remote: true) do |f| %>
+  <div><%= hidden_field :user_id, user.id %></div>
+  <%= f.submit "Follow", class: "btn follow-btn" %>
+  <% end %>
 </div>
+

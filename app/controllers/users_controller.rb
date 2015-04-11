@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def show
     @user_post = UserPost.new
     @user_posts = UserPost.all
-    
+
     if (params[:id])
       @user = User.find(params[:id])
     end
@@ -22,10 +22,14 @@ class UsersController < ApplicationController
   end
 
   def following
-    @following = current_user.followers_by_type("User")
+    @user = User.find(params[:id])
+    following_users = @user.following_by_type("User")
+    @following = User.reject_user(following_users, current_user)
   end
 
   def followers
-    @followers = current_user.followers_by_type("User")
+    @user = User.find(params[:id])
+    followers = @user.followers_by_type("User")
+    @followers = User.reject_user(followers, current_user)
   end
 end

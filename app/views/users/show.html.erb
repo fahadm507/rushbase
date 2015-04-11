@@ -12,15 +12,15 @@
       <div class="row profile-footer">
         <div class="user-stats col-sm-6">
           <div class="col-sm-4 stat">
-            <a href="">0</a>
+            <a href="/users/">0</a>
             <div>Posts</div>
           </div>
           <div class="col-sm-4 stat">
-            <a href="">0</a>
+            <%= link_to @user.followers.count, followers_user_path(@user) %>
             <div>Followers</div>
           </div>
           <div class="col-sm-4 stat">
-            <a href="">0</a>
+            <%= link_to @user.following_users.count, following_user_path(@user) %>
             <div>Following</div>
           </div>
         </div>

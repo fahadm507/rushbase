@@ -29,4 +29,8 @@ class User < ActiveRecord::Base
   	"#{first_name} #{last_name}"
   end
 
+  def self.reject_user(users, user)
+    users.reject { |u| u.id == user.id }
+  end
+
 end

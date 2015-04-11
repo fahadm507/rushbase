@@ -10,8 +10,9 @@
       <ul class="col-md-3 col-sm-3 col-xs-6">
         <li><%= user.email %></li>
         <%= link_to 'view', user, class: "btn btn-primary btn-lg" %>
-
-        <%= render partial: 'follows/following', locals: { user: user} %>
+        <div id="<%= user.id %>-follow-form" class="follow-form">
+          <%= render partial: 'follows/follow_form', locals: { user: user } %>
+        </div>
       </ul>
     </div>
     <hr>
