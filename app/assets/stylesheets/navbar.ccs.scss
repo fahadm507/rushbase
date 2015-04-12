@@ -4,6 +4,7 @@ $maingreen:#2dbe60;
   font-size:12pt;
   font-weight: 400px;
   text-align: center;
+  margin: 10px 5px 10px 5px;
 
   .btn-success {
     color:#fff;
@@ -15,20 +16,27 @@ $maingreen:#2dbe60;
 }
 .navbar-default .navbar-brand {
   color: $maingreen;
+  margin:10px;
   &:hover {
     color:$maingreen;
   }
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   color: $maingreen;
-  border-bottom: 1px solid #777777;
+  border-bottom: 2px solid #777777;
 }
 
 .navbar-default .navbar-nav {
 
   .btn-success{
-    margin-left:5px;
     background-color: #fff;
     color:$maingreen;
   }
+  .btn {
+    margin: 10px 0px 10px 10px;
+  }
+}
+
+.navbar-toggle .collapsed {
+  margin: 10px;
 }

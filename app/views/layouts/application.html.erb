@@ -9,11 +9,10 @@
 <body>
   <header>
     <% if user_signed_in? %>
-      <li><%= link_to 'organization', new_organization_path %></li>
-      <li><%= link_to 'edit user profile', edit_user_registration_path %></li>
-      <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-    <% end %>
-    <%= render partial: "layouts/home_nav"%>
+      <%= render partial: "layouts/logged_in_nav"%>
+    <% else %>
+      <%= render partial: "layouts/home_nav"%>
+    <%end%>
   </header>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>

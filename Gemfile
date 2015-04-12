@@ -33,10 +33,10 @@ gem 'spring',        group: :development
 gem 'devise'
 gem "paperclip", "~> 4.2"
 gem 'will_paginate', '~> 3.0.6'
-gem "font-awesome-rails"
 gem 'country_select', github: 'stefanpenner/country_select'
 gem 'city-state'
 gem "acts_as_follower"
+gem 'font-awesome-sass', '~> 4.3.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
