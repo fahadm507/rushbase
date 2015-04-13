@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container sig-in-form">
     <div class="row">
-      <div class="col-md-8 col-md-offset-3 ">
-        <h4 class="well well-sm text-center">Please Sing In</h4>
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-horizontal'}) do |f| %>
+      <div class="col-md-8 col-md-offset-2 panel panel-info reg-form">
+        <div class="panel-heading">Please Sign In </div>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-horizontal panel-body'}) do |f| %>
         <div class="form-group">
-            <%= f.label :email, class: "col-sm-2 control-label" %>
+            <%= f.label :email, class: "col-sm-2 control-label"%>
             <div class="col-sm-6">
                 <%= f.email_field :email, autofocus: true , class: "form-control" %>
             </div>
@@ -36,7 +36,6 @@
                 <%= render "devise/shared/links" %>
             </div>
         </div>
-
         <% end %>
       </div>
   </div>

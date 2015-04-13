@@ -1,93 +1,94 @@
 
 <div class="container">
-    <h4 class="well"> Change Your Account Information </h4>
-     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-horizontal' }) do |f| %>
-    <%= devise_error_messages! %>
+  <div class="row reg-form">
+    <section class="col-md-8 col-md-offset-2">
+      <h4 class="text-center"> Change Your Account Information </h4>
+       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-horizontal' }) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="form-group">
+        <div class"text-center"><%= f.label "Change Avatar" %>
+          <div class="file"><%= f.file_field :avatar %></div>
+        </div>
+      </div>
 
-    <div class"text-center"><%= f.label "Change Avatar" %>
-        <div class="file"><%= f.file_field :avatar %></div>
-    </div>
-
-    <div class="form-group">
+      <div class="form-group">
         <%= f.label :first_name, class: 'col-sm-2 control-label'  %>
         <div class="col-sm-6">
-            <%= f.text_field :first_name, class: 'form-control'  %>
+          <%= f.text_field :first_name, class: 'form-control'  %>
         </div>
-    </div>
+      </div>
 
-    <div class="form-group">
+      <div class="form-group">
         <%= f.label :last_name, class: 'col-sm-2 control-label'  %>
         <div class="col-sm-6">
-            <%= f.text_field :last_name, class: 'form-control'  %>
+          <%= f.text_field :last_name, class: 'form-control'  %>
         </div>
-    </div>
+      </div>
 
-    <div class="form-group">
+      <div class="form-group">
         <%= f.label :email, class: 'col-sm-2 control-label'  %>
         <div class="col-sm-6">
-            <%= f.email_field :email, class: 'form-control'  %>
+          <%= f.email_field :email, class: 'form-control'  %>
         </div>
-    </div>
+      </div>
 
-    <div class="form-group">
+      <div class="form-group">
         <%= f.collection_select(:industry_id, Industry.all, :id, :name, class: "pull-right col-md-4 col-sm-6") %>
-    </div>
+      </div>
 
-    <div class="form-group">
+      <div class="form-group">
         <%= f.label :password, class: 'col-sm-2 control-label' %>
         <div class="col-sm-6">
-            <%= f.password_field :password, autocomplete: "off",
-                class: 'form-control', placeholder: "only if you want to change password"  %>
+          <%= f.password_field :password, autocomplete: "off",
+              class: 'form-control', placeholder: "only if you want to change password"  %>
         </div>
-    </div>
+      </div>
 
-
-    <div class="form-group">
+      <div class="form-group">
         <%= f.label :password_confirmation, class: 'col-sm-2 control-label' %>
         <div class="col-sm-6">
             <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'  %>
         </div>
-    </div>
+      </div>
 
-    <div class="form-group">
+      <div class="form-group">
         <%= f.label :current_password, class: 'col-sm-2 control-label' %>
         <div class="col-sm-6">
-            <%= f.password_field :current_password, autocomplete: "off",
+          <%= f.password_field :current_password, autocomplete: "off",
             class: 'form-control',placeholder: "required to update" %>
         </div>
-    </div>
+      </div>
 
-    <h4 class="well"> Update location information </h4>
+      <h4 class="text-center"> Change Your profile Info </h4>
 
-    <h4 class="well"> Change Your profile Info </h4>
-
-    <div class="form-group">
+      <div class="form-group">
         <%= f.label :about, class: 'col-sm-2 control-label'  %>
         <div class="col-sm-6">
-            <%= f.text_area :about, class: 'form-control'  %>
+          <%= f.text_area :about, class: 'form-control'  %>
         </div>
-    </div>
+      </div>
 
-    <div class="form-group">
+      <div class="form-group">
         <%= f.label :interests, class: 'col-sm-2 control-label'  %>
         <div class="col-sm-6">
-            <%= f.text_area :interests, class: 'form-control'  %>
+          <%= f.text_area :interests, class: 'form-control'  %>
         </div>
-    </div>
+      </div>
 
-    <div class="form-group">
+      <div class="form-group">
         <div class="col-sm-offset-2 col-sm-6">
-            <%= f.submit "Update", class: "btn btn-primary" %>
+          <%= f.submit "Update", class: "btn btn-primary" %>
         </div>
-    </div>
+      </div>
 
-    <% end %>
-    <div class="row actions">
+      <% end %>
+      <div class="row actions">
         <div class="col-md-6 col-md-offset-2">
-            <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-default btn-xs' %></p>
-            <%= link_to "Back", :back %>
+          <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-default btn-xs' %></p>
+          <%= link_to "Back", :back %>
         </div>
-    </div>
-
+      </div>
+    </section>
+  </div>
 </div>
 

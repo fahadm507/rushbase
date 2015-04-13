@@ -1,0 +1,68 @@
+.home-content-one {
+  /* Location of the image */
+  background-image: url("macbook-air-all-faded-and-stuff.jpg");
+
+  /* Image is centered vertically and horizontally at all times */
+  background-position: center center;
+
+  /* Image doesn't repeat */
+  background-repeat: no-repeat;
+  height:500px;
+  /* Makes the image fixed in the viewport so that it doesn't move when
+     the content height is greater than the image height */
+  background-attachment: fixed;
+
+  /* This is what makes the background image rescale based on its container's size */
+  background-size: cover;
+
+  /* Pick a solid background color that will be displayed while the background image is loading */
+  background-color:#464646;
+
+  /* SHORTHAND CSS NOTATION
+   * background: url(background-photo.jpg) center center cover no-repeat fixed;
+   */
+}
+/* For mobile devices */
+@media only screen and (max-width: 767px) {
+  body {
+    /* The file size of this background image is 93% smaller
+     * to improve page load speed on mobile internet connections */
+    background-image: url(journey2.jpg);
+  }
+}
+
+.home-content-one h1 {
+  font-family: 'klavikalight', Helvetica, Arial, sans-serif;
+  letter-spacing: -1px;
+  line-height: 46px;
+  font-size: 40px;
+  font-weight: 400px;
+  color: #fff;
+  margin-top:0px;
+  text-transform: uppercase;
+  padding:20px;
+}
+
+.home-content-one .content {
+  margin:100px;
+
+  h4 {
+    font-size:12pt;
+    font-weight: 200px;
+    color: #f9fafc;
+  }
+}
+
+.navbar-default {
+  background-color: #fff ;
+  border-color: #fff;
+  position:fixed;
+}
+
+.navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 0px;
+  border: 1px solid transparent;
+}
+

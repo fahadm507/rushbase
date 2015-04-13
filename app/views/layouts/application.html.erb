@@ -2,24 +2,23 @@
 <html ng-app="rushBase">
 <head>
   <title>Rushbase</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <header>
-    <% if user_signed_in? %>
-      <%= render partial: "layouts/logged_in_nav"%>
-    <% else %>
-      <%= render partial: "layouts/home_nav"%>
-    <%end%>
+    <div class="container">
+      <% if user_signed_in? %>
+        <%= render partial: "layouts/logged_in_nav"%>
+      <%else%>
+        <%= render partial: "layouts/home_nav"%>
+      <%end%>
+    </div>
+
   </header>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
   <%= yield %>
-
-
-
 </body>
+
 </html>

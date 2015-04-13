@@ -27,7 +27,7 @@ $maingreen:#2dbe60;
 }
 
 .navbar-default .navbar-nav {
-
+  margin-bottom:0px;
   .btn-success{
     background-color: #fff;
     color:$maingreen;
@@ -40,3 +40,9 @@ $maingreen:#2dbe60;
 .navbar-toggle .collapsed {
   margin: 10px;
 }
+
+.navbar-default .navbar-nav {
+  margin-bottom:0px;
+}
+
+
