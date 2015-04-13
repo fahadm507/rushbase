@@ -1,16 +1,29 @@
 
 .user-info-section {
   height:360px;
+  margin-top:50px;
+
   .left-user-info {
     height: 360px;
     padding:0px;
+    border:1px solid #efefef;
     margin-right:30px;
+    background-attachment: fixed;
   }
 }
 
 .left-user-info {
   .main-profile {
     height:80%;
+    background-image: url("greyish.jpg");
+    /* Image is centered vertically and horizontally at all times */
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* Makes the image fixed in the viewport so that it doesn't move when
+       the content height is greater than the image height */
+    background-attachment: fixed;
+    background-size:coverh;
+    background-color:#464646;
   }
 
   .profile-footer {
@@ -124,6 +137,8 @@ aside h3 {
   font-size: small;
   text-transform: uppercase;
 }
+/* profile background photo*/
+
 
 
 
