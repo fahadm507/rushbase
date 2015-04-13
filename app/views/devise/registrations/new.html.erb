@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="row ">
-    <section class="col-md-8 col-md-offset-2 reg-form panel panel-info">
-      <h4 class=" panel-heading  text-center">Please Sign Up below</h4>
+  <div class="row">
+    <section class="col-md-8 col-md-offset-2 reg-form panel panel-default text-center">
+      <h4 class="text-center">Please Sign Up</h4>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-horizontal panel-content'}) do |f| %>
       <%= devise_error_messages! %>
 

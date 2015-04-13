@@ -1,7 +1,7 @@
-<div class="container sig-in-form">
+<div class="container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2 panel panel-info reg-form">
-        <div class="panel-heading">Please Sign In </div>
+      <section class="col-md-8 col-md-offset-2 reg-form panel panel-default text-center">
+        <h4 class="text-center">Please Sign In </h4>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-horizontal panel-body'}) do |f| %>
         <div class="form-group">
             <%= f.label :email, class: "col-sm-2 control-label"%>
@@ -37,6 +37,6 @@
             </div>
         </div>
         <% end %>
-      </div>
+      </section>
   </div>
 </div>

@@ -1,4 +1,18 @@
 $maingreen:#2dbe60;
+
+.navbar-default {
+  background-color: #fff ;
+  border:none;
+  border-bottom:1px solid #e9f0f3;
+  margin-bottom:40px;
+}
+
+.navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 0px;
+
+}
 .navbar-default .navbar-nav > li > a {
   color: #777777;
   font-size:12pt;
@@ -22,8 +36,8 @@ $maingreen:#2dbe60;
   }
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: $maingreen;
-  border-bottom: 2px solid #777777;
+  color: #fff;
+  background-color:$maingreen;
 }
 
 .navbar-default .navbar-nav {
@@ -41,8 +55,5 @@ $maingreen:#2dbe60;
   margin: 10px;
 }
 
-.navbar-default .navbar-nav {
-  margin-bottom:0px;
-}
 
 

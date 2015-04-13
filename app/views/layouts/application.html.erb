@@ -8,13 +8,13 @@
 </head>
 <body>
   <header>
-    <div class="container">
+
       <% if user_signed_in? %>
         <%= render partial: "layouts/logged_in_nav"%>
       <%else%>
         <%= render partial: "layouts/home_nav"%>
       <%end%>
-    </div>
+
 
   </header>
 

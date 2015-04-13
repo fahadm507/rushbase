@@ -2,17 +2,19 @@
 .reg-form {
   padding-top:20px;
   border:1px solid #efefef;
+  background-color:#e9f0f3;
+  margin-top:50px;
 
   h4 {
-    border-bottom: 1px solid #efefef;
+    border-bottom: 1px solid #fff;
     color:green;
-    padding-bottom:20px;
+    padding-bottom:30px;
     margin-bottom:20px;
   }
-}
 
-.container .sign-in-form {
-  border:1px solid green;
+  .form-group {
+    text-align: center;
+  }
 }
 
 
