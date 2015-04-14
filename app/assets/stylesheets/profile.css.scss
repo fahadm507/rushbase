@@ -34,7 +34,7 @@
   }
 
   .row {
-    margin-left: 0px;
+    margin-left:0px;
   }
 
   .user-stats {
@@ -137,7 +137,41 @@ aside h3 {
   font-size: small;
   text-transform: uppercase;
 }
-/* profile background photo*/
+.user-content {
+  .item {
+    height:300px;
+    border:1px solid #f9fafc;
+    border-radius:5px;
+    background-color: #fff;
+    margin-left:5px;
+  }
+
+  #my-courses {
+    background-color: #52C286;
+  }
+  #my-organizations {
+    background-color: #1e3547;
+    color:#fff;
+  }
+
+  #my-discussions {
+    background-color:#a4b36b;
+  }
+
+  #my-favorites {
+    background-color:#67B7CF;
+  }
+
+  #suggested-users {
+    background-color: #f28167;
+  }
+
+  #suggested-courses {
+    background-color: #fff;
+  }
+}
+
+
 
 
 

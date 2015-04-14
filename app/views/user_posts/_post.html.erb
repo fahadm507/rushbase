@@ -1,6 +1,6 @@
 
 <% @user_posts.order(created_at: :desc).each do |post| %>
-  <div class="poster circle col-md-2">
+  <div class="poster circle col-md-2 col-md-6 col-xs-12 ">
     <div class="image-for-poster text-center"><%=link_to (image_tag post.user.avatar.url(:thumb), class: "img-circle ", size:'50x50'), user_path(post.user) %>
     </div>
   </div>
@@ -15,13 +15,12 @@
         </div>
 
         <div class="post-comments">
-        <ul class="list-inline">
-          <li><i class="glyphicon glyphicon-comment"></i> 12 comments</li>
-          <li>
-          <li><i class="glyphicon glyphicon-star"></i> favorites</li>
-          <li><i class="glyphicon glyphicon-thumbs-up"></i> Likes</li>
-        </ul>
-
+          <ul class="list-inline">
+            <li><i class="glyphicon glyphicon-comment"></i> 12 comments</li>
+            <li>
+            <li><i class="glyphicon glyphicon-star"></i> favorites</li>
+            <li><i class="glyphicon glyphicon-thumbs-up"></i> Likes</li>
+          </ul>
         </div>
       </div><!-- Post body ends here-->
     </div>

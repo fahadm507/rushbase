@@ -2,52 +2,43 @@
 <div class="container">
   <% @user ||= current_user %>
   <div class="row user-info-section">
-    <section class="col-md-8 left-user-info text-center">
-      <div class="main-profile">
+    <section class="col-md-12">
+      <div class="left-user-info text-center col-md-12">
+        <div class="main-profile">
         <h3 class="user-name"><%= @user.full_name %></p>
-        <div class"user-avatar col-md-4"><%= image_tag @user.avatar.url(:thumb), :class => "img-circle"%>
+        <div class"user-avatar col-md-3 col-sm-6 col-xs-12"><%= image_tag @user.avatar.url(:thumb), :class => "img-circle"%>
         </div>
-
+        <p><%= @user.industry.name %></p>
+        <p>Boston, MA</p>
       </div>
 
       <div class="row profile-footer">
         <div class="user-stats col-sm-6">
-          <div class="col-sm-4 stat">
-            <a href="/users/">0</a>
-            <div>Posts</div>
-          </div>
-          <div class="col-sm-4 stat">
+          <div class="col-md-3 col-sm-3 stat">
             <%= link_to @user.followers.count, followers_user_path(@user) %>
             <div>Followers</div>
           </div>
-          <div class="col-sm-4 stat">
+          <div class="col-md-3 col-sm-3 col-xs-12 stat">
             <%= link_to @user.following_users.count, following_user_path(@user) %>
             <div>Following</div>
           </div>
+          <div class="col-md-3 col-sm-3 col-xs-12 stat">
+            <%= link_to @user.following_users.count, upvotes_user_path(@user) %>
+            <div>Favorites</div>
+          </div>
         </div>
-        <div class="user-action-icons col-sm-6">
-          <a class="icon circle" href="/users/edit"><span class="glyphicon glyphicon-edit gi-3x"></span></a>
-          <a class=" icon circle" href="/user_posts/new"><span class="glyphicon glyphicon-plus gi-3x"></span></a>
-          <a class=" icon circle" href="/edit"><span class="glyphicon glyphicon-chevron-down gi-3x"></span></a>
+        <div class="user-action-icons col-lg-6">
+          <a class="icon circle col-md-3 col-sm-4"  href="/users/edit"><span class="glyphicon glyphicon-edit gi-3x"></span></a>
+          <a class=" icon circle col-md-3 col-sm-4" href="/user_posts/new"><span class="glyphicon glyphicon-plus gi-3x"></span></a>
+          <a class=" icon circle col-md-3 col-sm-4" href="/edit"><span class="glyphicon glyphicon-chevron-down gi-3x"></span></a>
+          <a href="" class="btn btn-primary btn-lg">Follow</a>
         </div>
       </div>
-    </section>
-    <aside class="text-center">
-     <h4><i class="fa fa-bars"></i> My stuff</h4>
-    </div>
-
-  </div>
-  <hr>
-
-  <div class="row">
-    <section class="col-md-8 user-post-section">
-      <%= render partial: "user_posts/post", locals: { collection: @user_posts }%>
-    </section>
-
-    <aside>
-      <div class="col-md-3 user-suggestion">
-        <h3 class="aside-header">Suggested Users</h3>
+      <!-- <aside class="col-md-3">
+        <h4><i class="fa fa-bars"></i> My stuff</h4>
+      </aside> -->
       </div>
-    </aside>
+    </section>
   </div>
+
 </div>

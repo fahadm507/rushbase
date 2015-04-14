@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
     resources :users do
       member do
-        get :following, :followers
+        get :following, :followers, :upvotes, :favorites
       end
     end
 
@@ -21,13 +21,7 @@ Rails.application.routes.draw do
     end
 
     resources :user_posts do
-      member do
-        get 'upvotes'
-      end
-      resources :comments, only: [:destroy]
-      member do
-        get 'likes'
-      end
+      resources :comments
     end
 
     resources :courses do
