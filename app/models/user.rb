@@ -20,10 +20,13 @@ class User < ActiveRecord::Base
   has_many   :course_posts
   has_many   :course_comments
   has_many   :user_posts
+  has_many   :taken_courses
   has_many   :upvotes
   has_many   :post_comments
+  has_many   :current_courses
+  has_many   :resources
   belongs_to :location
-  belongs_to  :industry
+  belongs_to :industry
 
   def full_name
   	"#{first_name} #{last_name}"

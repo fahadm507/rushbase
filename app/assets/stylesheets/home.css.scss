@@ -1,10 +1,8 @@
 .home-content-one {
   /* Location of the image */
   background-image: url("macbook-air-all-faded-and-stuff.jpg");
-
   /* Image is centered vertically and horizontally at all times */
   background-position: center center;
-
   /* Image doesn't repeat */
   background-repeat: no-repeat;
   height:500px;
@@ -15,7 +13,6 @@
 
   /* Pick a solid background color that will be displayed while the background image is loading */
   background-color:#464646;
-
   /* SHORTHAND CSS NOTATION
    * background: url(background-photo.jpg) center center cover no-repeat fixed;
    */

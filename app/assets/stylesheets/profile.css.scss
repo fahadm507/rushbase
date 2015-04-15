@@ -1,13 +1,45 @@
+profile-wrapper {
+  /* Location of the image */
+  background-image: url("journey2.jpeg");
+
+  /* Image is centered vertically and horizontally at all times */
+  background-position: center center;
+
+  /* Image doesn't repeat */
+  background-repeat: no-repeat;
+  height:auto;
+  /* Makes the image fixed in the viewport so that it doesn't move when
+     the content height is greater than the image height */
+  background-attachment: fixed;
+  background-size: cover;
+
+  /* Pick a solid background color that will be displayed while the background image is loading */
+  background-color:#464646;
+
+  /* SHORTHAND CSS NOTATION
+   * background: url(background-photo.jpg) center center cover no-repeat fixed;
+   */
+}
+/* For mobile devices */
+  @media only screen and (max-width: 767px) {
+  body {
+    /* The file size of this background image is 93% smaller
+     * to improve page load speed on mobile internet connections */
+    background-image: url(journey2.jpg);
+  }
+}
 
 .user-info-section {
   height:360px;
   margin-top:50px;
+  border-radius:5px;
 
   .left-user-info {
     height: 360px;
     padding:0px;
     border:1px solid #efefef;
     margin-right:30px;
+    border-radius:5px;
     background-attachment: fixed;
   }
 }
@@ -145,6 +177,7 @@ aside h3 {
     background-color: #fff;
     margin-left:5px;
   }
+  /* Explore page */
 
   #my-courses {
     background-color: #52C286;
@@ -168,6 +201,19 @@ aside h3 {
 
   #suggested-courses {
     background-color: #fff;
+  }
+}
+
+/* edcation information section */
+
+.education-info-section {
+  .item{
+    margin-top:10px;
+    height:300px;
+    border:1px solid #fff;
+    border-radius:5px;
+    background-color:#f9fafc;
+    margin-left:5px;
   }
 }
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150409041730) do
+ActiveRecord::Schema.define(version: 20150415041150) do
 
   create_table "course_comments", force: true do |t|
     t.string   "description", null: false
@@ -37,6 +37,19 @@ ActiveRecord::Schema.define(version: 20150409041730) do
     t.integer  "organization_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "current_courses", force: true do |t|
+    t.string  "name"
+    t.string  "organization"
+    t.integer "user_id"
+  end
+
+  create_table "educations", force: true do |t|
+    t.string  "degree"
+    t.string  "organization"
+    t.text    "key_courses"
+    t.integer "user_id"
   end
 
   create_table "favorites", force: true do |t|
@@ -94,6 +107,18 @@ ActiveRecord::Schema.define(version: 20150409041730) do
     t.datetime "updated_at"
     t.integer  "user_post_id"
     t.integer  "user_id"
+  end
+
+  create_table "resources", force: true do |t|
+    t.string  "name"
+    t.string  "organization"
+    t.integer "user_id"
+  end
+
+  create_table "taken_courses", force: true do |t|
+    t.string  "name"
+    t.string  "organization"
+    t.integer "user_id"
   end
 
   create_table "upvotes", force: true do |t|
