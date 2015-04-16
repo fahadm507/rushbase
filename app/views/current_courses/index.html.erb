@@ -1,0 +1,25 @@
+<h1>Listing current_courses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @current_courses.each do |current_course| %>
+      <tr>
+        <td><%= link_to 'Show', current_course %></td>
+        <td><%= link_to 'Edit', edit_current_course_path(current_course) %></td>
+        <td><%= link_to 'Destroy', current_course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+<%= link_to 'New Current course', new_current_course_path %>

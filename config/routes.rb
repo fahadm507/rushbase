@@ -12,6 +12,9 @@ Rails.application.routes.draw do
       member do
         get :following, :followers, :upvotes, :favorites
       end
+      resources :taken_courses
+      resources :current_courses
+      resources :education
     end
 
     resources :follows, only: [:create, :destroy]

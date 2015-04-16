@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   has_many   :user_posts
   has_many   :taken_courses
   has_many   :upvotes
+  has_one    :education
   has_many   :post_comments
   has_many   :current_courses
   has_many   :resources

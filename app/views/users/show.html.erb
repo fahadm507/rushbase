@@ -1,6 +1,7 @@
 <div class="profile-wrapper">
   <div class="container">
     <% @user ||= current_user %>
+    <span ng-init="currentUser = <%= @user.id %>"></span>
     <div class="row user-info-section">
       <section class="col-md-12">
         <div class="left-user-info text-center col-md-8">
@@ -8,7 +9,6 @@
           <h3 class="user-name"><%= @user.full_name %></p>
           <div class"user-avatar col-md-3 col-sm-6 col-xs-12"><%= image_tag @user.avatar.url(:thumb), :class => "img-circle"%>
           </div>
-          <p><%= @user.industry.name %></p>
           <p>Boston, MA</p>
         </div>
 
@@ -42,6 +42,11 @@
       <div class="education-info-section col-md-8">
         <div class="current-courses item col-md-12">
           <h4>Current Courses</h4>
+          <div ng-controller="CurrentCourseController">
+            <div ng-repeat="course in currentCourses">
+              <li>{{course.name}}</li>
+            </div>
+          </div>
         </div>
         <div class="previous-courses item col-md-12">
           <h4>Previous Courses</h4>
