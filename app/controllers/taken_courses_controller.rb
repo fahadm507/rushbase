@@ -1,5 +1,6 @@
 class TakenCoursesController < ApplicationController
   before_action :set_taken_course, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token
   respond_to :json, :html
   def index
     @taken_courses = TakenCourse.all
@@ -7,7 +8,6 @@ class TakenCoursesController < ApplicationController
   end
 
   def show
-    binding.pry
     @taken_course = set_taken_course
     render json: @taken_course
   end

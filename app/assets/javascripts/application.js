@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require bootstrap/modal
 //= require turbolinks
 //= require angular/angular
 //= require angular-resource/angular-resource

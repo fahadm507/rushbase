@@ -41,14 +41,18 @@
     <div class="row">
       <div class="education-info-section col-md-8">
         <div class="current-courses item col-md-12">
-          <h4>Current Courses</h4>
           <div ng-controller="CurrentCourseController">
-            <div ng-repeat="course in currentCourses">
+            <div class="col-md-6" ng-repeat="course in currentCourses">
               <li>{{course.name}}</li>
+            </div>
+            <div id="new-current-course" class="col-md-6">
+              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Add a course </button>
+
+              <%= render partial: 'current_courses/new'%>
             </div>
           </div>
         </div>
-        <div class="previous-courses item col-md-12">
+        <div class="previous-courses item col-md-12" id="basicModal">
           <h4>Previous Courses</h4>
         </div>
         <div class="education-history item col-md-12">
@@ -64,6 +68,7 @@
         </div>
       </div>
     </div>
+
 
   </div>
 </div>
