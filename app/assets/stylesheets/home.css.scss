@@ -1,3 +1,6 @@
+.home {
+  line-height: 3.0em;
+}
 .home-content-one {
   /* Location of the image */
   background-image: url("macbook-air-all-faded-and-stuff.jpg");
@@ -5,10 +8,10 @@
   background-position: center center;
   /* Image doesn't repeat */
   background-repeat: no-repeat;
-  height:500px;
+  min-height:500px;
+  background-position: right;
   /* Makes the image fixed in the viewport so that it doesn't move when
      the content height is greater than the image height */
-  background-attachment: fixed;
   background-size: cover;
 
   /* Pick a solid background color that will be displayed while the background image is loading */
@@ -49,9 +52,45 @@
 }
 
 .home {
-  height:500px;
-  margin-top:20px;
+  min-height:500px;
+  margin-top:0px;
   padding:20px;
+
 }
+.home-content-three {
+  background-color: #5fcf80;
+  padding-top:40px;
+  .home-page-headline {
+    font-size: 50px;
+    line-height: 1.2;
+    font-weight: 400px;
+    color:#fff;
+    border:1px solid #fff;
+    margin:20px;
+    padding:20px;
+  }
+}
+
+.home-content-four {
+  background:#fff;
+  background-image: url("profile_photo.jpg");
+  /* Image is centered vertically and horizontally at all times */
+  background-position: center center;
+  /* Image doesn't repeat */
+  background-repeat: no-repeat;
+  min-height:500px;
+
+  /* Pick a solid background color that will be displayed while the background image is loading */
+  background-color:#464646;
+
+  .content {
+    margin:100px 0px 100px 0px;
+    line-height: 3.0em;
+  }
+
+}
+
+
+
 
 
