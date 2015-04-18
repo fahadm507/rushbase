@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap/modal
+//= require jquery.simple-text-rotator
 //= require turbolinks
 //= require angular/angular
 //= require angular-resource/angular-resource
