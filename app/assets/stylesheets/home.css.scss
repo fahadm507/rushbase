@@ -1,5 +1,5 @@
 .home {
-  line-height: 3.0em;
+  line-height: 2.0em;
 }
 .home-content-one {
   /* Location of the image */
@@ -28,16 +28,14 @@
     background-image: url(journey2.jpg);
   }
 }
-
 .home-content-one h1 {
-  font-family: 'klavikalight', Helvetica, Arial, sans-serif;
+  font-family: Raleway, sans-serif;
   letter-spacing: -1px;
   line-height: 46px;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: 400px;
   color: #fff;
   margin-top:0px;
-  text-transform: uppercase;
   padding:20px;
 }
 
@@ -58,16 +56,69 @@
 
 }
 .home-content-three {
-  background-color: #5fcf80;
+  background-color:#fff;
   padding-top:40px;
-  .home-page-headline {
-    font-size: 50px;
-    line-height: 1.2;
-    font-weight: 400px;
-    color:#fff;
-    border:1px solid #fff;
-    margin:20px;
+  .courses-back {
+    text-align: right;
+    border-radius:5px;
+    min-height: 400px;
+    background-image: url("bridge.jpeg");
+    /* Image is centered vertically and horizontally at all times */
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* Makes the image fixed in the viewport so that it doesn't move when
+       the content height is greater than the image height */
+    background-size:cover;
+    background-color:#464646;
+
+    h3 {
+      margin-top:100px;
+      color:#777777;
+    }
+
+    h1 {
+      height: 100px;
+      min-width:400px;
+      background-color:#fff;
+      color:green;
+      border-radius:5px;
+      margin-top:20px;
+      padding-top:20px;
+    }
+  }
+  .content {
+    margin:100px 0px 100px 0px;
+    line-height: 3.0em;
+    font-family: Fredoka One;
+  }
+  .home-headline {
+    font-size: 30px;
+    line-height: 1.0;
+    font-family:Play;
+    color:#777777;
     padding:20px;
+    margin-top:50px;
+  }
+
+
+}
+.home-content-two {
+  color:#464646;
+
+  .cat {
+    margin-top: 20px;
+    border-radius:5px;
+    padding:20px;
+  }
+
+  .cat:hover {
+    background-color:#2dbe60;
+    color:#fff;
+  }
+
+  p {
+    padding:5px;
+    margin:10px;
   }
 }
 
@@ -86,6 +137,7 @@
   .content {
     margin:100px 0px 100px 0px;
     line-height: 3.0em;
+    font-family: Fredoka One;
   }
 
 }
