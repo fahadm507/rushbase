@@ -100,11 +100,9 @@
     margin-top:50px;
   }
 
-
 }
 .home-content-two {
   color:#464646;
-
   .cat {
     margin-top: 20px;
     border-radius:5px;
@@ -125,13 +123,9 @@
 .home-content-four {
   background:#fff;
   background-image: url("profile_photo.jpg");
-  /* Image is centered vertically and horizontally at all times */
   background-position: center center;
-  /* Image doesn't repeat */
   background-repeat: no-repeat;
   min-height:500px;
-
-  /* Pick a solid background color that will be displayed while the background image is loading */
   background-color:#464646;
 
   .content {
@@ -139,7 +133,6 @@
     line-height: 3.0em;
     font-family: Fredoka One;
   }
-
 }
 
 
