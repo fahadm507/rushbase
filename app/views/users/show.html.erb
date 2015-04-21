@@ -1,41 +1,52 @@
 <div class="profile-wrapper">
-  <div class="container">
+  <div class="">
     <% @user ||= current_user %>
     <span ng-init="currentUser = <%= @user.id %>"></span>
     <div class="row user-info-section">
-      <section class="col-md-12">
-        <div class="left-user-info text-center col-md-8">
-          <div class="main-profile">
-          <h3 class="user-name"><%= @user.full_name %></p>
-          <div class"user-avatar col-md-3 col-sm-6 col-xs-12"><%= image_tag @user.avatar.url(:thumb), :class => "img-circle"%>
+      <div class="user-info row">
+        <div class="main-profile text-center col-md-8">
+          <h3 class="user-name"><%= @user.full_name %></p></h3>
+          <div class" col-md-3 col-sm-6 col-xs-12"><%= image_tag @user.avatar.url(:thumb), :class => "img-circle"%>
           </div>
           <p>Boston, MA</p>
         </div>
-
-        <div class="row profile-footer">
-          <div class="user-stats col-sm-6">
-            <div class="col-md-3 col-sm-3 stat">
-              <%= link_to @user.followers.count, followers_user_path(@user) %>
-              <div>Followers</div>
+        <div class="col-md-4 user-stat-1 container-fluid">
+          <div class="row">
+            <div class="col-md-6 item">
+              <div class="content col-md-12 container-fluid">
+                <div class="row">
+                  <p>123</p>
+                </div>
+                <div class="row">
+                  <h1>credits</h1>
+                </div>
+              </div>
             </div>
-            <div class="col-md-3 col-sm-3 col-xs-12 stat">
-              <%= link_to @user.following_users.count, following_user_path(@user) %>
-              <div>Following</div>
-            </div>
-            <div class="col-md-3 col-sm-3 col-xs-12 stat">
-              <%= link_to @user.following_users.count, upvotes_user_path(@user) %>
-              <div>Favorites</div>
+            <div class="col-md-6 item">
+              <div class="content col-md-12">
+                <div class="row">
+                  <p>12</p>
+                </div>
+                <div class="row">
+                  <h1>Courses</h1>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="user-action-icons col-lg-6">
-            <a class="icon circle col-md-3 col-sm-4"  href="/users/edit"><span class="glyphicon glyphicon-edit gi-3x"></span></a>
-            <a class=" icon circle col-md-3 col-sm-4" href="/user_posts/new"><span class="glyphicon glyphicon-plus gi-3x"></span></a>
-            <a class=" icon circle col-md-3 col-sm-4" href="/edit"><span class="glyphicon glyphicon-chevron-down gi-3x"></span></a>
-            <a href="" class="btn btn-primary btn-lg">Follow</a>
+          <div class="row">
+            <div class="col-md-12 special-item">
+              <div class="content2 col-md-12">
+                <div class="row">
+                  <p>300</p>
+                </div>
+                <div class="row">
+                  <h1>Contributions</h1>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        </div>
-      </section>
+      </div>
     </div>
 
     <div class="row">

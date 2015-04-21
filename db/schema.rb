@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417230304) do
+ActiveRecord::Schema.define(version: 20150420150439) do
 
   create_table "course_comments", force: true do |t|
     t.string   "description", null: false
@@ -121,6 +121,11 @@ ActiveRecord::Schema.define(version: 20150417230304) do
     t.integer "user_id"
   end
 
+  create_table "team_members", force: true do |t|
+    t.integer "user_id"
+    t.integer "user_team_id"
+  end
+
   create_table "upvotes", force: true do |t|
     t.integer  "count",        default: 0
     t.integer  "user_id",                  null: false
@@ -134,6 +139,16 @@ ActiveRecord::Schema.define(version: 20150417230304) do
     t.integer  "user_id",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "user_teams", force: true do |t|
+    t.string  "name"
+    t.text    "About"
+    t.text    "goal"
+    t.text    "requirements"
+    t.integer "user_id"
+    t.integer "course_id"
+    t.boolean "private",      default: false
   end
 
   create_table "users", force: true do |t|
