@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   has_many   :organizations
+  has_many   :team_members
+  has_many   :user_teams, through: :team_members
   has_many   :course_posts
   has_many   :course_comments
   has_many   :user_posts
