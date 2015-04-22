@@ -1,101 +1,79 @@
-.profile-wrapper {
-  /* Location of the image */
-  background-image: url("journey2.jpeg");
-
-  /* Image is centered vertically and horizontally at all times */
-  background-position: center center;
-
-  /* Image doesn't repeat */
-  background-repeat: no-repeat;
-  height:auto;
-  /* Makes the image fixed in the viewport so that it doesn't move when
-     the content height is greater than the image height */
-  background-size: cover;
-
-  /* Pick a solid background color that will be displayed while the background image is loading */
-  background-color:#464646;
-
-  /* SHORTHAND CSS NOTATION
-   * background: url(background-photo.jpg) center center cover no-repeat fixed;
-   */
-}
-/* For mobile devices */
-  @media only screen and (max-width: 767px) {
-  body {
-    /* The file size of this background image is 93% smaller
-     * to improve page load speed on mobile internet connections */
-    background-image: url(journey2.jpg);
-  }
-}
 
 .user-info-section {
   min-height:400px;
   margin-top:50px;
-  //border-radius:5px;
-  //border-right: none;
 }
 
 .user-stat-1 {
   background-color: #fff;
   min-height:400px;
 
-  .container {
-    width:100%;
-    background-color: green;
-    min-height: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin-right:0px;
-    margin-left: 0px;
-  }
-
-  .row {
-    background-color: red;
-    min-height: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin-right:0px;
-    margin-left: 0px;
-  }
-
-  .col-md-6 {
-    padding-left:0px;
-  }
   .item {
     text-align:center;
-    height:180px;
+    height:200px;
+    border:none;
+    padding-top:60px;
 
     &:hover {
-      background-color:#fff;
-    }
-    .content {
-      padding-top:40px;
-      padding-left:-10px;
+      //background-color:green;
     }
   }
 
-  .content2 {
-    padding-top:40px;
+  #following {
+    background-color:#67b7cf;
+    color: #fff;
+
+    .numbers{
+      font-size: 30px;
+    }
+  }
+
+  #followers {
+    background-color: #2dbe60;
+    color:#fff;
+
+    .numbers {
+      font-size: 30px;
+    }
+
+    .text {
+
+    }
+  }
+
+  .special-item {
+    padding-top:60px;
     text-align:center;
-    //background-color:#777777;
-    height:100%;
-    width: 100%;
-    height: 180px;
+    background-color:#777777;
+    min-height:200px;
+    padding-left:15px;
+    color:#2dbe60;
+
+    .numbers {
+      font-size: 40px;
+      color:#fff;
+    }
+  }
+
+  .text {
+    text-transform: uppercase;
+    color:#fff;
+    font-size: 16pt;
+    padding-top:15px;
   }
 }
 
 .user-info {
   .main-profile {
     min-height:400px;
-    //background-image: url("greyish.jpg");
+    background-image: url("dusty-sky.JPG");
     /* Image is centered vertically and horizontally at all times */
     background-position: center center;
     background-repeat: no-repeat;
     /* Makes the image fixed in the viewport so that it doesn't move when
        the content height is greater than the image height */
-    background-attachment: fixed;
     background-size:cover;
-    background-color:#464646;
+    background-color:#52c286;
   }
 
   .profile-footer {
@@ -103,10 +81,6 @@
     height:20%;
     width:100%;
     border-radius: 0 0 3px 3px;
-  }
-
-  .row {
-    margin-left:0px;
   }
 
   .user-stats {

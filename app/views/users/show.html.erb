@@ -1,35 +1,32 @@
-<div class="profile-wrapper">
+<div class="container-fluid">
   <div class="">
     <% @user ||= current_user %>
     <span ng-init="currentUser = <%= @user.id %>"></span>
     <div class="row user-info-section">
       <div class="user-info row">
         <div class="main-profile text-center col-md-8">
-          <h3 class="user-name"><%= @user.full_name %></p></h3>
           <div class" col-md-3 col-sm-6 col-xs-12"><%= image_tag @user.avatar.url(:thumb), :class => "img-circle"%>
           </div>
+          <h3 class="user-name"><%= @user.full_name %></h3>
+          <p>Computer software</p>
           <p>Boston, MA</p>
         </div>
-        <div class="col-md-4 user-stat-1 container-fluid">
+        <div class="col-md-4 user-stat-1">
           <div class="row">
-            <div class="col-md-6 item">
-              <div class="content col-md-12 container-fluid">
-                <div class="row">
-                  <p>123</p>
-                </div>
-                <div class="row">
-                  <h1>credits</h1>
-                </div>
+            <div class="col-md-6 item" id="followers">
+              <div class="row">
+                <p class="numbers"><span class="label label-default ">250</span>
+              </div>
+              <div class="row">
+                <h1 class="text">Followers</h1>
               </div>
             </div>
-            <div class="col-md-6 item">
-              <div class="content col-md-12">
-                <div class="row">
-                  <p>12</p>
-                </div>
-                <div class="row">
-                  <h1>Courses</h1>
-                </div>
+            <div class="col-md-6 item" id="following">
+              <div class="row">
+                <p class="numbers"><span class="label label-default ">124</span></p>
+              </div>
+              <div class="row">
+                <h1 class="text">Following</h1>
               </div>
             </div>
           </div>
@@ -37,10 +34,10 @@
             <div class="col-md-12 special-item">
               <div class="content2 col-md-12">
                 <div class="row">
-                  <p>300</p>
+                  <p class="numbers"><span class="label label-success ">300</span></p>
                 </div>
                 <div class="row">
-                  <h1>Contributions</h1>
+                  <h1 class="text">Contributions</h1>
                 </div>
               </div>
             </div>
