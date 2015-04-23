@@ -1,21 +1,33 @@
 <div class ="container">
-  <h1> All Users</h1>
+  <h1 class="text-center"> All Users</h1>
   <hr>
   <div class="row">
-    dsfkldjskfj
-  </div>
-  <% @users.each do |user| %>
-    <div class="row">
-      <div class"user-avatar"><%= image_tag user.avatar.url(:thumb), :class => "img-circle col-md-2 col-sm-4 col-xs-6"%></div>
-      <ul class="col-md-3 col-sm-3 col-xs-6">
-        <li><%= user.email %></li>
-        <%= link_to 'view', user, class: "btn btn-primary btn-lg" %>
-        <div id="<%= user.id %>-follow-form" class="follow-form">
-          <%= render partial: 'follows/follow_form', locals: { user: user } if current_user %>
-        </div>
-      </ul>
+    <div class="col-md-3 col-sm-12 col-xs-12">
+      <h1>Filter search</h1>
     </div>
-    <hr>
-  <% end %>
+
+    <div class="col-md-9 col-sm-12 col-xs-12 all-users">
+
+        <% @users.each do |user| %>
+        <div class="row text-center">
+          <%= image_tag user.avatar.url(:thumb), :class => " text-center user-avatar img-circle col-md-2 "%>
+
+          <ul class="col-md-6 col-sm-2 col-xs-12">
+            <h4 class=""><%= user.full_name %></h4>
+            <p><%= user.industry.name%></p>
+            <%= link_to 'view', user, class: "btn btn-default" %>
+            <div id="<%= user.id %>-follow-form" class="follow-form">
+              <%= render partial: 'follows/follow_form', locals: { user: user } if current_user %>
+            </div>
+          </ul>
+        </div>
+        <hr>
+       <%end%>
+    </div>
+
+
+
+  </div>
+
 </div>
 
