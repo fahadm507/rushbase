@@ -25,47 +25,34 @@
   </div>
   <div class="row user-stuff-section">
       <div class="mystuff-tab-container">
-        <div class="pull-left left-aside col-md-2 col-sm-6 col-xs-12 mystuff-tab-menu">
-          <div class="list-group">
-            <a href="#" class="list-group-item active text-center">
-              <h4 class="fa fa-book"></h4><br/>Courses
-            </a>
-            <a href="#" class="list-group-item text-center">
-              <h4  class="fa fa-users"></h4><br/>Teams
-            </a>
-            <a href="#" class="list-group-item text-center">
-              <h4 class="fa fa-university"></h4><br/>organizations
-            </a>
-            <a href="#" class="list-group-item text-center">
-              <h4 class="fa fa-star"></h4><br/>Favorites
-            </a>
-            <a href="#" class="list-group-item text-center">
-              <h4 class="glyphicon glyphicon-credit-card"></h4><br/>Suggested
-            </a>
-          </div>
+        <div class="pull-left left-aside col-md-2 col-sm-12 col-xs-12 mystuff-tab-menu">
+          <%= render partial: 'users/side_tab_menu'%>
         </div>
-        <div class="content-wrapper col-md-6 col-sm-6 col-xs-12 mystuff-tab">
+        <div class="content-wrapper col-md-6 col-sm-12 col-xs-12 mystuff-tab">
           <div class="mystuff-tab-content active">
             <p>Courses</p>
             <hr>
           </div>
           <!-- train section -->
           <div class="mystuff-tab-content">
-            teams
+            <p>Teams</p>
+            <hr>
           </div>
 
           <!-- hotel search -->
           <div class="mystuff-tab-content">
-          organizations
+            <p>Organizations</p>
+            <hr>
           </div>
           <div class="mystuff-tab-content">
-          Favorites
+            <p>Favorites</p>
           </div>
           <div class="mystuff-tab-content">
-          Suggested
+            <p>Posts</p>
+            <hr>
           </div>
         </div>
-        <aside class="right-aside col-md-4 col-sm-6">
+        <aside class="right-aside col-md-4 col-sm-12 col-xs-12">
           <div class="suggestions">
             <p>Suggestions</p>
             <hr>
