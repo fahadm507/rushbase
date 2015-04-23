@@ -5,78 +5,74 @@
     <div class="row user-info-section">
       <div class="user-info row">
         <div class="main-profile text-center col-md-8">
-          <div class" col-md-3 col-sm-6 col-xs-12"><%= image_tag @user.avatar.url(:thumb), :class => "img-circle"%>
+          <div class="user-basic-info">
+            <div class" col-md-3 col-sm-6 col-xs-12"><%= image_tag @user.avatar.url(:thumb), :class => "img-circle"%>
+            </div>
+            <h3 class="user-name"><%= @user.full_name %></h3>
+            <p>Computer software</p>
+            <p>Boston, MA</p>
           </div>
-          <h3 class="user-name"><%= @user.full_name %></h3>
-          <p>Computer software</p>
-          <p>Boston, MA</p>
-        </div>
-        <div class="col-md-4 user-stat-1">
-          <div class="row">
-            <div class="col-md-6 item" id="followers">
-              <div class="row">
-                <p class="numbers"><span class="label label-default ">250</span>
-              </div>
-              <div class="row">
-                <h1 class="text">Followers</h1>
-              </div>
-            </div>
-            <div class="col-md-6 item" id="following">
-              <div class="row">
-                <p class="numbers"><span class="label label-default ">124</span></p>
-              </div>
-              <div class="row">
-                <h1 class="text">Following</h1>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 special-item">
-              <div class="content2 col-md-12">
-                <div class="row">
-                  <p class="numbers"><span class="label label-success ">300</span></p>
-                </div>
-                <div class="row">
-                  <h1 class="text">Contributions</h1>
-                </div>
-              </div>
-            </div>
+          <div class="profile-actions">
+            <a href="" class="btn btn-primary">Follow</a>
+            <span><a href="" class="btn btn-primary">Give Credit</a></span>
+
           </div>
         </div>
+        <!-- Render aside user stats-->
+        <%= render partial: 'users/stats_right'%>
       </div>
     </div>
-
-    <div class="row">
-      <div class="education-info-section col-md-8">
-        <div class="current-courses item col-md-12">
-          <div ng-controller="CurrentCourseController">
-            <div class="col-md-6" ng-repeat="course in currentCourses">
-              <li>{{course.name}}</li>
-            </div>
-            <div id="new-current-course" class="col-md-6">
-              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Add a course </button>
-
-              <%= render partial: 'current_courses/new'%>
-            </div>
+  </div>
+  <div class="row user-stuff-section">
+      <div class="mystuff-tab-container">
+        <div class="pull-left left-aside col-md-2 col-sm-6 col-xs-12 mystuff-tab-menu">
+          <div class="list-group">
+            <a href="#" class="list-group-item active text-center">
+              <h4 class="fa fa-book"></h4><br/>Courses
+            </a>
+            <a href="#" class="list-group-item text-center">
+              <h4  class="fa fa-users"></h4><br/>Teams
+            </a>
+            <a href="#" class="list-group-item text-center">
+              <h4 class="fa fa-university"></h4><br/>organizations
+            </a>
+            <a href="#" class="list-group-item text-center">
+              <h4 class="fa fa-star"></h4><br/>Favorites
+            </a>
+            <a href="#" class="list-group-item text-center">
+              <h4 class="glyphicon glyphicon-credit-card"></h4><br/>Suggested
+            </a>
           </div>
         </div>
-        <div class="previous-courses item col-md-12" id="basicModal">
-          <h4>Previous Courses</h4>
+        <div class="content-wrapper col-md-6 col-sm-6 col-xs-12 mystuff-tab">
+          <div class="mystuff-tab-content active">
+            <p>Courses</p>
+            <hr>
+          </div>
+          <!-- train section -->
+          <div class="mystuff-tab-content">
+            teams
+          </div>
+
+          <!-- hotel search -->
+          <div class="mystuff-tab-content">
+          organizations
+          </div>
+          <div class="mystuff-tab-content">
+          Favorites
+          </div>
+          <div class="mystuff-tab-content">
+          Suggested
+          </div>
         </div>
-        <div class="education-history item col-md-12">
-          <h3>Education</h3>
-          <p>Degree/certificates</p>
-          <p>key courses</p>
-        </div>
-        <div class="favorite-resourses item col-md-12">
-          <h3>Learning Resources</h3>
-          <ul>
-          <li>kdfklsjflsjflkjs</li>
-          </ul>
-        </div>
+        <aside class="right-aside col-md-4 col-sm-6">
+          <div class="suggestions">
+            <p>Suggestions</p>
+            <hr>
+          </div>
+        </aside>
       </div>
+
     </div>
-
-
   </div>
 </div>
