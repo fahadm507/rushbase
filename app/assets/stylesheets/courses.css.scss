@@ -1,0 +1,41 @@
+.all-courses {
+  background-color: #fff;
+  border:5px;
+
+  .btn {
+    margin-top:5px;
+    width:100px;
+  }
+
+  .row:hover {
+    background-color: #2dbe60;
+    color:#fff;
+
+  }
+
+  hr {margin:0px;}
+
+  .course-content {
+    padding:20px;
+
+    a {
+      text-decoration:none;
+      color:black;
+      list-style-type:none;
+    }
+  }
+
+  .course-info {
+    padding:20px;
+  }
+  .course-action{
+    padding:20px;
+  }
+}
+
+.search-course {
+  height:100px;
+  padding:20px;
+  border-radius:3px;
+  background-color:#fff;
+}

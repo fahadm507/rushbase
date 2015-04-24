@@ -3,7 +3,11 @@ class CoursesController < ApplicationController
 
   def index
     @courses = Course.all
-    render json: @courses
+
+    respond_to do |format|
+      format.html {}
+      format.json { render json: @courses }
+    end
   end
 
   def show
@@ -20,8 +24,10 @@ class CoursesController < ApplicationController
 
       respond_to do |format|
         if @course.save
+          format.html { redirect_to course_path(@course)}
           format.json { render json: @course, status: :created }
         else
+          format.html { render :new}
           format.json { render json: @course.errors, status: :unprocessable_entity }
         end
       end
