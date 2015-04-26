@@ -10,7 +10,7 @@
   }
 
   .post-header {
-    border-bottom:1px solid #E6E7E8;
+    border-bottom:1px solid #fff;
     margin-bottom:10px;
     padding:10px;
   }
@@ -19,6 +19,26 @@
     margin-top:10px;
     width:100%;
     padding:10px;
-    background-color:#f5f5f5;
+    background-color:#fff;
   }
+
+}
+.posts-area {
+  .row {
+    margin-right: 0px;
+    margin-left:0px;
+  }
+  .panel-default > .panel-heading {
+    color: #333333;
+    background-color: #fff;
+    border-color: #dddddd;
+  }
+}
+
+.post-comments {
+  padding-left:10px;
+  padding-top:10px;
+  color: #333333;
+  //background-color: whitesmoke;
+  border-color: #dddddd;
 }

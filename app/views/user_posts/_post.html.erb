@@ -1,29 +1,35 @@
 
-<% @user_posts.order(created_at: :desc).each do |post| %>
-  <div class="poster circle col-md-2 col-md-6 col-xs-12 ">
-    <div class="image-for-poster text-center"><%=link_to (image_tag post.user.avatar.url(:thumb), class: "img-circle ", size:'50x50'), user_path(post.user) %>
-    </div>
-  </div>
+<% user.user_posts.order(created_at: :desc).each do |post| %>
 
-    <div class="posts-area col-md-8">
-      <div class="post-wrapper">
-        <div class="post-header">
-          <div class="user-name"><%= link_to "#{post.user.first_name} #{post.user.last_name}", user_path(post.user) %></div>
+  <div class="posts-area col-md-12">
+    <div class="post-wrapper panel panel-default">
+      <div class="post-header panel-heading row">
+        <div class="image-for-poster col-md-2  text-center"><%=link_to (image_tag post.user.avatar.url(:thumb), class: "img-circle ", size:'50x50'), user_path(post.user) %>
+        </div>
+        <div class="col-md-10 col-sm-8 col-xs-12">
+          <div class="user-name"><%= link_to "#{post.user.full_name}", user_path(post.user) %></div>
           <div class="time">posted on <%=post.created_at.strftime("%B %d, %Y, %I:%M %p") %></div>
         </div>
-        <div class="post-body"><%= post.description %>
-        </div>
 
-        <div class="post-comments">
-          <ul class="list-inline">
-            <li><i class="glyphicon glyphicon-comment"></i> 12 comments</li>
-            <li>
-            <li><i class="glyphicon glyphicon-star"></i> favorites</li>
-            <li><i class="glyphicon glyphicon-thumbs-up"></i> Likes</li>
-          </ul>
-        </div>
-      </div><!-- Post body ends here-->
-    </div>
+      </div>
+      <div class="post-body panel-body"><%= post.description %>
+      </div>
 
+      <div class="post-comments">
+        <ul class="list-inline">
+          <li><a href="" class="add-comment"><i class="glyphicon glyphicon-plus-sign"></i> comment </a></li>
+          <li><i class="glyphicon glyphicon-comment"></i> <%=post.post_comments.count%> comments</li>
+          <li><i class="glyphicon glyphicon-star"></i>favorites</li>
+          <li><i class="glyphicon glyphicon-thumbs-up"></i> Likes</li>
+        </ul>
+        <div class="new-comment" id="user-post-comment">
+          <%= render partial: 'user_posts/new_comment', locals: {user_post: post}%>
+        </div>
+        <div class="all-comments">
+          <%= render partial: 'user_posts/comment', locals: { user: user, post: post}%>
+        </div>
+      </div>
+    </div><!-- Post body ends here-->
+  </div>
 <%end%>
 
