@@ -1,4 +1,95 @@
+
 <div class="container">
+    <% @user ||= current_user %>
+    <span ng-init="currentUser = <%= @user.id %>"></span>
+
+
+  <div class="row user-stuff-section">
+      <div class="mystuff-tab-container">
+        <div class="pull-left left-aside col-md-2 col-sm-12 col-xs-12 mystuff-tab-menu">
+          <%= render partial: 'users/side_tab_menu'%>
+        </div>
+        <div class="content-wrapper col-md-6 col-sm-12 col-xs-12 mystuff-tab">
+          <div class="mystuff-tab-content active">
+            <p>About</p>
+
+            <hr>
+            <%= render partial: 'users/about', locals: {user: @user}%>
+          </div>
+
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+                </div>
+                <div class="modal-body">
+                  <% @user_post = UserPost.new %>
+                  <%= bootstrap_form_for(@user_post) do |f| %>
+                    <% if @user_post.errors.any? %>
+                      <div id="error_explanation">
+                        <h2><%= pluralize(@user_post.errors.count, "error") %> prohibited this user_post from being saved:</h2>
+
+                        <ul>
+                        <% @user_post.errors.full_messages.each do |message| %>
+                          <li><%= message %></li>
+                        <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+                    <%= f.text_area :description, required: true%>
+
+                </div>
+                <div class="modal-footer">
+                  <span type="button" class="btn btn-default" data-dismiss="modal">Close</span>
+                  <span class="actions">
+                      <%= f.submit %>
+                  </span>
+                </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="mystuff-tab-content">
+            <p>Courses</p>
+            <hr>
+          </div>
+          <!-- train section -->
+          <div class="mystuff-tab-content">
+            <p>Teams</p>
+            <hr>
+          </div>
+          <!-- hotel search -->
+          <div class="mystuff-tab-content">
+            <p>Organizations</p>
+            <hr>
+          </div>
+          <div class="mystuff-tab-content">
+            <p>Favorites</p>
+          </div>
+          <div class="mystuff-tab-content">
+            <p>Posts <span class="pull-right">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">New Post</button>
+             </span></p>
+            <hr>
+            <%= render partial: 'user_posts/post', locals: {user: @user} %>
+          </div>
+
+        </div>
+        <aside class="right-aside col-md-4 col-sm-12 col-xs-12">
+          <div class="suggestions">
+            <p>Suggestions</p>
+            <hr>
+          </div>
+        </aside>
+      </div>
+
+    </div>
+</div>
+
+<!-- <div class="container">
 
   <div class="row">
   </div>
@@ -19,3 +110,4 @@
 
   </div>
 </div>
+ -->

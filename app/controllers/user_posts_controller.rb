@@ -8,6 +8,9 @@ class UserPostsController < ApplicationController
     render json: @user_posts
   end
 
+  def feed
+  end
+
   def show
     @user_post = UserPost.find(params[:id])
     render json: @user_post
