@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container-fluid">
     <% @user ||= current_user %>
     <span ng-init="currentUser = <%= @user.id %>"></span>
 
@@ -9,12 +9,13 @@
         <div class="pull-left left-aside col-md-2 col-sm-12 col-xs-12 mystuff-tab-menu">
           <%= render partial: 'users/side_tab_menu'%>
         </div>
-        <div class="content-wrapper col-md-6 col-sm-12 col-xs-12 mystuff-tab">
+        <div class="content-wrapper col-md-7 col-sm-12 col-xs-12 mystuff-tab">
           <div class="mystuff-tab-content active">
-            <p>About</p>
-
+            <p>Posts <span class="pull-right">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">New Post</button>
+             </span></p>
             <hr>
-            <%= render partial: 'users/about', locals: {user: @user}%>
+            <%= render partial: 'user_posts/post', locals: {user: @user} %>
           </div>
 
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -69,16 +70,16 @@
           <div class="mystuff-tab-content">
             <p>Favorites</p>
           </div>
-          <div class="mystuff-tab-content">
-            <p>Posts <span class="pull-right">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">New Post</button>
-             </span></p>
+
+          <div class="mystuff-tab-content active">
+            <p>About</p>
+
             <hr>
-            <%= render partial: 'user_posts/post', locals: {user: @user} %>
+            <%= render partial: 'users/about', locals: {user: @user}%>
           </div>
 
         </div>
-        <aside class="right-aside col-md-4 col-sm-12 col-xs-12">
+        <aside class="right-aside col-md-3 col-sm-12 col-xs-12">
           <div class="suggestions">
             <p>Suggestions</p>
             <hr>

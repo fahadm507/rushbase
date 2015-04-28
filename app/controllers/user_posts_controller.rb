@@ -25,7 +25,7 @@ class UserPostsController < ApplicationController
 
     respond_to do |format|
       if @user_post.save
-        format.html { redirect_to user_path(@user_post.user) }
+        format.html { redirect_to feed_url }
         format.json { render json: @user_post, status: :created }
         format.js {}
       else
