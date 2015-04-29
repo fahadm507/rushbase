@@ -15,17 +15,9 @@
         <p><%= post.description %></p>
       </div>
 
-      <!-- <div ng-controller="PostCommentController">
-        <form ng-submit="savePostComment(postComment)">
-          <input ng-model="postComment.body">
-          <span ng-init="userPostId = <%= post.id %>"></span>
-          <button type='submit'>send</button>
-        </form>
-      </div>
- -->
       <div class="post-comments">
         <ul class="list-inline">
-          <li><a href="" class="add-comment"><i class="glyphicon glyphicon-plus-sign"></i> comment </a></li>
+          <li><span class="add-comment"><span><i class="glyphicon glyphicon-plus-sign"></i> comment </a></li>
           <li><i class="glyphicon glyphicon-comment"></i> <%=post.post_comments.count%> comments</li>
           <li><i class="glyphicon glyphicon-star"></i>favorites</li>
           <li><i class="glyphicon glyphicon-thumbs-up"></i> Likes</li>
