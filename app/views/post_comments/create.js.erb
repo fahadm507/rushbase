@@ -1,0 +1,8 @@
+
+var target = $(".comments-details ul#comment-for-post-<%= @post_comment.user_post.id %>")
+target.prepend("<%= j(render partial: 'post_comments/comment',
+  locals: {
+    user: @post_comment.user,
+    comment: @post_comment
+  }
+  )%>");

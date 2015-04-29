@@ -15,14 +15,14 @@
         <p><%= post.description %></p>
       </div>
 
-      <div ng-controller="PostCommentController">
+      <!-- <div ng-controller="PostCommentController">
         <form ng-submit="savePostComment(postComment)">
           <input ng-model="postComment.body">
           <span ng-init="userPostId = <%= post.id %>"></span>
           <button type='submit'>send</button>
         </form>
       </div>
-
+ -->
       <div class="post-comments">
         <ul class="list-inline">
           <li><a href="" class="add-comment"><i class="glyphicon glyphicon-plus-sign"></i> comment </a></li>
@@ -34,7 +34,7 @@
           <%= render partial: 'user_posts/new_comment', locals: {user_post: post}%>
         </div>
         <div class="all-comments">
-          <%= render partial: 'user_posts/comment', locals: { user: user, post: post}%>
+          <%= render partial: 'user_posts/comments', locals: { user: user, post: post}%>
         </div>
       </div>
     </div><!-- Post body ends here-->
