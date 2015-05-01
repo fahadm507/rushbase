@@ -13,7 +13,12 @@ class UserPostsController < ApplicationController
 
   def show
     @user_post = UserPost.find(params[:id])
-    render json: @user_post
+    respond_to do |format|
+      format.html {}
+      format.js {}
+      format.json { render json: @user_post }
+    end
+
   end
 
   def new

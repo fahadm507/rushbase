@@ -15,10 +15,12 @@
           </div>
         <% end %>
 
-      <%= f.text_area :description, class: "post-body panel-body" %>
+      <%= f.text_area :description, label: { text: "Edit description"}, class: "post-body panel-body" %>
         <div class="actions">
           <%= f.submit "update post" %>
-          <span class="btn btn-primary"> Cancel</span>
+          <span>
+          <%=link_to "Cancel", user_post_path(@user_post), remote: true, class: "btn btn-primary" %>
+          </span>
         </div>
       <% end %>
     </div>
