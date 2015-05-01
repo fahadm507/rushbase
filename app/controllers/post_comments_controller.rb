@@ -25,6 +25,15 @@ class PostCommentsController < ApplicationController
     end
   end
 
+  def edit
+    @post_comment = PostComment.find(params[:id])
+    respond_to do |format|
+      format.json { render json: @post_comment, location:  user_post_comment_url(@post_comment.user_post, @post_comment) }
+      format.js {}
+      format.html {}
+    end
+  end
+
   def update
     @post_comment = PostComment.find(params[:id])
 

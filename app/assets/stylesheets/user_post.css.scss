@@ -38,6 +38,10 @@
       padding:4px;
     }
   }
+
+  textarea.form-control {
+    min-height:200px;
+  }
 }
 
 .post-comments {
@@ -48,15 +52,28 @@
   color: #333333;
   border-color: #dddddd;
 
+  textarea.form-control {
+    min-height:100px;
+  }
 }
 
 .comments-details{
+
+  .comment-actions a {
+    color:#dddddd;
+    text-decoration: none;
+  }
   .row {
     margin-right: 0px;
     margin-left: -15px;
   }
   .time{
     margin-left:-4px;
+  }
+  .acomment {
+    //border-bottom:1px solid #dddddd;
+    //margin-top:20px;
+    //margin-bottom:20px;
   }
 }
 

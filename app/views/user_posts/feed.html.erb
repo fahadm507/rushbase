@@ -40,7 +40,6 @@
                       </div>
                     <% end %>
                     <%= f.text_area :description, required: true%>
-
                 </div>
                 <div class="modal-footer">
                   <span type="button" class="btn btn-default" data-dismiss="modal">Close</span>
@@ -69,13 +68,6 @@
           </div>
           <div class="mystuff-tab-content">
             <p>Favorites</p>
-          </div>
-
-          <div class="mystuff-tab-content active">
-            <p>About</p>
-
-            <hr>
-            <%= render partial: 'users/about', locals: {user: @user}%>
           </div>
 
         </div>

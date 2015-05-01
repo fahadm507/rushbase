@@ -65,7 +65,7 @@ class UserPostsController < ApplicationController
     @user_post = UserPost.find(params[:id])
     respond_to do |format|
       if @user_post.destroy
-        format.html { redirect_to user_path(@user_post.user) }
+        format.html { redirect_to feed_path }
         format.json { render json: @user_post, status: :created }
         format.js {}
       else
