@@ -20,6 +20,14 @@ class UserPostsController < ApplicationController
     @user_post = UserPost.new
   end
 
+  def edit
+    @user_post = UserPost.find(params[:id])
+    respond_to do |format|
+      format.html{}
+      format.js {}
+    end
+  end
+
   def create
     @user_post = current_user.user_posts.build(user_post_params)
 
@@ -36,8 +44,11 @@ class UserPostsController < ApplicationController
   end
 
   def update
+    @user_post = UserPost.find(params[:id])
     respond_to do |format|
       if @user_post.update(user_post_params)
+        format.js {}
+        format.html { redirect_to feed_url }
         format.json { render json: @user_post, status: :ok, location: @user_post }
       else
         format.json { render json: @user_post.errors, status: :unprocessable_entity }

@@ -1,7 +1,6 @@
 
 .user-post-section {
   padding:10px 0px 10px 0px;
-
   .post-wrapper {
     border:2px solid #ddd;
     margin:10px 0px 10px 0px;
@@ -29,32 +28,71 @@
   }
   .panel-default > .panel-heading {
     color: #333333;
-    background-color: whitesmoke;
+    background-color:whitesmoke;
     border-color: #dddddd;
+  }
+
+  .post-actions {
+    margin-top:5px;
+    span {
+      padding:4px;
+    }
   }
 }
 
 .post-comments {
   padding-left:0px;
   padding-top:0px;
-
+  border:1px solid;
+  border-color: #dddddd;
   color: #333333;
   border-color: #dddddd;
+
+}
+
+.comments-details{
+  .row {
+    margin-right: 0px;
+    margin-left: -15px;
+  }
+  .time{
+    margin-left:-4px;
+  }
 }
 
 .list-inline {
-  background:#e2e2e2;
+  background:whitesmoke;
+  border-color:#dddddd;
   height:30px;
   padding:5px;
 }
 
+.description {
+  padding:10px;
+  border-radius:5px;
+  margin-left:10px;
+}
+.commenter-image {
+  width:50px;
+  padding:5px;
+  margin-left:0px;
+  border:1px solid #dddddd;
+}
+hr {margin-left:-20px;}
 
-  .description {
-    padding:10px;
-    border:1px solid;
-    border-color: #dddddd;
-    border-radius:5px;
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

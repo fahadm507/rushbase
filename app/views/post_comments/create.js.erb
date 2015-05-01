@@ -1,11 +1,16 @@
 
+//we have access to @post_comment, we can use to target the
+//post that it belongs to and append a commen to the list
 var target = $(".comments-details ul#comment-for-post-<%= @post_comment.user_post.id %>")
 target.prepend("<%= j(render partial: 'post_comments/comment',
   locals: {
     user: @post_comment.user,
     comment: @post_comment
-  }
-  )%>");
+  })%>");
+  //increment comments on the current post
+  var postTarget = $("#count-comments-<%= @post_comment.user_post.id %>")
+  postTarget.html("<%= j(render partial: 'post_comments/count_comments',
+    locals: {post: @post_comment.user_post})%>");
 
 
 

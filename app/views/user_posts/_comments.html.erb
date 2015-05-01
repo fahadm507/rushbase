@@ -4,19 +4,19 @@
       <% post.post_comments.each do |comment| %>
         <li id="comment-<%= comment.id %>" class="acomment">
           <div class="row">
-            <div class="commenter-image col-md-3 text-center">
+            <div class="pull-left block commenter-image circle">
               <%=link_to (image_tag comment.user.avatar.url(:thumb), class: "img-circle ", size:'40x40'), user_path(comment.user) %>
-              <%=link_to "#{comment.user.full_name}", user_path(user), class: "row" %>
             </div>
-            <div class="col-md-8">
-
-            <div class="row time"><%=comment.created_at.strftime("%B %d, %Y, %I:%M %p ") %></div>
+            <span><%=link_to "#{comment.user.full_name}", user_path(user), class: "row" %></span>
+            <div class="col-md-12 pull-left">
              <div class="description row"><%=comment.body%></div>
+             <div class="row time"><%=comment.created_at.strftime("%B %d, %Y, %I:%M %p ") %></div>
             </div>
           </div>
         </li>
-          <hr>
+        <hr>
       <%end%>
     </ul>
   </div>
+
 <%end%>

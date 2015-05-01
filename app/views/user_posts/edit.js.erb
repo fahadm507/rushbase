@@ -1,0 +1,5 @@
+var target = $("#current-feed-post-<%=@user_post.id%>")
+target.html("<%= j(render partial: 'user_posts/form',
+  locals: {
+    user_post: @user_post,
+  })%>");
