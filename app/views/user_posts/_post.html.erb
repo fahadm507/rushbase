@@ -7,10 +7,10 @@
         </div>
         <div class="col-md-8 col-sm-12 col-xs-12">
           <div class="user-name"><%= link_to "#{post.user.full_name}", user_path(post.user) %></div>
-          <div class="time">posted on <%=post.created_at.strftime("%B %d, %Y, %I:%M %p") %></div>
+          <div class="time"><%=post.created_at.strftime("%B %d, %Y, %I:%M %p") %></div>
         </div>
         <%if post.user == current_user %>
-          <div class="col-md-2 pull-right post-actions" >
+          <div class="col-md-2 col-sm-4 col-xs-6 pull-right post-actions" >
             <%=link_to "", edit_user_post_path(post.id),remote: true,  class: "fa fa-pencil fa-fw" %>
             <%=link_to "", user_post_path(post.id), remote: true,  method: :delete, data: {confirm: "Are you sure u want to delete this post?"}, class: "fa fa-times" %>
           </div>
@@ -21,12 +21,17 @@
       </div>
 
       <div class="post-comments">
-        <ul class="list-inline">
-          <li><a class="add-comment" id="add-comment-<%= post.id %>" data-comment="<%= post.id %>"><i class="glyphicon glyphicon-plus-sign"></i> comment </a></li>
-          <li><i class="glyphicon glyphicon-comment"></i>
+        <ul class="list-inline row">
+
+          <li class="col-md-3 col-sm-3 col-xs-6"><a class="add-comment" id="add-comment-<%= post.id %>" data-comment="<%= post.id %>"><i class="glyphicon glyphicon-plus-sign"></i> Comment </a></li>
+
+          <li class="col-md-3 col-sm-3 col-xs-6"><i class="glyphicon glyphicon-comment"></i>
           <a class="count-comments" id="count-comments-<%= post.id %>" data-comment="<%= post.id %>"><%=post.post_comments.count%> comments</a> </li>
-          <li><i class="glyphicon glyphicon-star"></i>favorites</li>
-          <li><a><i class="glyphicon glyphicon-thumbs-up"></i>Likes</a></li>
+
+          <%=link_to "", user_post_upvotes_path(post.id, Upvote.new),remote: true, method: :post, class: "glyphicon glyphicon-thumbs-up" %>
+
+          <span class="count-upvotes" id="count-upvotes-<%= post.id %>" data-comment="<%= post.id %>"><%= post.upvotes.count %> upvotes</span>
+
         </ul>
         <div class="new-comment" id="new-comment-form-<%= post.id %>" style="display:none;">
 

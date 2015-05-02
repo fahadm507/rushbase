@@ -14,11 +14,6 @@
     padding:10px;
   }
 
-  .post-comments {
-    margin-top:10px;
-    width:100%;
-    background-color:#fff;
-  }
 
 }
 .posts-area {
@@ -42,15 +37,28 @@
   textarea.form-control {
     min-height:200px;
   }
+
+  .user-name {
+    a{
+      font-weight: 400px;
+      font-size: 16px;
+      line-height: 14px;
+      margin-bottom: 2px;
+      color: #333;
+    }
+
+  }
 }
 
 .post-comments {
   padding-left:0px;
   padding-top:0px;
   border:1px solid;
+  margin-top:10px;
+  width:100%;
+  background-color:#fff;
   border-color: #dddddd;
   color: #333333;
-  border-color: #dddddd;
 
   textarea.form-control {
     min-height:100px;
@@ -65,23 +73,43 @@
   }
   .row {
     margin-right: 0px;
-    margin-left: -15px;
+    margin-left: 0px;
   }
   .time{
     margin-left:-4px;
   }
   .acomment {
-    //border-bottom:1px solid #dddddd;
-    //margin-top:20px;
-    //margin-bottom:20px;
+    /*border:1px solid #dddddd;
+    border-radius:5px;
+    margin-right:10px;
+    padding:5px;
+    margin-bottom:5px;*/
   }
 }
 
 .list-inline {
-  background:whitesmoke;
+  background:#fff;
   border-color:#dddddd;
-  height:30px;
-  padding:5px;
+  min-height:40px;
+  padding:5px 5px 0;
+
+  li, a {
+    color:#333333;
+    line-height: 2.0em;
+  }
+
+  .glyphicon, .fa{
+    color:green;
+    margin:2px;
+    border:1px solid #dddddd;
+    padding:4px;
+    border-radius:5px;
+
+    &:hover {
+      background:green;
+      color:#fff;
+    }
+  }
 }
 
 .description {

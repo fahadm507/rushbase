@@ -1,0 +1,3 @@
+var postTarget = $("#count-upvotes-<%= @upvote.user_post.id %>")
+  postTarget.html("<%= j(render partial: 'upvotes/count_upvotes',
+    locals: {post: @upvote.user_post})%>");

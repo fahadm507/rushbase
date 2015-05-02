@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420150439) do
+ActiveRecord::Schema.define(version: 20150502074010) do
 
   create_table "course_comments", force: true do |t|
     t.string   "description", null: false
@@ -133,6 +133,10 @@ ActiveRecord::Schema.define(version: 20150420150439) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "upvotes", ["user_id"], name: "index_upvotes_on_user_id"
+  add_index "upvotes", ["user_post_id", "user_id"], name: "index_upvotes_on_user_post_id_and_user_id", unique: true
+  add_index "upvotes", ["user_post_id"], name: "index_upvotes_on_user_post_id"
 
   create_table "user_posts", force: true do |t|
     t.text     "description", null: false

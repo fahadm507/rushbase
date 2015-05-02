@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
     resources :user_posts do
       resources :post_comments
+      resources :upvotes, only: [:create, :destroy, :index, :show]
+      resources :favorites, only: [:create, :destroy, :index, :show]
     end
 
     resources :courses do
