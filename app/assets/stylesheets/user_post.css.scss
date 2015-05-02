@@ -90,12 +90,14 @@
 .list-inline {
   background:#fff;
   border-color:#dddddd;
-  min-height:40px;
-  padding:5px 5px 0;
+  min-height:auto;
+  padding:5px;
 
   li, a {
     color:#333333;
     line-height: 2.0em;
+    list-style-type: none;
+    text-decoration: none;
   }
 
   .glyphicon, .fa{

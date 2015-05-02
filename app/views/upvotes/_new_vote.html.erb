@@ -1,3 +1,6 @@
 <span id="upvote-btn-<%=post.id%>">
-  <%=link_to "", user_post_upvotes_path(post.id, Upvote.new),remote: true, method: :post, class: "glyphicon glyphicon-thumbs-up" %>
+  <%=link_to(user_post_upvotes_path(post.id, Upvote.new),remote: true, method: :post) do %>
+    <i class="glyphicon glyphicon-thumbs-up"></i>
+  <%end%>
 </span>
+
