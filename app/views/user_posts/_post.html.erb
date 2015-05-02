@@ -22,16 +22,17 @@
 
       <div class="post-comments">
         <ul class="list-inline">
-          <li><span class="add-comment"><span><i class="glyphicon glyphicon-plus-sign"></i> comment </a></li>
+          <li><a class="add-comment" id="add-comment-<%= post.id %>" data-comment="<%= post.id %>"><i class="glyphicon glyphicon-plus-sign"></i> comment </a></li>
           <li><i class="glyphicon glyphicon-comment"></i>
-          <span id="count-comments-<%= post.id %>"><%=post.post_comments.count%></span> comments</li>
+          <a class="count-comments" id="count-comments-<%= post.id %>" data-comment="<%= post.id %>"><%=post.post_comments.count%> comments</a> </li>
           <li><i class="glyphicon glyphicon-star"></i>favorites</li>
-          <li><i class="glyphicon glyphicon-thumbs-up"></i> Likes</li>
+          <li><a><i class="glyphicon glyphicon-thumbs-up"></i>Likes</a></li>
         </ul>
-        <div class="new-comment" id="user-post-comment">
+        <div class="new-comment" id="new-comment-form-<%= post.id %>" style="display:none;">
+
           <%= render partial: 'user_posts/new_comment', locals: {user_post: post}%>
         </div>
-        <div class="all-comments">
+        <div class="all-comments" id="all-comments-<%=post.id %>" style="display:none;">
           <%= render partial: 'user_posts/comments', locals: { user: user, post: post}%>
         </div>
       </div>

@@ -14,7 +14,7 @@
           </div>
         <% end %>
 
-      <%= f.text_area :body, label: { text: "Edit description"}, class: "post-body panel-body" %>
+      <%= f.text_area :body, label: { text: "Edit description"}, class: "post-body panel-body", contenteditable: true %>
         <div class="actions">
           <%= f.submit "Done", class: "btn btn-success" %>
         </div>

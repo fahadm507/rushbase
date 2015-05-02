@@ -13,9 +13,23 @@ $(document).ready(function(){
     $("div.mystuff-tab>div.mystuff-tab-content").eq(index).addClass("active");
   });
 
-  $("#new_post_comment").on("submit", function(){
-    var val = $("#post_comment_body").val();
+  //find current post and toggle comments and new
+  //comment actions
+  var postId, targetComments, commentFormId;
+  $(".add-comment").click(function(){
+    postId =  $(this).attr("data-comment");
+    targetComments = ("#all-comments-"+ postId)
+    commentFormId = ("#new-comment-form-"+postId)
+    $(commentFormId).toggle();
+    $(targetComments).toggle();
   });
 
+  $(".count-comments").click(function(){
+    postId =  $(this).attr("data-comment");
+    targetComments = ("#all-comments-"+ postId)
+    commentFormId = ("#new-comment-form-"+postId)
+    $(commentFormId).toggle();
+    $(targetComments).toggle();
+  });
 
 });
