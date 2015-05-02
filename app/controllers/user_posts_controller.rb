@@ -18,7 +18,6 @@ class UserPostsController < ApplicationController
       format.js {}
       format.json { render json: @user_post }
     end
-
   end
 
   def new

@@ -39,4 +39,7 @@ class User < ActiveRecord::Base
     users.reject { |u| u.id == user.id }
   end
 
+  def upvoted_post?(user, post)
+    Upvote.where(user_id: user.id, user_post_id: post.id).first
+  end
 end

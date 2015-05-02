@@ -5,8 +5,17 @@ class UpvotesController < ApplicationController
     @upvotes = Upvote.all
   end
 
+
+  def show
+    @upvote = Upvote.find(params[:id])
+  end
+
   def new
     @upvote = Upvote.new
+  end
+
+  def edit
+    @upvote = Upvote.find(params[:id])
   end
 
   def create
@@ -27,10 +36,24 @@ class UpvotesController < ApplicationController
       end
     end
   end
+  # PATCH/PUT /upvotes/1
+  # PATCH/PUT /upvotes/1.json
+  def update
+    respond_to do |format|
+      if @upvote.update(upvote_params)
+        format.html { redirect_to @upvote, notice: 'Upvote was successfully updated.' }
+        format.json { render :show, status: :ok, location: @upvote }
+      else
+        format.html { render :edit }
+        format.json { render json: @upvote.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   def destroy
     @upvote.destroy
     respond_to do |format|
+      format.js {}
       format.html { redirect_to upvotes_url, notice: 'Upvote was successfully destroyed.' }
       format.json { head :no_content }
     end

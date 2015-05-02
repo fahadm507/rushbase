@@ -10,17 +10,16 @@
           </div>
           <span><%=link_to "#{comment.user.full_name}", user_path(user), class: "row" %></span>
           </div>
-          <%if comment.user == current_user %>
-            <div class="col-md-2 pull-right comment-actions">
-              <%=link_to "", edit_user_post_post_comment_path(post.id, comment.id),remote: true, class: "fa fa-pencil fa-fw", title: "delete comment" %>
+          <% if comment.user == current_user %>
+            <div class="col-md-2 col-sm-6 col-xs-12 text-center comment-actions">
+              <%=link_to "", edit_user_post_post_comment_path(comment.user_post, comment),remote: true, class: "fa fa-pencil fa-fw", title: "delete comment" %>
               <%=link_to "", user_post_post_comment_path(comment.user_post, comment.id), remote: true,  method: :delete, data: {confirm: "Are you sure you want delete this comment?"}, class: "fa fa-trash error alert", title: "delete comment" %>
             </div>
           <%end%>
           <div class="col-md-12 pull-left">
-           <div class="description row"><%=comment.body%></div>
-           <div class="row time"><%=comment.created_at.strftime("%B %d, %Y, %I:%M %p ") %></div>
+             <div class="description row"><%=comment.body%></div>
+             <div class="row time"><%=comment.created_at.strftime("%B %d, %Y, %I:%M %p ") %></div>
           </div>
-
         </div>
         <hr>
       </li>

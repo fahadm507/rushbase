@@ -1,0 +1,3 @@
+<span id="upvote-btn-<%=post.id%>">
+  <%=link_to "", user_post_upvote_path(post, upvote),remote: true, method: :delete, class: "glyphicon glyphicon-thumbs-up" %>
+</span>
