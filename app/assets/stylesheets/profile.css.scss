@@ -274,98 +274,38 @@ aside h3 {
   }
 }
 
+.user-profile-info {
+  background-color:#fff;
+  border:1px solid #dddddd;
+  padding:10px;
+  margin:5px;
+  .tabpanel {margin-top:5px;}
 
+  .form-control {
+    max-width:100%;
+  }
 
-/*  user's stuff tab */
-div.mystuff-tab-container{
-  z-index: 10;
-  background-color: #ffffff;
-  padding: 0 !important;
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  margin-top: 20px;
-  margin-left: 50px;
-  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
-  box-shadow: 0 6px 12px rgba(0,0,0,.175);
-  -moz-box-shadow: 0 6px 12px rgba(0,0,0,.175);
-  background-clip: padding-box;
-  opacity: 0.97;
-  filter: alpha(opacity=97);
-}
-div.mystuff-tab-menu{
-  padding-right: 0;
-  padding-left: 0;
-  padding-bottom: 0;
-}
-div.mystuff-tab-menu div.list-group{
-  margin-bottom: 0;
-}
-div.mystuff-tab-menu div.list-group>a{
-  margin-bottom: 0;
-}
-div.mystuff-tab-menu div.list-group>a .glyphicon,
-div.mystuff-tab-menu div.list-group>a .fa {
-  color: #2dbe60;
-}
-div.mystuff-tab-menu div.list-group>a:first-child{
-  border-top-right-radius: 0;
-  -moz-border-top-right-radius: 0;
-}
-div.mystuff-tab-menu div.list-group>a:last-child{
-  border-bottom-right-radius: 0;
-  -moz-border-bottom-right-radius: 0;
-}
-div.mystuff-tab-menu div.list-group>a.active,
-div.mystuff-tab-menu div.list-group>a.active .glyphicon,
-div.mystuff-tab-menu div.list-group>a.active .fa {
-  background-color: #2dbe60;
-  background-image: #ffffff;
-  color: #ffffff;
+  .info-wrapper {
+    border:1px solid #dddddd;
+  }
+
+  .current-course {
+    //border:1px solid #dddfff;
+    padding:10px;
+  }
+
+  .item-heading {
+    border:1px solid black;
+  }
 }
 
-.list-group-item.active,
-.list-group-item.active:hover,
-.list-group-item.active:focus {
-  z-index: 2;
-  color: white;
-  background-color: #fff;
-  border-color: #dddddd ;
-
-
+.user-suggestions {
+  margin-left:30px;
 }
 
-div.mystuff-tab-menu div.list-group-item.active,
-div.mystuff-tab-menu div.list-group-item.active:hover,
-div.mystuff-tab-menu div.list-group-item.active:focus {
-  z-index: 2;
-  color: white;
-  background-color: #fff;
-  background-image: #fff;
-  border-color:#dddddd ;
-}
-div.mystuff-tab-menu div.list-group>a.active:after{
-  content: '';
-  position: absolute;
-  left: 100%;
-  top: 50%;
-  margin-top: -13px;
-  border-left: 0;
-  border-bottom: 13px solid transparent;
-  border-top: 13px solid transparent;
-  border-left: 10px solid #2dbe60;
-}
 
-div.mystuff-tab-content{
-  /* border: 1px solid #eeeeee; */
-  padding-left: 5px;
-  padding-top: 5px;
 
-  p { padding:5px;}
-}
 
-div.mystuff-tab div.mystuff-tab-content:not(.active){
-  display: none;
-}
 
 
 

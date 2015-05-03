@@ -32,4 +32,13 @@ $(document).ready(function(){
     $(targetComments).toggle();
   });
 
+  //adding courses on the user profile
+
+  $(".add-current-course").click(function(){
+    $(".new-current-course-form").toggle();
+  });
+
+
+
+
 });

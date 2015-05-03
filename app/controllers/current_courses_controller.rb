@@ -8,7 +8,6 @@ class CurrentCoursesController < ApplicationController
     render json: @current_courses
   end
 
-
   def show
   end
 
@@ -25,16 +24,16 @@ class CurrentCoursesController < ApplicationController
     respond_to do |format|
       if @current_course.save
         format.html { redirect_to @current_course, notice: 'Current course was successfully created.' }
+        format.js {}
         format.json { render :@current_course, status: :created, location: @current_course }
       else
         format.html { render :new }
+        format.js {}
         format.json { render json: @current_course.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /current_courses/1
-  # PATCH/PUT /current_courses/1.json
   def update
     respond_to do |format|
       if @current_course.update(current_course_params)
@@ -47,13 +46,18 @@ class CurrentCoursesController < ApplicationController
     end
   end
 
-  # DELETE /current_courses/1
-  # DELETE /current_courses/1.json
   def destroy
-    @current_course.destroy
+    @current_course = CurrentCourse.find(params[:id])
     respond_to do |format|
-      format.html { redirect_to current_courses_url, notice: 'Current course was successfully destroyed.' }
-      format.json { head :no_content }
+      if @current_course.destroy
+        format.html { redirect_to current_courses_url, notice: 'Current course was successfully destroyed.' }
+        format.js {}
+        format.json { render json: @current_course }
+      else
+        format.html { redirect_to current_courses_url, notice: 'Current course was successfully destroyed.' }
+        format.js {}
+        format.json { render json: @current_course }
+      end
     end
   end
 

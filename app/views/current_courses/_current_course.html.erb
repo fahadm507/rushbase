@@ -1,0 +1,8 @@
+<li id="course-id-<%=course.id%>" class="current" data-course-id="<%= course.id %>"><%= course.name %> at
+  <span><%= course.organization %></span>
+  <span class="actions" id="course-actions-<%= course.id %>">
+    <%=link_to([@user, course], remote: true, method: :delete) do %>
+      <i class="fa fa-times"></i>
+    <%end%>
+  </span>
+</li>
