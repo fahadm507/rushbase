@@ -43,7 +43,6 @@ $(document).ready(function(){
 
   });
   //adding take courses
-
   $(".add-taken-course").click(function(){
     var userId =  $(this).attr("data-user");
     var targetForm = ("#taken-course-form-"+ userId)
@@ -51,8 +50,17 @@ $(document).ready(function(){
     $("#hide-taken-course-form").click(function(){
       $(targetForm).hide();
     });
-
   });
+  //Adding future courses
+  $(".add-future-course").click(function(){
+    var userId =  $(this).attr("data-user");
+    var targetForm = ("#future-course-form-"+ userId)
+    $(targetForm).toggle();
+    $("#hide-future-course-form").click(function(){
+      $(targetForm).hide();
+    });
+  });
+
 
 
 

@@ -1,0 +1,43 @@
+<div class="row current-course item">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-md-6 col-sm-9 col-xs-12">
+          <h5>Future courses</h5>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12 pull-right">
+          <%if @user == current_user %>
+            <a class="add-future-course btn btn-success icon-plus-sign" data-user="<%= current_user.id %>">Add a course</a>
+          <%end%>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <ul class="future-courses-list col-md-8" id="future-courses-list-<%=@user.id%>">
+        <% @user.future_courses.each do |course|%>
+          <li id="future-course-id-<%=course.id%>" class="current course-item" data-course-id="<%= course.id %>"><%= course.name %> at
+            <span><%= course.organization %></span>
+            <span class="actions" id="future-course-actions-<%= course.id %>">
+              <%if current_user == course.user %>
+                <%=link_to([current_user, course], remote: true, method: :delete, data: { comfirm: "are you sure you want to delete this course"}) do %>
+                  <span title="remove course"class="fa fa-times remove-item tex-center"></span>
+                <%end%>
+              <%end%>
+            </span>
+          </li>
+        <%end%>
+      </ul>
+      <div class="col-md-4">
+        <div class="new-future-course-form" id="future-course-form-<%=@user.id %>" style="display:none;" data-user-id="<%= @user.id %>">
+          <%= bootstrap_form_for([current_user, FutureCourse.new], remote: true) do |f| %>
+          <%= f.text_field :name, required: true %>
+          <%= f.text_field :organization, required: true%>
+          <%= f.submit "Save" %>
+          <span><a href="" class="btn btn-primary" id="hide-future-course-form">Cancel</a> </span>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

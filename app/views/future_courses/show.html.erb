@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @future_course.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @future_course.user_id %>
+</p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @future_course.organization %>
+</p>
+
+<%= link_to 'Edit', edit_future_course_path(@future_course) %> |
+<%= link_to 'Back', future_courses_path %>

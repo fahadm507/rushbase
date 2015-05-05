@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   has_many   :user_teams, through: :team_members
   has_many   :course_posts
   has_many   :course_comments
+  has_many   :future_courses
   has_many   :user_posts
   has_many   :taken_courses
   has_many   :upvotes
