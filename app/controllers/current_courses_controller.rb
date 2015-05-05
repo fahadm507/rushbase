@@ -1,5 +1,6 @@
 class CurrentCoursesController < ApplicationController
   skip_before_filter :verify_authenticity_token
+  before_action :authenticate_user!
   respond_to :json, :html
   # GET /current_courses
   # GET /current_courses.json

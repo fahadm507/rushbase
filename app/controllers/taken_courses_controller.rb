@@ -1,5 +1,5 @@
 class TakenCoursesController < ApplicationController
-  before_action :set_taken_course, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
   skip_before_filter :verify_authenticity_token
   respond_to :json, :html
   def index
@@ -14,13 +14,15 @@ class TakenCoursesController < ApplicationController
 
   def create
     @taken_course = TakenCourse.new(taken_course_params)
-
+    @taken_course.user_id = current_user.id
     respond_to do |format|
       if @taken_course.save
         format.html { redirect_to @taken_course, notice: 'Taken course was successfully created.' }
+        format.js {}
         format.json { render @take_course, status: :created, location: @taken_course }
       else
         format.html { render :new }
+        format.js {}
         format.json { render json: @taken_course.errors, status: :unprocessable_entity }
       end
     end
@@ -39,21 +41,17 @@ class TakenCoursesController < ApplicationController
   end
 
   def destroy
+    @taken_course = TakenCourse.find(params[:id])
     @taken_course.destroy
     respond_to do |format|
       format.html { redirect_to taken_courses_url, notice: 'Taken course was successfully destroyed.' }
+      format.js {}
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_taken_course
-      @taken_course = TakenCourse.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
     def taken_course_params
-      params[:taken_course]
+      params.require(:taken_course).permit(:name, :organization)
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503223201) do
+ActiveRecord::Schema.define(version: 20150505033838) do
 
   create_table "course_comments", force: true do |t|
     t.string   "description", null: false
@@ -125,6 +125,11 @@ ActiveRecord::Schema.define(version: 20150503223201) do
     t.string  "organization"
     t.integer "user_id"
   end
+
+  add_index "taken_courses", ["name"], name: "index_taken_courses_on_name"
+  add_index "taken_courses", ["organization"], name: "index_taken_courses_on_organization"
+  add_index "taken_courses", ["user_id", "name", "organization"], name: "index_taken_courses_on_user_id_and_name_and_organization", unique: true
+  add_index "taken_courses", ["user_id"], name: "index_taken_courses_on_user_id"
 
   create_table "team_members", force: true do |t|
     t.integer "user_id"

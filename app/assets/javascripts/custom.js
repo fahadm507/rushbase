@@ -32,12 +32,27 @@ $(document).ready(function(){
     $(targetComments).toggle();
   });
 
-  //adding courses on the user profile
-
+  //adding current courses on the user profile
   $(".add-current-course").click(function(){
-    $(".new-current-course-form").toggle();
-  });
+    var userId =  $(this).attr("data-user");
+    var targetForm = ("#new-current-course-form-"+ userId)
+    $(targetForm).toggle();
+    $("#hide-current-course-form").click(function(){
+      $(targetForm).hide();
+    });
 
+  });
+  //adding take courses
+
+  $(".add-taken-course").click(function(){
+    var userId =  $(this).attr("data-user");
+    var targetForm = ("#taken-course-form-"+ userId)
+    $(targetForm).toggle();
+    $("#hide-taken-course-form").click(function(){
+      $(targetForm).hide();
+    });
+
+  });
 
 
 

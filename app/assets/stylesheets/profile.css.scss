@@ -303,6 +303,17 @@ aside h3 {
   margin-left:30px;
 }
 
+.course-item {
+
+  .remove-item {
+    display: none;
+  }
+
+  &:hover {
+    .remove-item{ display:inline;}
+  }
+}
+
 
 
 

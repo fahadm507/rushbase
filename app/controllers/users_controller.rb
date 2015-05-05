@@ -24,12 +24,12 @@ class UsersController < ApplicationController
   def following
     @user = User.find(params[:id])
     following_users = @user.following_by_type("User")
-    @following = User.reject_user(following_users, current_user)
+    @following = User.reject_user(following_users, current_user) || following_users
   end
 
   def followers
     @user = User.find(params[:id])
     followers = @user.followers_by_type("User")
-    @followers = User.reject_user(followers, current_user)
+    @followers = User.reject_user(followers, current_user) || followers
   end
 end

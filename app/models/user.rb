@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   end
 
   def self.reject_user(users, user)
-    users.reject { |u| u.id == user.id }
+    users.reject { |u| u.id == user.id } if user
   end
 
   def upvoted_post?(user, post)

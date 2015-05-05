@@ -28,50 +28,14 @@
       <div role="tabpanel">
       <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#education" aria-controls="education" role="tab" data-toggle="tab">Education</a></li>
+          <li role="presentation" class="active"><a href="#education" aria-controls="education" role="tab" data-toggle="tab">Courses</a></li>
           <li role="presentation"><a href="#professional" aria-controls="profile" role="tab" data-toggle="tab">Professional</a></li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="education">
-            <div class="row current-course item">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <div class="row">
-                    <div class="col-md-6 col-sm-9 col-xs-12">
-                      <h5>Current courses</h5>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 pull-right">
-                      <a class="add-current-course btn btn-success icon-plus-sign">Add a course</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="panel-body">
-                  <ul class="course-list col-md-8" id="current-courses-list-<%=@user.id%>">
-                    <% @user.current_courses.each do |course|%>
-                      <li id="course-id-<%=course.id%>" class="current" data-course-id="<%= course.id %>"><%= course.name %> at
-                        <span><%= course.organization %></span>
-                        <span class="actions" id="course-actions-<%= course.id %>">
-                          <%=link_to([@user, course], remote: true, method: :delete, data: { comfirm: "are you sure you want to delete this course"}) do %>
-                            <i class="fa fa-times"></i>
-                          <%end%>
-                        </span>
-                      </li>
-                    <%end%>
-                  </ul>
-                  <div id="current-course" class="col-md-4">
-                    <div class="new-current-course-form" id="current-course-form-<%=@user.id%>" style="display:block;" data-user-id="<%= @user.id %>">
-                      <%= bootstrap_form_for([@user, CurrentCourse.new], remote: true) do |f| %>
-                      <%= f.text_field :name, required: true %>
-                      <%= f.text_field :organization, required: true%>
-                      <%= f.submit "Save" %>
-                      <% end %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+            <%=render partial: "current_courses/view"%>
+            <%=render partial: "taken_courses/view"%>
           </div><!-- tab panel ends here-->
           <div role="tabpanel" class="tab-pane active" id="professional">
 
@@ -82,10 +46,7 @@
     <div class="col-md-3 col-sm-12 col-xs-12 text-center">
       <div class="user-suggestions">
         <p>Suggestions</p>
-        <pre>fjsklfjls
-        ijsjfklsjdf
-        lsifjlsj
-        dfijslfkj</pre>
+
       </div>
     </div>
   </div>

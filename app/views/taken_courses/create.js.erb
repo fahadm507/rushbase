@@ -1,0 +1,5 @@
+var target = $("ul#taken-courses-list-<%=@taken_course.user.id%>")
+target.prepend("<%= j(render partial: 'taken_courses/taken_course',
+  locals: {
+    course: @taken_course
+  })%>");
