@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150505040714) do
+ActiveRecord::Schema.define(version: 20150506021707) do
 
   create_table "course_comments", force: true do |t|
     t.string   "description", null: false
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 20150505040714) do
     t.string  "organization"
     t.text    "key_courses"
     t.integer "user_id"
+    t.integer "year"
+    t.boolean "graduated"
   end
 
   create_table "favorites", force: true do |t|
@@ -79,11 +81,16 @@ ActiveRecord::Schema.define(version: 20150505040714) do
 
   create_table "future_courses", force: true do |t|
     t.string   "name",         null: false
+    t.string   "organization"
     t.integer  "user_id",      null: false
-    t.integer  "organization"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "future_courses", ["name"], name: "index_future_courses_on_name"
+  add_index "future_courses", ["organization"], name: "index_future_courses_on_organization"
+  add_index "future_courses", ["user_id", "name", "organization"], name: "index_future_courses_on_user_id_and_name_and_organization", unique: true
+  add_index "future_courses", ["user_id"], name: "index_future_courses_on_user_id"
 
   create_table "industries", force: true do |t|
     t.string   "name"

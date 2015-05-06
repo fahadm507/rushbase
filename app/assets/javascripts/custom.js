@@ -61,6 +61,15 @@ $(document).ready(function(){
     });
   });
 
+  $(".add-education").click(function(){
+    var userId =  $(this).attr("data-user");
+    var targetForm = ("#education-form-"+ userId)
+    $(targetForm).toggle();
+    $("#hide-education-form").click(function(){
+      $(targetForm).hide();
+    });
+  });
+
 
 
 

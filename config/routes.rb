@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       resources :taken_courses
       resources :current_courses
       resources :future_courses
-      resources :education
+      resources :educations
     end
 
     resources :follows, only: [:create, :destroy]

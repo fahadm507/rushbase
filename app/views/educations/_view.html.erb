@@ -1,0 +1,45 @@
+<div class="row current-education item">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-md-6 col-sm-9 col-xs-12">
+          <h5>Education</h5>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12 pull-right">
+          <%if @user == current_user %>
+            <a class="add-education btn btn-success icon-plus-sign" data-user="<%= current_user.id %>">Add a education</a>
+          <%end%>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <ul class="educations-list col-md-8" id="education-list-<%=@user.id%>">
+        <% @user.educations.each do |education|%>
+          <li id="education-id-<%=education.id%>" class="current education-item" data-education-id="<%= education.id %>"><%= education.degree %> at
+            <span><%= education.organization %></span>
+            <span class="actions" id="education-actions-<%= education.id %>">
+              <%if current_user == education.user %>
+                <%=link_to([current_user, education], remote: true, method: :delete, data: { comfirm: "are you sure you want to delete this education"}) do %>
+                  <span title="remove education"class="fa fa-times remove-item tex-center"></span>
+                <%end%>
+              <%end%>
+            </span>
+          </li>
+        <%end%>
+      </ul>
+      <div class="col-md-4">
+        <div class="new-education-form" id="education-form-<%=@user.id %>" style="display:none;" data-user-id="<%= @user.id %>">
+          <%= bootstrap_form_for([current_user, Education.new], remote: true) do |f| %>
+          <%= f.text_field :degree, label: "program/degree/certificate" %>
+          <%= f.text_field :organization, label: "school/organization", required: true%>
+          <%= f.text_field :year, label: "From year -  To year" %>
+          <%= f.check_box :graduated, label: "graduated? "%>
+          <%= f.submit "Save" %>
+          <span><a href="" class="btn btn-primary" id="hide-education-form">Cancel</a> </span>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
