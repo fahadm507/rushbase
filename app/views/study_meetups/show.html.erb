@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="study-meetup-header row">
+    <h1 class="text-center"><%= @study_meetup.name %></h1>
+  </div>
+</div>
+
+<div class="container">
+
+</div>
+
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @study_meetup.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @study_meetup.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @study_meetup.user_id %>
+</p>
+
+<p>
+  <strong>Goal:</strong>
+  <%= @study_meetup.goal %>
+</p>
+
+<%= link_to 'Edit', edit_study_meetup_path(@study_meetup) %> |
+<%= link_to 'Back', study_meetups_path %>

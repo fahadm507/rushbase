@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :future_courses
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
@@ -19,7 +18,7 @@ Rails.application.routes.draw do
       resources :future_courses
       resources :educations
     end
-
+    resources :study_meetups
     resources :follows, only: [:create, :destroy]
 
     resources :organizations do

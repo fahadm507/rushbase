@@ -1,0 +1,36 @@
+<h1 class="text-center">Listing study meetups</h1>
+<hr>
+
+<div class="container">
+  <div class ="study-meetups-wrapper row">
+    <div class="col-md-2 study-meetup-search">
+      <h>Search</head>
+    </div>
+
+    <div class="study-meetups-section col-md-10">
+      <div class="row all-study-meetups">
+      <% @study_meetups.each do |meetup| %>
+        <div id="meetup-card-<%=  %>" class="meetup-card col-md-3">
+          <div class="card-top">
+            <h4> <%= meetup.name %> </h4>
+          </div>
+          <div class="card-bottom text-center">
+            <div class="actions meetup-members">
+              <a href="/study_meetups/<%=meetup.id%>" class="members">
+              <%= meetup.users.count %> Members</a>
+            </div>
+            <div class="actions">
+              <span><a href="" class="btn btn-primary"> Join</a></span>
+              <span><a href="" class="btn btn-primary"> view </a></span>
+            </div>
+
+          </div>
+        </div>
+      <% end %>
+      </div><!-- study meetups section ends here -->
+    </div>
+  </div>
+</div>
+
+
+<%= link_to 'New Study meetup', new_study_meetup_path %>

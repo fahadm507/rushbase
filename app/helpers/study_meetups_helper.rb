@@ -1,0 +1,2 @@
+module StudyMeetupsHelper
+end

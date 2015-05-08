@@ -6,13 +6,12 @@ class EducationsController < ApplicationController
   end
 
   def show
-    @education = Education.find()
+    @education = Education.find(params[:id])
   end
 
   def new
     @education = Education.new
   end
-
 
   def edit
     @education = Education.find(params[:id])
@@ -36,6 +35,7 @@ class EducationsController < ApplicationController
   end
 
   def update
+    @education = Education.find(params[:id])
     respond_to do |format|
       if @education.update(education_params)
         format.html { redirect_to @education, notice: 'Education was successfully updated.' }
@@ -60,9 +60,6 @@ class EducationsController < ApplicationController
   end
 
   private
-    def set_education
-      @education = Education.find(params[:id])
-    end
 
     def education_params
       params.require(:education).permit(:degree, :organization,:key_courses, :year, :graduated)

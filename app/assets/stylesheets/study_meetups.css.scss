@@ -1,0 +1,84 @@
+.new-meetup-form {
+  margin:20px;
+}
+
+.new-meetup {
+  margin-top:30px;
+  .actions-links {
+    padding:10px;
+    margin-left:10px;
+  }
+}
+
+.all-study-meetups {
+
+  .meetup-card {
+    border-radius: 7px;
+    min-width: 250px;
+    margin: 5px ;
+    min-height: 200px;
+  }
+
+}
+
+.study-meetups-section {
+  border:1px solid black;
+  background: #dddddd;
+  padding-left:15px;
+}
+
+.meetup-card {
+  .card-top {
+    width:100%;
+    background:#efefef;
+    background-position: cover;
+    min-height:100px;
+    margin-right: 0px;
+
+    h4 { padding: 15px 15px; }
+  }
+
+
+
+  .card-bottom {
+    width:100%;
+    min-height: 100px;
+    background-color: #fff;
+    background-position: cover;
+    padding-bottom:5px;
+
+    .actions {
+      padding-top:5px;
+    }
+  }
+
+}
+
+.study-meetup-header {
+  height:270px;
+  background: #aaaaaa;
+  background-position: cover;
+  position: relative;
+  h1{
+
+    font-family: Raleway, sans-serif;
+  letter-spacing: -1px;
+  line-height: 46px;
+  font-size: 50px;
+  font-weight: 400px;
+  color: #fff;
+  margin-top: 0px;
+  padding: 20p
+
+  }
+}
+
+
+
+
+
+
+
+
+
+

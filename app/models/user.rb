@@ -18,14 +18,16 @@ class User < ActiveRecord::Base
 
   has_many   :organizations
   has_many   :team_members
+  has_many   :study_meetups, through: :study_meetup_members
   has_many   :user_teams, through: :team_members
   has_many   :course_posts
   has_many   :course_comments
   has_many   :future_courses
   has_many   :user_posts
+  has_many   :study_meetups
   has_many   :taken_courses
   has_many   :upvotes
-  has_many    :educations
+  has_many   :educations
   has_many   :post_comments
   has_many   :current_courses
   has_many   :resources

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150506021707) do
+ActiveRecord::Schema.define(version: 20150507042652) do
 
   create_table "course_comments", force: true do |t|
     t.string   "description", null: false
@@ -133,6 +133,22 @@ ActiveRecord::Schema.define(version: 20150506021707) do
     t.string  "name"
     t.string  "organization"
     t.integer "user_id"
+  end
+
+  create_table "study_meetup_members", force: true do |t|
+    t.integer  "user_id",         null: false
+    t.integer  "study_meetup_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "study_meetups", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.text     "goal"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "taken_courses", force: true do |t|
