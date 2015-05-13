@@ -1,6 +1,6 @@
 class CreateStudyMeetups < ActiveRecord::Migration
   def change
-    create_table :study_meetups do |t|
+    create_table :meetups do |t|
       t.string :name
       t.text :description
       t.integer :user_id

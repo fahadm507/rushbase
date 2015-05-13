@@ -1,0 +1,5 @@
+<% if MeetupMember.member?(current_user, meetup)%>
+  <%= render partial: 'meetup_members/destroy_form'%>
+<% else %>
+  <%= render partial: 'meetup_members/create_form'%>
+<%end%>

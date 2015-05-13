@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507042652) do
+ActiveRecord::Schema.define(version: 20150513045823) do
+
+  create_table "comments", force: true do |t|
+    t.text     "description",    null: false
+    t.integer  "meetup_post_id", null: false
+    t.integer  "user_id",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "course_comments", force: true do |t|
     t.string   "description", null: false
@@ -113,6 +121,43 @@ ActiveRecord::Schema.define(version: 20150507042652) do
     t.datetime "updated_at"
   end
 
+  create_table "meetup_members", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "meetup_id",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "meetup_members", ["meetup_id"], name: "index_meetup_members_on_meetup_id"
+  add_index "meetup_members", ["user_id", "meetup_id"], name: "index_meetup_members_on_user_id_and_meetup_id", unique: true
+  add_index "meetup_members", ["user_id"], name: "index_meetup_members_on_user_id"
+
+  create_table "meetup_post_comments", force: true do |t|
+    t.text     "description",    null: false
+    t.integer  "meetup_post_id", null: false
+    t.integer  "user_id",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "meetup_posts", force: true do |t|
+    t.string   "title"
+    t.text     "description", null: false
+    t.integer  "meetup_id",   null: false
+    t.integer  "user_id",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "meetups", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.text     "goal"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "organizations", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -133,22 +178,6 @@ ActiveRecord::Schema.define(version: 20150507042652) do
     t.string  "name"
     t.string  "organization"
     t.integer "user_id"
-  end
-
-  create_table "study_meetup_members", force: true do |t|
-    t.integer  "user_id",         null: false
-    t.integer  "study_meetup_id", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "study_meetups", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "user_id"
-    t.text     "goal"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "taken_courses", force: true do |t|

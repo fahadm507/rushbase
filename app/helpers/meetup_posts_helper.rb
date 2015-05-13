@@ -1,0 +1,2 @@
+module MeetupPostsHelper
+end

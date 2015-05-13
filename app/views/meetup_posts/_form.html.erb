@@ -1,0 +1,26 @@
+<div class="">
+  <%= bootstrap_form_for([meetup, @new_post]) do |f| %>
+    <% if @new_post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@new_post.errors.count, "error") %> prohibited this new_post from being saved:</h2>
+
+        <ul>
+        <% @new_post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "post" %>
+    </div>
+  <% end %>
+</div>

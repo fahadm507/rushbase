@@ -1,9 +1,9 @@
 class CreateComments < ActiveRecord::Migration
   def change
-    create_table :course_comments do |t|
-      t.string :description, null: false
+    create_table :comments do |t|
+      t.text :description, null: false
+      t.integer :meetup_post_id, null: false
       t.integer :user_id, null: false
-      t.integer :user_post_id, null: false
 
       t.timestamps
     end

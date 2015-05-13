@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :comments
+
+  resources :meetup_posts
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -18,7 +22,13 @@ Rails.application.routes.draw do
       resources :future_courses
       resources :educations
     end
-    resources :study_meetups
+    resources :meetups do
+      resources :meetup_members
+      resources :meetup_posts do
+        resources :comments, shallow: true
+      end
+    end
+
     resources :follows, only: [:create, :destroy]
 
     resources :organizations do

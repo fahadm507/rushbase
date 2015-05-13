@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="study-meetup-header row">
+    <div class="meetup-banner-wrapper col-md-12 col-sm-12 col-xs-12 text-center">
+      <div class=" meetup-banner">
+        <h1 class="meetup-headline"><%= @meetup.name %></h1>
+        <br>
+        <div class="meetup-join" id="meetup-join-<%= @meetup.id %>">
+          <%= render partial: 'meetup_members/form', locals: {meetup: @meetup}%>
+        </div>
+      </div>
+      <div class="meetup-actions">
+          <%= render partial: 'users/user_profile_footer', locals: { user: current_user } %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row meetup-content">
+
+    <span id="explore" style="display:none;" >
+    <%= render partial: 'meetup_posts/form', locals: {meetup: @meetup} %>
+    </span>
+    <div class="col-md-8 content-section">
+      <h4>content</h4>
+      <%= render partial: 'meetup_posts/meetup_posts', locals: {meetup: @meetup}%>
+    </div>
+
+  <div class="col-md-4 side-bar text-center">
+      <div class="side-bar-content">
+        <p>Meet other users</p>
+
+      </div>
+    </div>
+   </div>
+
+</div>
+

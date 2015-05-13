@@ -9,14 +9,14 @@
 
     <div class="study-meetups-section col-md-10">
       <div class="row all-study-meetups">
-      <% @study_meetups.each do |meetup| %>
+      <% @meetups.each do |meetup| %>
         <div id="meetup-card-<%=  %>" class="meetup-card col-md-3">
           <div class="card-top">
             <h4> <%= meetup.name %> </h4>
           </div>
           <div class="card-bottom text-center">
             <div class="actions meetup-members">
-              <a href="/study_meetups/<%=meetup.id%>" class="members">
+              <a href="/meetups/<%=meetup.id%>" class="members">
               <%= meetup.users.count %> Members</a>
             </div>
             <div class="actions">
@@ -33,4 +33,4 @@
 </div>
 
 
-<%= link_to 'New Study meetup', new_study_meetup_path %>
+<%= link_to 'New Study meetup', new_meetup_path %>

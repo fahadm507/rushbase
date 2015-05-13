@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @meetup_post.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @meetup_post.description %>
+</p>
+
+<p>
+  <strong>Meetup:</strong>
+  <%= @meetup_post.meetup_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @meetup_post.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_meetup_post_path(@meetup_post) %> |
+<%= link_to 'Back', meetup_posts_path %>
