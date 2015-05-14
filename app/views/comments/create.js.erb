@@ -1,0 +1,13 @@
+
+var target = $(".comments-details ul#comment-for-post-<%= @comment.meetup_post.id %>")
+target.prepend("<%= j(render partial: 'comments/comment',
+  locals: {
+    user: @comment.user,
+    post: @comment.meetup_post,
+    comment: @comment
+  })%>");
+  //increment comments on the current post
+  var postTarget = $("#count-comments-<%= @comment.meetup_post.id %>")
+  postTarget.html("<%= j(render partial: 'comments/count_comments',
+    locals: {post: @comment.meetup_post})%>");
+

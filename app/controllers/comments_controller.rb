@@ -1,47 +1,70 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
-
-  respond_to :html
-
-  def index
-    @comments = Comment.all
-    respond_with(@comments)
-  end
-
-  def show
-    respond_with(@comment)
-  end
-
-  def new
-    @comment = Comment.new
-    respond_with(@comment)
-  end
-
-  def edit
-  end
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.save
-    respond_with(@comment)
+    @comment.meetup_post_id = params[:meetup_post_id]
+    @comment.user_id = current_user.id
+
+    respond_to do |format|
+      if @comment.save
+        format.html {}
+        format.js {}
+        format.json { render json: @comment }
+      else
+        format.js {}
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.js {}
+      end
+    end
+  end
+
+  def show
+    @comment = Comment.find(params[:id])
+    respond_to do |format|
+      format.json { render json: @comment, location:  user_comment_url(@comment.user_meetup_post, @comment) }
+    end
+  end
+
+  def edit
+    @comment = Comment.find(params[:id])
+    respond_to do |format|
+      format.json { render json: @comment, location:  user_comment_url(@comment.user_meetup_post, @comment) }
+      format.js {}
+      format.html {}
+    end
   end
 
   def update
-    @comment.update(comment_params)
-    respond_with(@comment)
+    @comment = Comment.find(params[:id])
+
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.js {}
+        format.json { render json: @comment, status: :ok, location:  @comment }
+      else
+        format.js {}
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
-    @comment.destroy
-    respond_with(@comment)
+    @comment = Comment.find(params[:id])
+
+    respond_to do |format|
+      if @comment.destroy
+        format.json { render json: @comment }
+        format.js {}
+      else
+        format.json { render json: @comment.errors }
+        format.js{}
+      end
+    end
   end
 
   private
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
-
     def comment_params
-      params.require(:comment).permit(:description, :meetup_post_id, :user_id)
+      params.require(:comment).permit(:description)
     end
 end

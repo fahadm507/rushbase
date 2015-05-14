@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :meetups do
       resources :meetup_members
       resources :meetup_posts do
+        resources :upvotes
         resources :comments, shallow: true
       end
     end
