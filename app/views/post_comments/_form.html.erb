@@ -1,24 +1,24 @@
 
 <div class="row edit form">
-    <div class="post-header panel-heading row">
-      <%= bootstrap_form_for([user_post, @post_comment], remote: true) do |f| %>
-        <% if @post_comment.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@post_comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  <div class="post-header panel-heading row">
+    <%= bootstrap_form_for([user_post, @post_comment], remote: true) do |f| %>
+      <% if @post_comment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@post_comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-            <ul>
-            <% @post_comment.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-      <%= f.text_area :body, label: { text: "Edit description"}, class: "post-body panel-body", contenteditable: true %>
-        <div class="actions">
-          <%= f.submit "Done", class: "btn btn-success" %>
+          <ul>
+          <% @post_comment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
         </div>
       <% end %>
-    </div>
+
+    <%= f.text_area :body, label: { text: "Edit description"}, class: "post-body panel-body", contenteditable: true %>
+      <div class="actions">
+        <%= f.submit "Done", class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
 </div>
 <hr>
