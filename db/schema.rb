@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150514015103) do
+ActiveRecord::Schema.define(version: 20150515014247) do
 
   create_table "comments", force: true do |t|
     t.text     "description",    null: false
@@ -140,6 +140,17 @@ ActiveRecord::Schema.define(version: 20150514015103) do
     t.datetime "updated_at"
   end
 
+  create_table "meetup_post_votes", force: true do |t|
+    t.integer  "user_id",        null: false
+    t.integer  "meetup_post_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "meetup_post_votes", ["meetup_post_id", "user_id"], name: "index_meetup_post_votes_on_meetup_post_id_and_user_id", unique: true
+  add_index "meetup_post_votes", ["meetup_post_id"], name: "index_meetup_post_votes_on_meetup_post_id"
+  add_index "meetup_post_votes", ["user_id"], name: "index_meetup_post_votes_on_user_id"
+
   create_table "meetup_posts", force: true do |t|
     t.string   "title"
     t.text     "description", null: false
@@ -199,17 +210,16 @@ ActiveRecord::Schema.define(version: 20150514015103) do
   create_table "upvotes", force: true do |t|
     t.integer  "count",          default: 0
     t.integer  "user_id",                    null: false
-    t.integer  "user_post_id",               null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "meetup_post_id"
+    t.integer  "user_post_id"
   end
 
   add_index "upvotes", ["meetup_post_id", "user_id"], name: "index_upvotes_on_meetup_post_id_and_user_id"
   add_index "upvotes", ["meetup_post_id"], name: "index_upvotes_on_meetup_post_id"
   add_index "upvotes", ["user_id"], name: "index_upvotes_on_user_id"
-  add_index "upvotes", ["user_post_id", "user_id"], name: "index_upvotes_on_user_post_id_and_user_id", unique: true
-  add_index "upvotes", ["user_post_id"], name: "index_upvotes_on_user_post_id"
+  add_index "upvotes", ["user_id"], name: "index_upvotes_on_user_post_id_and_user_id", unique: true
 
   create_table "user_posts", force: true do |t|
     t.text     "description", null: false

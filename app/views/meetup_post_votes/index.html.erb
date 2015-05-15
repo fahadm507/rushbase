@@ -1,0 +1,27 @@
+<h1>Listing meetup_post_votes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Meetup post</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @meetup_post_votes.each do |meetup_post_vote| %>
+      <tr>
+        <td><%= meetup_post_vote.user_id %></td>
+        <td><%= meetup_post_vote.meetup_post_id %></td>
+        <td><%= link_to 'Show', meetup_post_vote %></td>
+        <td><%= link_to 'Edit', edit_meetup_post_vote_path(meetup_post_vote) %></td>
+        <td><%= link_to 'Destroy', meetup_post_vote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Meetup post vote', new_meetup_post_vote_path %>

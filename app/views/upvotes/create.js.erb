@@ -1,12 +1,14 @@
 
-var targetUpvoteForm = $("#upvote-btn-<%= @upvote.user_post.id %>")
-var upvoteTarget = $("#count-upvotes-<%= @upvote.user_post.id %>")
+  var targetUpvoteForm = $("#upvote-btn-<%= @upvote.user_post.id %>")
+  var upvoteTarget = $("#count-upvotes-<%= @upvote.user_post.id %>")
 
-targetUpvoteForm.html("<%= j(render partial: 'upvotes/remove_vote',
-  locals: {
-    post: @upvote.user_post,
-    upvote: @upvote
-  })%>")
+  targetUpvoteForm.html("<%= j(render partial: 'upvotes/remove_vote',
+    locals: {
+      post: @upvote.user_post,
+      upvote: @upvote
+    })%>")
 
-upvoteTarget.html("<%= j(render partial: 'upvotes/count_upvotes',
-  locals: {post: @upvote.user_post})%>");
+  upvoteTarget.html("<%= j(render partial: 'upvotes/count_upvotes',
+    locals: {post: @upvote.user_post})%>");
+
+

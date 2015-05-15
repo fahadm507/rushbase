@@ -22,7 +22,6 @@ class UpvotesController < ApplicationController
     @upvote = Upvote.new(upvote_params)
     @upvote.user_id = current_user.id
     @upvote.user_post_id = params[:user_post_id]
-    @upvote.count += 1
 
     respond_to do |format|
       if @upvote.save

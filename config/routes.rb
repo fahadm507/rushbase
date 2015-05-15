@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :meetup_post_votes
+
   resources :comments
 
   resources :meetup_posts
@@ -25,7 +27,7 @@ Rails.application.routes.draw do
     resources :meetups do
       resources :meetup_members
       resources :meetup_posts do
-        resources :upvotes
+        resources :meetup_post_votes, only: [:create, :destroy]
         resources :comments, shallow: true
       end
     end

@@ -1,0 +1,12 @@
+
+  var targetUpvoteForm = $("#upvote-btn-<%= @meetup_post_vote.meetup_post.id %>")
+  var upvoteTarget = $("#count-upvotes-<%= @meetup_post_vote.meetup_post.id %>")
+
+  targetUpvoteForm.html("<%= j(render partial: 'meetup_post_votes/remove_meetup_post_vote',
+    locals: {
+      meetup: @meetup_post_vote.meetup_post.meetup,
+      post: @meetup_post_vote.meetup_post
+    })%>")
+
+  upvoteTarget.html("<%= j(render partial: 'meetup_post_votes/count_upvotes',
+    locals: {post: @meetup_post_vote.meetup_post})%>");

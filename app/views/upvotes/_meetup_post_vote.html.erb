@@ -1,0 +1,5 @@
+<span id="upvote-btn-<%=post.id%>">
+  <%=link_to(meetup_meetup_post_upvotes_path(meetup,post.id, Upvote.new),remote: true, method: :post) do %>
+    <i class="glyphicon glyphicon-thumbs-up"></i>
+  <%end%>
+</span>
