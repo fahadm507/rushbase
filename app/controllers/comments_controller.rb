@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :update, :destroy]
+  before_action :meetup_member?, only: [:create, :edit, :update, :destroy]
 
   def create
     @comment = Comment.new(comment_params)

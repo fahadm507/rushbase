@@ -1,11 +1,17 @@
 class MeetupPostsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
+  before_action :meetup_member?, only: [:create, :edit, :update, :destroy]
   respond_to :json
 
   def index
-    @meetup_posts = MeetupPost.all
+    @meetup = Meetup.find(params[:meetup_id])
+    @meetup_posts = @meetup.meetup_posts.all
+    respond_to do |format|
+      format.html{}
+      format.js {}
+      format.json{render json: @meetup_posts}
+    end
 
-    render json: @meetup_posts
   end
 
   def feed

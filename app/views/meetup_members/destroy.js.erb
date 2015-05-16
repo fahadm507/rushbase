@@ -1,5 +1,5 @@
 target = $("#meetup-join-<%=@meetup_member.meetup.id%>")
-target.html("<%= j(render partial: 'meetup_members/destroy_form',
+target.html("<%= j(render partial: 'meetup_members/create_form',
   locals: {
     meetup: @meetup_member.meetup,
     meetup_member: @meetup_member

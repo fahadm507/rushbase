@@ -17,8 +17,10 @@
             </div>
           <%end%>
           <div class="col-md-12 pull-left">
-             <div class="description row"><%=comment.body%></div>
-             <div class="row time"><%=comment.created_at.strftime("%B %d, %Y, %I:%M %p ") %></div>
+            <div class="description row"><%=comment.body%></div>
+            <div class="time">
+              <%= timeago_tag post.created_at, :nojs => true, :limit => 30.days.ago %>
+            </div>
           </div>
         </div>
         <hr>

@@ -37,6 +37,8 @@ gem 'country_select', github: 'stefanpenner/country_select'
 gem 'city-state'
 gem "acts_as_follower"
 gem 'font-awesome-sass', '~> 4.3.0'
+gem 'rails-timeago', '~> 2.0'
+gem 'httparty'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

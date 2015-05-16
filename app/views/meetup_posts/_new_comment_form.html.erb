@@ -2,9 +2,9 @@
   <%= bootstrap_form_for [meetup, meetup_post, Comment.new], remote: true,  html: {class: 'comment-form'} do |f| %>
   <div class="commenting">
     <div class="input-append pull-left col-md-8">
-      <%= f.text_field :description, hide_label: true, size: "",required: true, placeholder: "Add a comment here" %>
+      <%= f.text_area :description, hide_label: true, size: "",required: true, placeholder: "Add a comment here" %>
     </div>
-    <div class="button pull-left">
+    <div ng-init="disabled = true" class="button pull-left" ng-disabled="disabled">
       <%= f.submit "Comment", class: "comment_button btn btn-success", size: '10x10' %>
     </div>
   </div>

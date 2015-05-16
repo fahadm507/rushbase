@@ -1,5 +1,6 @@
-<% if MeetupMember.member?(current_user, meetup)%>
-  <%= render partial: 'meetup_members/destroy_form'%>
+
+<% if current_user && MeetupMember.member?(current_user, meetup)%>
+  <%= render partial: 'meetup_members/destroy_form', locals: {meetup: meetup}%>
 <% else %>
-  <%= render partial: 'meetup_members/create_form'%>
+  <%= render partial: 'meetup_members/create_form', locals: {meetup: meetup}%>
 <%end%>

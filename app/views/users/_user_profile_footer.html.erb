@@ -3,21 +3,18 @@
     <div class="user-stats col-sm-6">
       <div class="col-md-3 col-sm-3 stat">
         <%= @meetup.meetup_members.count %>
-        <div>members</div>
+        <div>Members</div>
       </div>
       <div class="col-md-3 col-sm-3 col-xs-12 stat">
-        <%= link_to user.following_users.count, following_user_path(user) %>
-        <div>Recommendations</div>
+        <%= link_to @meetup.meetup_posts.count, meetup_meetup_posts_path(@meetup) %>
+        <div>Posts</div>
       </div>
-      <div class="col-md-3 col-sm-3 col-xs-12 stat">
-        <%= link_to user.following_users.count, upvotes_user_path(user) %>
-        <div>most upvoted</div>
-      </div>
+
     </div>
     <div class="user-action-icons col-lg-6">
-      <a class="icon circle col-md-3 col-sm-4"  href="/users/edit"><span class="glyphicon glyphicon-edit gi-3x"></span></a>
-      <a class=" icon circle col-md-3 col-sm-4" href="/meetup_posts/new"><span class="glyphicon glyphicon-plus gi-3x"></span></a>
-      <a class="icon circle col-md-3 col-sm-4" onclick="$("#explore").toggle();"><span class="glyphicon glyphicon-chevron-down gi-3x"></span></a>
+      <a class="icon circle col-md-3 col-sm-4"  href="/users/edit"><span class="glyphicon glyphicon-search gi-3x"></span></a>
+        <a class=" icon circle col-md-3 col-sm-4" onclick='$("#explore").toggle();'><span class="glyphicon glyphicon-plus gi-3x"></span></a>
+      <a class="icon circle col-md-3 col-sm-4" ><span class="glyphicon glyphicon-chevron-down gi-3x"></span></a>
       <a href="" onclick='$("#explore").toggle();'>New Post</a>
     </div>
   </div>

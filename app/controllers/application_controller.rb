@@ -16,6 +16,12 @@ class ApplicationController < ActionController::Base
   	root_path
   end
 
+  def meetup_member?
+    meetup = Meetup.find(params[:meetup_id])
+    #redirect_to meetup_url(meetup.id) unless meetup.member?(current_user)
+
+  end
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception

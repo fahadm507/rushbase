@@ -35,7 +35,7 @@
   }
 
   textarea.form-control {
-    min-height:200px;
+    min-height:100px;
   }
 
   .user-name {
@@ -46,10 +46,8 @@
       margin-bottom: 2px;
       color: #333;
     }
-
   }
 }
-
 .post-comments {
   padding-left:0px;
   padding-top:0px;
@@ -61,7 +59,7 @@
   color: #333333;
 
   textarea.form-control {
-    min-height:100px;
+    min-height:0px;
   }
 }
 

@@ -1,6 +1,6 @@
 class MeetupPostVotesController < ApplicationController
   before_action :set_meetup_post_vote, only: [:show, :edit, :update, :destroy]
-
+  before_action :meetup_member?, only: [:create, :edit, :update, :destroy]
   def show
     @meetup_post_vote = MeetupPostVote.find(params[:id])
   end

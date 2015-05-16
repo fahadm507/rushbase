@@ -11,38 +11,34 @@
 }
 
 .all-study-meetups {
-
   .meetup-card {
     border-radius: 7px;
-    min-width: 250px;
-    margin: 5px ;
+    min-width: 230px;
+    margin: 6px ;
     min-height: 200px;
   }
 
 }
 
 .study-meetups-section {
-  border:1px solid black;
   background: #dddddd;
   padding-left:15px;
 }
 
 .meetup-card {
+  min-height: 300px;
   .card-top {
     width:100%;
     background:#efefef;
     background-position: cover;
-    min-height:100px;
+    min-height:170px;
     margin-right: 0px;
-
     h4 { padding: 15px 15px; }
   }
 
-
-
   .card-bottom {
     width:100%;
-    min-height: 100px;
+    height: 100px;
     background-color: #fff;
     background-position: cover;
     padding-bottom:5px;
@@ -51,7 +47,6 @@
       padding-top:5px;
     }
   }
-
 }
 
 .study-meetup-header {
@@ -115,7 +110,7 @@
   }
   .meetup-headline {
     margin-left:20px;
-    margin-top:20px;
+    margin-top:0px;
     text-align:center;
   }
 }

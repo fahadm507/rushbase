@@ -4,7 +4,7 @@ class MeetupsController < ApplicationController
   respond_to :json, :html
 
   def index
-    @meetups = Meetup.all
+    @meetups = Meetup.first(15)
     respond_to do |format|
       format.html { }
       format.js {}

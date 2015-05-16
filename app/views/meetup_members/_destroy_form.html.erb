@@ -1,1 +1,3 @@
-<%= link_to "Joined", meetup_meetup_member_path(@meetup, MeetupMember.where(user_id: current_user, meetup_id: @meetup).first.id), method: :delete, class: 'btn btn-success' %>
+<%= link_to(meetup_meetup_member_path(meetup, MeetupMember.where(user_id: current_user, meetup_id: meetup).first.id), remote:true,  method: :delete) do %>
+  <p class="btn btn-success">Joined</p>
+<%end%>
