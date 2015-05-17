@@ -15,12 +15,12 @@
     <div class="">
       <ul class="educations-list col-md-8" id="education-list-<%=@user.id%>">
         <% @user.educations.each do |education|%>
-          <li id="education-id-<%=education.id%>" class="current education-item" data-education-id="<%= education.id %>"><%= education.degree %> at
+          <li id="education-id-<%=education.id%>" class="current course-item" data-education-id="<%= education.id %>"><%= education.degree %> at
             <span><%= education.organization %></span>
             <span class="actions" id="education-actions-<%= education.id %>">
               <%if current_user == education.user %>
-                <%=link_to([current_user, education], remote: true, method: :delete, data: { comfirm: "are you sure you want to delete this education"}) do %>
-                  <span title="remove education"class="fa fa-times remove-item tex-center"></span>
+                <%=link_to([current_user, education], remote: true, method: :delete, data: { comfirm: "are you sure you want to delete this information"}) do %>
+                  <span title="remove education" class="fa fa-times remove-item text-center"></span>
                 <%end%>
               <%end%>
             </span>
