@@ -1,9 +1,102 @@
 .user-profile-wrapper {
   background-color: #EBEBEB;
 }
-.user-info-section {
+/*.user-info-section {
   min-height:300px;
   margin-top:10px;
+}*/
+.user-cover {
+  //background-color:#3B736C;
+  //background:rgba(59, 115, 108, 0.54);
+  min-height: 300px;
+  background-image: url("dusty-sky.JPG");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.user-info {
+  margin-top:-200px;
+  .main-profile {
+    min-height:300px;
+    //background-color:#464646;
+    background: #E2EAE9;
+    //background-color: #FFFFFF;
+    padding-top:50px;
+    border-radius:5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+    p {
+      color:black;
+      font-size: 20px;
+    }
+
+    a {
+      color:#fff;
+    }
+  }
+
+  .profile-footer {
+    background: #f9fafc;
+    height:20%;
+    width:100%;
+    border-radius: 0 0 3px 3px;
+  }
+
+  .user-stats {
+    height:300px;
+  }
+
+  .user-stats:hover {
+    color:#2dbe60;
+  }
+
+  .user-stats .stat, a {
+    height:100%;
+    color:#606060;
+    margin-top: 15px;
+  }
+}
+
+.user-profile-info {
+  background-color:#fff;
+  //border:1px solid #dddddd;
+  border-radius: 3px;
+  padding:10px;
+  margin-top:10px;
+  .tabpanel {margin-top:5px;}
+  hr {
+    margin-left: 0px;
+  }
+  .form-control {
+    max-width:100%;
+  }
+  .info-wrapper {
+    border:1px solid #dddddd;
+  }
+  .current-course {
+    padding:10px;
+  }
+  .item-heading {
+    border:1px solid black;
+  }
+
+  .item {
+    min-height: 100px;
+    //border-bottom: 2px solid #ddd;
+    padding:10px 10px;
+
+    h3 {margin-bottom:5px;}
+    .add-course {
+      display: none;
+    }
+
+    &:hover {
+      background-color:#E2EAE9;
+      .add-course {
+        display: inline;
+      }
+    }
+  }
 }
 
 .user-stat-1 {
@@ -58,51 +151,6 @@
   }
 }
 
-.user-info {
-  .main-profile {
-    min-height:300px;
-    //background-image: url("dusty-sky.JPG");
-    /* Image is centered vertically and horizontally at all times */
-    background-position: center center;
-    background-repeat: no-repeat;
-    /* Makes the image fixed in the viewport so that it doesn't move when
-       the content height is greater than the image height */
-    background-size:cover;
-    //background-color:#464646;
-    background: #E2EAE9;
-    padding-top:20px;
-
-    p {
-      color:black;
-      font-size: 20px;
-    }
-
-    a {
-      color:#fff;
-    }
-  }
-
-  .profile-footer {
-    background: #f9fafc;
-    height:20%;
-    width:100%;
-    border-radius: 0 0 3px 3px;
-  }
-
-  .user-stats {
-    height:300px;
-  }
-
-  .user-stats:hover {
-    color:#2dbe60;
-  }
-
-  .user-stats .stat, a {
-    height:100%;
-    color:#606060;
-    margin-top: 15px;
-  }
-}
 
 .user-action-icons .icon {
   margin-top: 5px;
@@ -129,7 +177,7 @@
  }
 /*   user content  section*/
 .user-stuff-section {
-  margin-top:40px;
+  margin-top:0px;
 
   .left-aside{
     min-height: 200px;
@@ -268,47 +316,7 @@ aside h3 {
   }
 }
 
-.user-profile-info {
-  background-color:#fff;
-  //border:1px solid #dddddd;
-  border-radius: 3px;
-  padding:10px;
-  margin-top:5px;
-  .tabpanel {margin-top:5px;}
-  hr {
-    margin-left: 0px;
-  }
-  .form-control {
-    max-width:100%;
-  }
-  .info-wrapper {
-    border:1px solid #dddddd;
-  }
-  .current-course {
-    padding:10px;
-  }
-  .item-heading {
-    border:1px solid black;
-  }
 
-  .item {
-    min-height: 100px;
-    //border-bottom: 2px solid #ddd;
-    padding:10px 10px;
-
-    h3 {margin-bottom:5px;}
-    .add-course {
-      display: none;
-    }
-
-    &:hover {
-      background-color:#E2EAE9;
-      .add-course {
-        display: inline;
-      }
-    }
-  }
-}
 
 .user-suggestions {
   min-height: 200px;
