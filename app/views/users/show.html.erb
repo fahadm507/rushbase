@@ -1,44 +1,59 @@
-<div class="container">
-  <div class="">
-    <% @user ||= current_user %>
-    <span ng-init="currentUser = <%= @user.id %>"></span>
-    <div class="row user-info-section">
-      <div class="user-info row">
-        <div class="main-profile text-center col-md-8">
-          <div class="user-basic-info">
-            <div class" col-md-3 col-sm-6 col-xs-12"><%= image_tag @user.avatar.url(:thumb), :class => "img-circle"%>
+<div class="user-profile-wrapper">
+  <div class="container">
+    <div class="">
+      <% @user ||= current_user %>
+      <span ng-init="currentUser = <%= @user.id %>"></span>
+      <div class="row user-info-section">
+        <div class="user-info row">
+          <div class="main-profile text-center col-md-8">
+            <div class="user-basic-info">
+              <div class" col-md-3 col-sm-6 col-xs-12"><%= image_tag @user.avatar.url(:thumb), :class => "img-circle"%>
+              </div>
+              <h3 class="user-name"><%= @user.full_name %></h3>
+              <p>Computer software</p>
+              <p>Boston, MA</p>
             </div>
-            <h3 class="user-name"><%= @user.full_name %></h3>
-            <p>Computer software</p>
-            <p>Boston, MA</p>
-          </div>
-          <div class="profile-actions">
-            <a href="" class="btn btn-primary">Follow</a>
-            <span><a href="" class="btn btn-primary">Give Credit</a></span>
+            <div class="profile-actions">
+              <a href="" class="btn btn-primary">Follow</a>
+              <span><a href="" class="btn btn-primary">Give Credit</a></span>
 
+            </div>
           </div>
+          <!-- Render aside user stats-->
+          <%= render partial: 'users/stats_right', locals: {user: @user}%>
         </div>
-        <!-- Render aside user stats-->
-        <%= render partial: 'users/stats_right', locals: {user: @user}%>
       </div>
     </div>
   </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 user-profile-info">
-      <p>Add the current status in your learning journey</p>
-      <%=render partial: "current_courses/view"%>
-      <hr>
-      <%=render partial: "taken_courses/view"%>
-      <hr>
-      <%=render partial: "future_courses/view"%>
-      <hr>
-      <%=render partial: "educations/view"%>
-    </div>
-    <div class="col-md-3 col-sm-12 col-xs-12 text-center">
-      <div class="user-suggestions">
-        <p>Suggestions</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 user-profile-info">
+        <div class="row projects item">
+          <h3> My Journey </h3>
+        </div>
+        <%=render partial: "current_courses/view"%>
+        <%=render partial: "taken_courses/view"%>
+        <%=render partial: "future_courses/view"%>
+        <%=render partial: "educations/view"%>
+        <div class="row meetups item">
+          <h3>Course Meetups</h3>
+          <%@user.meetups.each do |meetup|%>
+            <p><%= meetup.name %></p>
+          <%end%>
+        </div>
+        <div class="row projects item">
+          <h3> Projects </h3>
+        </div>
+
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12 text-center">
+        <div class="user-suggestions">
+          <p>Learners like you</p>
+        </div>
+        <div class="user-suggestions">
+          <p>Course Meetups</p>
+        </div>
+
       </div>
     </div>
   </div>

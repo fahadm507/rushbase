@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
 
   has_many   :organizations
   has_many   :team_members
+  has_many   :meetup_members
   has_many   :meetups, through: :meetup_members
   has_many   :user_teams, through: :team_members
   has_many   :course_posts

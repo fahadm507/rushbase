@@ -1,7 +1,9 @@
-
+.user-profile-wrapper {
+  background-color: #EBEBEB;
+}
 .user-info-section {
   min-height:300px;
-  margin-top:50px;
+  margin-top:10px;
 }
 
 .user-stat-1 {
@@ -67,12 +69,12 @@
        the content height is greater than the image height */
     background-size:cover;
     //background-color:#464646;
-    background: #ddd;
+    background: #E2EAE9;
     padding-top:20px;
 
     p {
-      color:#fff;
-      font-size: 30px;
+      color:black;
+      font-size: 20px;
     }
 
     a {
@@ -148,7 +150,6 @@
     }
 
   }
-
   .content-wrapper {
     min-height: 800px;
     background-color: #fff;
@@ -269,7 +270,7 @@ aside h3 {
 
 .user-profile-info {
   background-color:#fff;
-  border:1px solid #dddddd;
+  //border:1px solid #dddddd;
   border-radius: 3px;
   padding:10px;
   margin-top:5px;
@@ -291,15 +292,17 @@ aside h3 {
   }
 
   .item {
-    min-height: 80px;
+    min-height: 100px;
+    //border-bottom: 2px solid #ddd;
+    padding:10px 10px;
+
+    h3 {margin-bottom:5px;}
     .add-course {
       display: none;
     }
 
     &:hover {
-      background-color:#EFEFDE;
-
-
+      background-color:#E2EAE9;
       .add-course {
         display: inline;
       }
@@ -308,7 +311,10 @@ aside h3 {
 }
 
 .user-suggestions {
-  margin-left:30px;
+  min-height: 200px;
+  background-color: #fff;
+  border-radius:3px;
+  margin: 10px 0px 0px 10px;
 }
 
 .course-item {
