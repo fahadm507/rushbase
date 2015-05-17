@@ -1,18 +1,19 @@
 <div class="row current-course item">
-  <div class="panel panel-default">
-    <div class="panel-heading">
+  <div class="">
+    <div class="">
       <div class="row">
         <div class="col-md-6 col-sm-9 col-xs-12">
-          <h5>Current courses</h5>
+          <h3>Current courses</h3>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12 pull-right">
           <%if @user == current_user %>
-            <a class="add-current-course btn btn-success icon-plus-sign" data-user="<%= current_user.id %>">Add a course</a>
+            <a class="add-current-course add-course btn btn-success " data-user="<%= current_user.id %>">
+            <i class="fa fa-plus"></i></a>
           <%end%>
         </div>
       </div>
     </div>
-    <div class="panel-body">
+    <div class="">
       <ul class="course-list col-md-8" id="current-courses-list-<%=@user.id%>">
         <% @user.current_courses.each do |course|%>
           <li id="course-id-<%=course.id%>" class="current course-item" data-course-id="<%= course.id %>"><%= course.name %> at

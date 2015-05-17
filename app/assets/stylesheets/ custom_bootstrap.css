@@ -18,6 +18,11 @@
   padding-right: 0;
 }
 
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
 .gi-2x{font-size: 2em;}
 .gi-3x{font-size: 3em;}
 .gi-4x{font-size: 4em;}

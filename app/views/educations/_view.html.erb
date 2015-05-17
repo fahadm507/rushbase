@@ -1,18 +1,18 @@
 <div class="row current-education item">
-  <div class="panel panel-default">
-    <div class="panel-heading">
+  <div class="">
+    <div class="">
       <div class="row">
         <div class="col-md-6 col-sm-9 col-xs-12">
-          <h5>Education</h5>
+          <h3>Education</h3>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12 pull-right">
           <%if @user == current_user %>
-            <a class="add-education btn btn-success icon-plus-sign" data-user="<%= current_user.id %>">Add a education</a>
+            <a class="add-education add-course btn btn-success" data-user="<%= current_user.id %>"><i class="fa fa-plus"></i></a>
           <%end%>
         </div>
       </div>
     </div>
-    <div class="panel-body">
+    <div class="">
       <ul class="educations-list col-md-8" id="education-list-<%=@user.id%>">
         <% @user.educations.each do |education|%>
           <li id="education-id-<%=education.id%>" class="current education-item" data-education-id="<%= education.id %>"><%= education.degree %> at

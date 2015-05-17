@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
   <div class="">
     <% @user ||= current_user %>
     <span ng-init="currentUser = <%= @user.id %>"></span>
@@ -27,25 +27,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 user-profile-info">
-      <div role="tabpanel">
-      <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#education" aria-controls="education" role="tab" data-toggle="tab">Courses</a></li>
-          <li role="presentation"><a href="#professional" aria-controls="profile" role="tab" data-toggle="tab">Professional</a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="education">
-            <%=render partial: "current_courses/view"%>
-            <%=render partial: "taken_courses/view"%>
-            <%=render partial: "future_courses/view"%>
-            <%=render partial: "educations/view"%>
-          </div><!-- tab panel ends here-->
-          <div role="tabpanel" class="tab-pane active" id="professional">
-
-          </div>
-        </div>
-      </div>
+      <p>Add the current status in your learning journey</p>
+      <%=render partial: "current_courses/view"%>
+      <hr>
+      <%=render partial: "taken_courses/view"%>
+      <hr>
+      <%=render partial: "future_courses/view"%>
+      <hr>
+      <%=render partial: "educations/view"%>
     </div>
     <div class="col-md-3 col-sm-12 col-xs-12 text-center">
       <div class="user-suggestions">
