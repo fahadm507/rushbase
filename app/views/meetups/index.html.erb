@@ -9,7 +9,7 @@
     <div class="study-meetups-section col-md-10">
       <div class="row all-study-meetups">
       <% @meetups.each do |meetup| %>
-        <div id="meetup-card-<%=  %>" class="meetup-card col-md-2">
+        <div id="meetup-card-<%=  %>" class="meetup-card col-lg-3 col-md-2 col-sm-12 col-xs-12">
           <div class="card-top">
             <h4 class="text-center"> <%= meetup.name %> </h4>
             <% if meetup.provider %>
@@ -32,7 +32,15 @@
           </div>
         </div>
       <% end %>
+
       </div><!-- study meetups section ends here -->
+      <nav>
+    <div class="pagination">
+       <%= will_paginate @meetups %>
+    </div>
+
+</nav>
+
     </div>
   </div>
 </div>

@@ -4,7 +4,7 @@ class MeetupsController < ApplicationController
   respond_to :json, :html
 
   def index
-    @meetups = Meetup.first(15)
+    @meetups = Meetup.paginate(page: params[:page], per_page: 50)
     respond_to do |format|
       format.html { }
       format.js {}

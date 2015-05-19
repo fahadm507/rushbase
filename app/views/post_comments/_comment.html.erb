@@ -15,7 +15,7 @@
     <div class="col-md-12 pull-left">
        <div class="description row"><%=comment.body%></div>
        <div class="time">
-          <%= timeago_tag post.created_at, :nojs => true, :limit => 30.days.ago %>
+          <%= timeago_tag comment.created_at, :nojs => true, :limit => 30.days.ago %>
         </div>
     </div>
   </div>

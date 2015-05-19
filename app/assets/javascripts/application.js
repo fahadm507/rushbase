@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require jquery.infinite-pages
 //= require bootstrap/modal
 //= require jquery.simple-text-rotator
 //= require turbolinks
