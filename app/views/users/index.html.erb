@@ -2,32 +2,26 @@
   <h1 class="text-center"> All Users</h1>
   <hr>
   <div class="row">
-    <div class="col-md-3 col-sm-12 col-xs-12">
-      <h1>Filter search</h1>
-    </div>
-
-    <div class="col-md-9 col-sm-12 col-xs-12 all-users">
-
-        <% @users.each do |user| %>
-        <div class="row text-center">
-          <%= image_tag user.avatar.url(:thumb), :class => " text-center user-avatar img-circle col-md-2 "%>
-
-          <ul class="col-md-6 col-sm-2 col-xs-12">
-            <h4 class=""><%= user.full_name %></h4>
-            <p><%= user.industry.name%></p>
-            <%= link_to 'view', user, class: "btn btn-default" %>
-            <div id="<%= user.id %>-follow-form" class="follow-form">
-              <%= render partial: 'follows/follow_form', locals: { user: user } if current_user %>
-            </div>
+    <div class="all-users">
+      <% @users.each do |user| %>
+        <ul class="col-md-3 col-sm-3 col-xs-12 text-center">
+          <%= image_tag user.avatar.url(:thumb), :class => "user-avatar img-circle  "%>
+          <h4 class=""><%= user.full_name %></h4>
+          <p><%= user.industry.name if user.industry%></p>
+          <ul class="actions list-inline">
+            <span><%= link_to 'view', user, class: "btn btn-default" %></span>
+            <span id="<%= user.id %>-follow-form" class="follow-form">
+            <%= render partial: 'follows/follow_form', locals: { user: user } if current_user %>
+            </span>
           </ul>
-        </div>
-        <hr>
-       <%end%>
+          <%= current_user.inspect%>
 
+        </ul>
+      <%end%>
     </div>
+
+  </div>
     <%= will_paginate @users %>
-
-
 
   </div>
 

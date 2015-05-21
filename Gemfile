@@ -40,6 +40,8 @@ gem 'font-awesome-sass', '~> 4.3.0'
 gem 'rails-timeago', '~> 2.0'
 gem 'httparty'
 gem 'jquery-infinite-pages'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

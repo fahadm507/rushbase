@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
 
-  resources :meetup_post_votes
-  resources :comments
-  resources :meetup_posts
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
+  # devise_scope :user do
+  #   get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+  # end
   # You can have the root of your site routed with "root"
     root 'welcome#index'
     get '/feed' => 'user_posts#feed'
     get '/profile' => 'users#show'
-
+    resources :meetup_post_votes
+    resources :comments
     resources :users do
       member do
         get :following, :followers, :upvotes, :favorites

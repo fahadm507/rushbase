@@ -79,6 +79,13 @@
   .item-heading {
     border:1px solid black;
   }
+  h3 {
+    color: #807f83;
+    &:hover {
+      color:#2dbe60;
+    }
+  }
+
 
   .item {
     min-height: 100px;

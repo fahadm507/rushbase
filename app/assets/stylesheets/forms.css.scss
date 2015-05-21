@@ -3,7 +3,8 @@
   padding-top:20px;
   border:2px solid #efefef;
   border-radius: 5px;
-  background-color:#fff;
+  background-color:#5C985F;
+  background-color: rgba(92, 152, 95, 0.24);
   margin-top:50px;
 
   h4 {
@@ -15,6 +16,30 @@
 
   .form-group {
     text-align: center;
+    padding-left:20px;
+  }
+
+  .form-horizontal {
+    margin-left: 5px;
+  }
+
+  .form-control {
+    width:360px;
+  }
+
+  .form-group {
+    .name {
+      width:180px;
+    }
+  }
+
+  .control-label {
+    padding-right:10px;
+  }
+
+  #user_industry_id {
+    width:360px;
+    padding-left:10px;
   }
 }
 

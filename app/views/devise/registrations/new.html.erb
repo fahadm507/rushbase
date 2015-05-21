@@ -2,34 +2,32 @@
   <div class="row">
     <section class="col-md-8 col-md-offset-2 reg-form panel panel-default text-center">
       <h4 class="text-center">Please Sign Up</h4>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-horizontal panel-content'}) do |f| %>
+      <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-horizontal panel-content'}) do |f| %>
       <%= devise_error_messages! %>
 
       <div class="form-group">
-        <%= f.label :first_name, class: "col-sm-2 control-label" %>
+        <%= f.label :full_name, class: "col-sm-3 control-label" %>
         <div class="col-sm-6">
-          <%= f.text_field :last_name, class: "form-control" %>
+          <%= f.text_field :full_name, hide_label:true,required: true, class: "form-control" %>
         </div>
       </div>
 
       <div class="form-group">
-        <%= f.label :last_name, class: "col-sm-2 control-label" %>
-        <div class="col-sm-6">
-          <%= f.text_field :last_name, class: "form-control" %>
+        <%= f.label :industry, class: "col-sm-3 col-xs-12 control-label" %>
+        <%= f.collection_select(:industry_id, Industry.all, :id, :name, {include_blank: "-- Please select your industry or major --", hide_label: true}, required: true, class: "col-sm-6 text-center") %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email, class: "col-sm-3 control-label" %>
+        <div class="col-sm-6 col-xs-12">
+          <%= f.email_field :email,hide_label: true, required: true, class: "form-control"%>
         </div>
       </div>
 
       <div class="form-group">
-        <%= f.label :email, class: "col-sm-2 control-label" %>
-        <div class="col-sm-6">
-          <%= f.email_field :email, class: "form-control" %>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :password, class: "col-sm-2 control-label" %>
-        <div class="col-sm-6">
-          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+        <%= f.label :password, class: "col-sm-3 control-label" %>
+        <div class="col-sm-6 col-xs-12">
+          <%= f.password_field :password, required:true,  hide_label:true, autocomplete: "off", class: "form-control" %>
         </div>
       </div>
 
@@ -38,7 +36,11 @@
           <%= f.submit "Sign up", class: "btn btn-primary" %>
         </div>
       </div>
-
+      <div>or </div>
+      <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+       <a href="/auth/facebook" class="btn-facebook">
+          <i class="fa fa-facebook fa-lg"></i><strong>Log in</strong> with <strong>Facebook</strong>
+        </a>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-6">
           <%= render "devise/shared/links" %>

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  devise :omniauthable, :omniauth_providers => [:facebook]
 
   has_attached_file :avatar, styles: { medium: "300x300>",
     thumb: "100x100>", thumbnail: "50x50>", tiny: "30x30>" },
@@ -41,6 +42,23 @@ class User < ActiveRecord::Base
   	"#{first_name} #{last_name}"
   end
 
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end
+
+  def self.from_omniauth(auth, signed_in_resource=nil)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.full_name = auth.info.name   # assuming the user model has a name
+      #user.image = auth.info.image # assuming the user model has an image
+  end
+end
+
   def self.reject_user(users, user)
     users.reject { |u| u.id == user.id } if user
   end
@@ -48,4 +66,5 @@ class User < ActiveRecord::Base
   def upvoted_post?(user, post)
     Upvote.where(user_id: user.id, user_post_id: post.id).first
   end
+
 end

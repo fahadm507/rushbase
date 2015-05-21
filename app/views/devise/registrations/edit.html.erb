@@ -33,7 +33,8 @@
       </div>
 
       <div class="form-group">
-        <%= f.collection_select(:industry_id, Industry.all, :id, :name, class: "pull-right col-md-4 col-sm-6") %>
+        <%= f.collection_select(:industry_id, Industry.all,
+          :id, :name, required: true,  class: "pull-right col-md-4 col-sm-6") %>
       </div>
 
       <div class="form-group">

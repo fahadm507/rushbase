@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:account_update) << [:first_name, :last_name, :about, :interests, :avatar, :industry_id]
-    devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name, :industry_id]
+    devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name, :industry_id, :full_name]
   end
 
   def after_sign_in_path_for(resource)
