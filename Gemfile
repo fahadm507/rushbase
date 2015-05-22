@@ -41,11 +41,12 @@ gem 'rails-timeago', '~> 2.0'
 gem 'httparty'
 gem 'jquery-infinite-pages'
 gem 'omniauth-facebook'
-gem 'dotenv-rails'
+
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'pry-rails'
+  gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
 end
