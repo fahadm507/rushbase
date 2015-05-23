@@ -2,8 +2,7 @@ class CoursesController < ApplicationController
   before_action :authenticate_user!, only: [:create,:update, :destroy]
 
   def index
-    @courses = Course.all
-
+    @courses = Course.paginate(page: params[:page], per_page: 50)
     respond_to do |format|
       format.html {}
       format.json { render json: @courses }

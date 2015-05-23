@@ -1,23 +1,30 @@
 <p id="notice"><%= notice %></p>
-<div class="course-wrapper container-fluid">
-  <div class="row">
-    <div class="col-lg-12 course-header">
+<div class="course-wrapper container">
+  <div class="row header-wrapper">
+    <div class="col-md-8 course-header">
       <h1><%= @course.name %></h1>
+      <p class="text-center">by <%= @course.provider %> </p>
+    </div>
+    <div class="stats col-md-4">
+      <ul>
+        <li>Overall rating 234 </li>
+        <li>Course Reviews 234 </li>
+        <li>Recommendations 220 </li>
+      </ul>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-3">
-      <div class="course-meetup-menu">
-        <h1>Menu</h1>
-      </div>
-    </div>
-    <div class="col-lg-6 ">
-      <div class="discussion-board">
-        <h1>Discussions</h1>
-      </div>
 
+    <div class="col-lg-8">
+      <div class="reviews-board row">
+        <h1 class="col-md-9">Reviews</h1>
+        <div class="col-md-3 pull-right">
+          <%=link_to "Add review", new_course_course_review_path(@course),
+              class: "btn btn-primary"%>
+        </div>
+      </div>
     </div>
-    <div class="col-lg-3">
+    <div class="col-lg-4">
       <div class="course-meetup-suggestion">
         suggestions
       </div>
