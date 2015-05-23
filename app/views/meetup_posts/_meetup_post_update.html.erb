@@ -11,8 +11,8 @@
         </div>
         <%if post.user == current_user %>
           <div class="col-md-2 col-sm-4 col-xs-6 pull-right post-actions" >
-            <%=link_to "", edit_meetup_post_path(post.id),remote: true,  class: "fa fa-pencil fa-fw" %>
-            <%=link_to "", meetup_post_path(post.id), remote: true,  method: :delete, data: {confirm: "Are you sure u want to delete this post?"}, class: "fa fa-times" %>
+            <%=link_to "", edit_meetup_meetup_post_path(post.meetup, post),remote: true,  class: "fa fa-pencil fa-fw" %>
+            <%=link_to "", meetup_meetup_post_path(post.meetup, post), remote: true,  method: :delete, data: {confirm: "Are you sure u want to delete this post?"}, class: "fa fa-times" %>
           </div>
         <%end%>
       </div>

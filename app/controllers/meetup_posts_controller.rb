@@ -21,7 +21,7 @@ class MeetupPostsController < ApplicationController
     @meetup_post = MeetupPost.find(params[:id])
     respond_to do |format|
       format.html {}
-      format.js {}
+      format.js { render 'update'}
       format.json { render json: @meetup_post }
     end
   end

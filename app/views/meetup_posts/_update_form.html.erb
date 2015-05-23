@@ -17,7 +17,7 @@
       <div class="actions">
         <%= f.submit "Update", class: "btn btn-success" %>
         <span>
-        <%=link_to "Cancel", meetup_post_path(@meetup_post), remote: true, class: "btn btn-default" %>
+        <%=link_to "Cancel", meetup_meetup_post_path(@meetup_post.meetup, @meetup_post), remote: true, class: "btn btn-default" %>
         </span>
       </div>
     <% end %>

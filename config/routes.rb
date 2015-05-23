@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -10,7 +12,6 @@ Rails.application.routes.draw do
     root 'welcome#index'
     get '/feed' => 'user_posts#feed'
     get '/profile' => 'users#show'
-    resources :meetup_post_votes
     resources :comments
     resources :users do
       member do
@@ -42,7 +43,7 @@ Rails.application.routes.draw do
     end
 
     resources :courses do
-      resources :posts
+      resources :course_reviews
     end
 
     resources :course_posts do
