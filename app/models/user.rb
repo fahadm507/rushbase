@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  ratyrate_rater
   acts_as_followable
   acts_as_follower
   # Include default devise modules. Others available are:
@@ -23,6 +24,7 @@ class User < ActiveRecord::Base
   has_many   :meetups, through: :meetup_members
   has_many   :user_teams, through: :team_members
   has_many   :course_posts
+  has_many   :course_reviews
   has_many   :course_comments
   has_many   :meetup_post_votes
   has_many   :future_courses
@@ -37,6 +39,7 @@ class User < ActiveRecord::Base
   has_many   :resources
   belongs_to :location
   belongs_to :industry
+
 
   def self.new_with_session(params, session)
     super.tap do |user|

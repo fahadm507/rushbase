@@ -12,7 +12,8 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
     respond_to do |format|
-      format.html { render :show }
+      format.html { @course }
+      format.js{}
       format.json { render json: @course }
     end
   end

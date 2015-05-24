@@ -41,6 +41,7 @@ gem 'rails-timeago', '~> 2.0'
 gem 'httparty'
 gem 'jquery-infinite-pages'
 gem 'omniauth-facebook'
+gem 'ratyrate'
 
 
 group :development, :test do
