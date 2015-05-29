@@ -17,7 +17,7 @@
       <div class=" row">
         <h1 class="col-md-9">Reviews</h1>
         <div class="col-md-3 pull-right">
-          <%=link_to "Add review", new_course_course_review_path(@course),
+          <%=link_to "Add review", new_course_course_review_path(@course), method: :get,
               class: "btn btn-primary"%>
         </div>
       </div>
@@ -26,8 +26,6 @@
       <div class="posts-area col-md-12" id="course-post-<%=post.id%>">
         <div class="post-wrapper ">
           <div class="post-header  row">
-            <h3>Experience stars: <%= rating_for @course, "experience" %>
-        </h3>
             <div class="image-for-poster col-md-2  text-center"><%=link_to (image_tag post.user.avatar.url(:thumb), class: "img-circle ", size:'50x50'), user_path(post.user) %>
             </div>
             <div class="col-md-8 col-sm-12 col-xs-12">
@@ -47,17 +45,11 @@
             <h1><%= post.title %></h1><br>
             <p><%= post.description %></p>
           </div>
-          <!-- Comments start here-->
-
+          <!-- Comments start here -->
           <!-- End of comments-->
-
         </div><!-- Post body ends here-->
       </div>
-
     <%end%>
-
-
-
     </div>
     <div class="col-lg-4">
       <div class="course-course-suggestion">

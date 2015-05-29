@@ -16,11 +16,11 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
          <li><%= link_to 'Notifications', edit_user_registration_path, class: "glyphicon glyphicon-bell" %></li>
-         <li><a href="/feed"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+         <li><a href="/feed" data-method="get"><span class="glyphicon glyphicon-home"></span> Home</a></li>
           <li class="dropdown">
             <a href="/profile" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"> </span><%= current_user.full_name %> <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="/profile"> View Profile</a></li>
+              <li><a href="/profile" data-method="get"> View Profile</a></li>
               <li class="divider"></li>
               <li><a href="users/edit"> Edit Profile</a></li>
               <li class="divider"></li>

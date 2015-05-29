@@ -1,19 +1,25 @@
 <div class ="container">
   <h1> <%= @user.followers.count %> Followers</h1>
   <hr>
+
   <div class="row">
-  </div>
-  <% @followers.each do |user| %>
-    <div class="row">
-      <div class"user-avatar"><%= image_tag user.avatar.url(:thumb), :class => "img-circle col-md-2 col-sm-4 col-xs-6"%></div>
-      <ul class="col-md-3 col-sm-3 col-xs-6">
-        <li><%= user.email %></li>
-        <%= link_to 'view', user, class: "btn btn-primary btn-lg" %>
-        <li id="<%= user.id %>-follow-form" class="follow-form" >
-          <%= render partial: 'follows/follow_form', locals: { user: user} %>
-        </li>
-      </ul>
+    <div class="all-users">
+      <% @followers.each do |user| %>
+        <ul class="col-md-3 col-sm-3 col-xs-12 text-center">
+          <%= image_tag user.avatar.url(:thumb), :class => "user-avatar img-circle  "%>
+          <h4 class=""><%= user.full_name %></h4>
+          <p><%= user.industry.name if user.industry%></p>
+          <ul class="actions list-inline">
+            <span><%= link_to 'view', user, class: "btn btn-default" %></span>
+            <span id="<%= user.id %>-follow-form" class="follow-form">
+            <%= render partial: 'follows/follow_form', locals: { user: user } if current_user %>
+            </span>
+          </ul>
+
+        </ul>
+      <%end%>
     </div>
-    <hr>
-  <% end %>
+
+  </div>
+
 </div>

@@ -5,7 +5,6 @@ class UpvotesController < ApplicationController
     @upvotes = Upvote.all
   end
 
-
   def show
     @upvote = Upvote.find(params[:id])
   end
@@ -35,8 +34,7 @@ class UpvotesController < ApplicationController
       end
     end
   end
-  # PATCH/PUT /upvotes/1
-  # PATCH/PUT /upvotes/1.json
+
   def update
     respond_to do |format|
       if @upvote.update(upvote_params)

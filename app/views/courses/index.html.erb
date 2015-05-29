@@ -11,7 +11,7 @@
         <% @courses.each do |course| %>
         <div class="row">
           <div class="course-content col-md-6 col-sm-12 col-xs-12">
-            <h3 class="" ><%=link_to "#{course.name}", course_path(course) %></h3>
+            <h3 class="" ><%=link_to "#{course.name}", course_path(course), method: :get %></h3>
            <p>by <%=link_to "#{course.organization.name}",organization_path(course.organization) %></p>
           </div>
           <div class="course-info col-md-3 col-sm-6 col-xs-12">

@@ -8,7 +8,7 @@ class Course < ActiveRecord::Base
   has_many   :user_teams
   has_many   :course_posts
   has_many   :reviews
-  has_one :meetup
+  has_one    :meetup
   has_many   :recommendations
 
 
