@@ -9,7 +9,11 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    profile_path
+    if resource.industry_id
+      profile_path
+    else
+      finish_path
+    end
   end
 
   def after_sign_out_path_for(resource)

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
   post '/rate' => 'rater#create', :as => 'rate'
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => {
+    :omniauth_callbacks => "users/omniauth_callbacks",
+    :registrations => 'registrations'
+  }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   # devise_scope :user do
@@ -11,8 +14,12 @@ Rails.application.routes.draw do
     root 'welcome#index'
     get '/feed' => 'user_posts#feed'
     get '/profile' => 'users#show'
+    get '/finish' => 'users#finish'
     resources :comments
     resources :users do
+      member do
+        get :finish
+      end
       member do
         get :following, :followers, :upvotes, :favorites
       end

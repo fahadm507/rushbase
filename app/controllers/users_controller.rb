@@ -20,6 +20,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def finish
+
+  end
+
+  def update
+    saved = current_user.update(user_params)
+    if saved
+      redirect_to user_path(current_user)
+    end
+  end
+
   def following
     @user = User.find(params[:id])
     following_users = @user.following_by_type("User")
@@ -30,5 +41,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     followers = @user.followers_by_type("User")
     @followers = User.reject_user(followers, current_user) || followers
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:full_name, :industry_id, :email)
   end
 end
