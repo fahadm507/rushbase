@@ -24,7 +24,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    binding.pry
     saved = current_user.update(user_params)
     if saved
       redirect_to user_path(current_user)

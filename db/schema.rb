@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526040620) do
+ActiveRecord::Schema.define(version: 20150620183213) do
 
   create_table "average_caches", force: true do |t|
     t.integer  "rater_id"
@@ -30,14 +30,6 @@ ActiveRecord::Schema.define(version: 20150526040620) do
     t.datetime "updated_at"
   end
 
-  create_table "course_comments", force: true do |t|
-    t.string   "description", null: false
-    t.integer  "user_id",     null: false
-    t.integer  "post_id",     null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "course_posts", force: true do |t|
     t.string   "title"
     t.string   "description", null: false
@@ -49,9 +41,9 @@ ActiveRecord::Schema.define(version: 20150526040620) do
 
   create_table "course_reviews", force: true do |t|
     t.string   "title"
-    t.text     "description"
-    t.integer  "user_id"
-    t.integer  "course_id"
+    t.text     "description", null: false
+    t.integer  "user_id",     null: false
+    t.integer  "course_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -152,14 +144,6 @@ ActiveRecord::Schema.define(version: 20150526040620) do
   add_index "meetup_members", ["user_id", "meetup_id"], name: "index_meetup_members_on_user_id_and_meetup_id", unique: true
   add_index "meetup_members", ["user_id"], name: "index_meetup_members_on_user_id"
 
-  create_table "meetup_post_comments", force: true do |t|
-    t.text     "description",    null: false
-    t.integer  "meetup_post_id", null: false
-    t.integer  "user_id",        null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "meetup_post_votes", force: true do |t|
     t.integer  "user_id",        null: false
     t.integer  "meetup_post_id", null: false
@@ -211,9 +195,9 @@ ActiveRecord::Schema.define(version: 20150526040620) do
 
   create_table "post_comments", force: true do |t|
     t.string   "body",         null: false
+    t.integer  "user_post_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_post_id"
     t.integer  "user_id"
   end
 
@@ -314,20 +298,18 @@ ActiveRecord::Schema.define(version: 20150526040620) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "full_name"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.string   "first_name"
     t.string   "last_name"
     t.text     "about"
     t.text     "interests"
     t.integer  "industry_id"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
-    t.integer  "location_id"
-    t.boolean  "admin"
-    t.string   "full_name"
-    t.string   "provider"
-    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

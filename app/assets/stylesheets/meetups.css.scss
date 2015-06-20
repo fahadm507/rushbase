@@ -50,7 +50,7 @@
 }
 
 .study-meetup-header {
-  min-height:270px;
+  min-height:600px;
   background-position: cover;
   padding:0px;
   margin-top: 20px;
@@ -74,9 +74,8 @@
 
   .meetup-banner {
     background:green;
-    min-height: 210px;
+    min-height: 340px;
     margin-top:-20px;
-
 
     .meetup-actions {
       background-color: #dddddd;
@@ -86,7 +85,6 @@
       width:100%;
       min-height:60px;
       padding-left:-15px;
-
       .col-sm-6 { padding-left:-20px;}
     }
 
@@ -142,15 +140,3 @@
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
