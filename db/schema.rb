@@ -300,7 +300,6 @@ ActiveRecord::Schema.define(version: 20150620183213) do
     t.datetime "updated_at"
     t.string   "provider"
     t.string   "uid"
-    t.string   "full_name"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -310,6 +309,7 @@ ActiveRecord::Schema.define(version: 20150620183213) do
     t.text     "about"
     t.text     "interests"
     t.integer  "industry_id"
+    t.string   "full_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

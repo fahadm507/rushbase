@@ -54,6 +54,8 @@ GEM
     builder (3.2.2)
     city-state (0.0.13)
       rubyzip (~> 1.1)
+    ckeditor_rails (4.4.8)
+      railties (>= 3.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.4)
@@ -254,6 +256,7 @@ DEPENDENCIES
   bootstrap_form
   bower-rails (~> 0.9.2)
   city-state
+  ckeditor_rails
   coffee-rails (~> 4.0.0)
   country_select!
   devise

@@ -47,7 +47,7 @@ class Course < ActiveRecord::Base
         description: " "
       )
 
-      Meetup.find_or_create_by(
+      Meetup.find _or_create_by(
         name: c.name,
         course_id: c.id
       )

@@ -2,7 +2,7 @@
   <h1 class="text-center">Courses</h1>
   <hr>
   <div class="row">
-    <div class=" col-md-3 col-sm-12 col-xs-12">
+    <div class=" col-md-2 col-sm-12 col-xs-12">
       <div class="search-course">
         Filter search
       </div>
@@ -15,11 +15,43 @@
            <p>by <%=link_to "#{course.organization.name}",organization_path(course.organization) %></p>
           </div>
           <div class="course-info col-md-3 col-sm-6 col-xs-12">
-            <p>300 Learners </p>
-            <p>10 teams</p>
+            <p><%= link_to course.meetup.meetup_members.count, meetup_path(course.meetup) %>meetup members</p>
+            <p><%= link_to course.course_reviews.count, course_path(course) %> Reviews</p>
+
           </div>
           <div class="course-action col-md-3">
-            <a href="" class="btn btn-primary">Join</a>
+            <a href="" class="btn btn-primary">Join meetup</a>
+            <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Add To
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="#">Current Courses</a></li>
+              <%= bootstrap_form_for [current_user, CurrentCourse.new],remote: true, method: :post do |f| %>
+                <%= f.hidden_field(:course_id, :value => course.id) %>
+                <%= f.submit "add", class: '' %>
+              <%end%>
+              <li class="divider"></li>
+              <li><a href="#">Taken Courses</a></li>
+              <%= bootstrap_form_for [current_user, TakenCourse.new], remote: true, method: :post do |f| %>
+                <%= f.hidden_field(:course_id, :value => course.id) %>
+                <%= f.submit "add", class: '' %>
+              <%end%>
+              <li class="divider"></li>
+              <li><a href="#">Future Courses</a></li>
+              <%= bootstrap_form_for [current_user, FutureCourse.new], remote: true, method: :post do |f| %>
+                <%= f.hidden_field(:course_id, :value => course.id) %>
+                <%= f.submit "add", class: '' %>
+              <%end%>
+            </ul>
+            </div>
+            <!-- <p>
+              <button type="button" ng-init="addCourse = false" ng-click="addCourse<%=course.id%> = true" name="button" class="btn btn-default">Add</button>
+            </p> -->
+            <!-- <div class="" ng-show="addCourse<%=course.id%>">
+              show me
+            </div> -->
           </div>
         </div>
         <hr>

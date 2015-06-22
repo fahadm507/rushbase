@@ -18,6 +18,13 @@ class CurrentCoursesController < ApplicationController
   end
 
   def create
+    if params[:current_course][:course_id]
+       course_id = params[:current_course][:course_id]
+       @course = Course.find(course_id)
+       params[:current_course][:name] = @course.name
+       params[:current_course][:organization] = @course.organization.name
+    end
+
     @user = User.find(params[:user_id])
     @current_course = CurrentCourse.new(current_course_params)
     @current_course.user_id = @user.id

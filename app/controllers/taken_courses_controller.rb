@@ -13,6 +13,12 @@ class TakenCoursesController < ApplicationController
   end
 
   def create
+    if params[:taken_course][:course_id]
+       course_id = params[:taken_course][:course_id]
+       @course = Course.find(course_id)
+       params[:taken_course][:name] = @course.name
+       params[:taken_course][:organization] = @course.organization.name
+    end
     @taken_course = TakenCourse.new(taken_course_params)
     @taken_course.user_id = current_user.id
     respond_to do |format|

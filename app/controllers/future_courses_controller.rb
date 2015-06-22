@@ -13,6 +13,12 @@ class FutureCoursesController < ApplicationController
   end
 
   def create
+    if params[:future_course][:course_id]
+       course_id = params[:future_course][:course_id]
+       @course = Course.find(course_id)
+       params[:future_course][:name] = @course.name
+       params[:future_course][:organization] = @course.organization.name
+    end
     @future_course = FutureCourse.new(future_course_params)
     @future_course.user_id = current_user.id
     respond_to do |format|

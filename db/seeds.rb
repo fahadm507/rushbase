@@ -63,8 +63,19 @@ Website Development"
 array_of_categories = string_of_categories.split("\n")
 
 array_of_categories.each do |cat|
-  Industry.create(name: cat)
+  Industry.find_or_create_by(name: cat)
 end
 
-
-
+#seed 50 users to the database
+def users
+  n= 55
+  Industry.all.each do |ind|
+    User.create(email: "exampleemail#{n}") do |user|
+                        user.full_name =  "Cool#{n} User#{n}",
+                        user.encrypted_password = "example20#{n}",
+                        user.industry_id = ind
+    end
+    n += 1
+  end
+end
+users

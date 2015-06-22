@@ -14,6 +14,7 @@
 //= require jquery.raty
 //= require ratyrate
 //= require jquery_ujs
+//= require ckeditor-jquery
 //= require bootstrap-sprockets
 //= require jquery.infinite-pages
 //= require bootstrap/modal

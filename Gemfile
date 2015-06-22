@@ -42,6 +42,7 @@ gem 'httparty'
 gem 'jquery-infinite-pages'
 gem 'omniauth-facebook'
 gem 'ratyrate'
+gem 'ckeditor_rails'
 
 
 group :development, :test do
@@ -63,4 +64,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-

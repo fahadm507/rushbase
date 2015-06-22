@@ -34,7 +34,7 @@
     <div class="row">
       <div class="col-md-8 user-profile-info">
         <div class="row projects item">
-          <h3> Status </h3>
+          <%= @user.about %>
         </div>
         <%=render partial: "current_courses/view"%>
         <%=render partial: "taken_courses/view"%>
@@ -63,4 +63,3 @@
     </div>
   </div>
 </div>
-

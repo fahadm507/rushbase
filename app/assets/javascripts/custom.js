@@ -4,6 +4,12 @@ $(document).ready(function(){
     speed: 5000
   });
 
+  $('.ckeditor').ckeditor({});
+
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+
   $("div.mystuff-tab-menu>div.list-group>a").click(function(e) {
     e.preventDefault();
     $(this).siblings('a.active').removeClass("active");
