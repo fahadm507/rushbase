@@ -9,6 +9,8 @@ class UserPostsController < ApplicationController
   end
 
   def feed
+    @all_activities = PublicActivity::Activity.order('created_at DESC')
+    @activities= @all_activities.where(:owner_id => current_user.followers.collect {|a| a.id }).limit(20)
   end
 
   def show

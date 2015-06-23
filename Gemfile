@@ -43,7 +43,7 @@ gem 'jquery-infinite-pages'
 gem 'omniauth-facebook'
 gem 'ratyrate'
 gem 'ckeditor_rails'
-
+gem 'public_activity'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

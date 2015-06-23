@@ -11,11 +11,11 @@
         </div>
         <div class="content-wrapper col-md-7 col-sm-12 col-xs-12 mystuff-tab">
           <div class="mystuff-tab-content active">
-            <p>Posts <span class="pull-right">
+            <p>Latest Activity <span class="pull-right">
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">New Post</button>
              </span></p>
             <hr>
-            <%= render partial: 'user_posts/post', locals: {user: @user} %>
+            <%= render partial: 'user_posts/activity', locals: {activities: @activities }%>
           </div>
 
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -53,8 +53,9 @@
           </div>
 
           <div class="mystuff-tab-content">
-            <p>Courses</p>
+            <p>My Posts <span><%= @user.user_posts.count %></span></p>
             <hr>
+              <%= render partial: 'user_posts/post', locals: {user: @user} %>
           </div>
           <!-- train section -->
           <div class="mystuff-tab-content">
@@ -81,26 +82,3 @@
 
     </div>
 </div>
-
-<!-- <div class="container">
-
-  <div class="row">
-  </div>
-  <div ng-controller="UserPostController">
-  <span ng-init='currentUser = "<%= current_user.id %>" '></span>
-    <div ng-repeat="post in user_posts">
-      <p>{{ post.description}}</p>
-      <p>{{ currentUser.first_name }}</p>
-    </div>
-    <div ng-repeat="user in all_users ">
-    <p> {{user.first_name}} - {{user.last_name}}</p>
-  </div>
-  </div>
-
-</div>
-<div>
-  <div class="posts-wrapper">
-
-  </div>
-</div>
- -->
