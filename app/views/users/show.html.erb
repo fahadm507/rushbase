@@ -12,8 +12,7 @@
               <div class" col-md-3 col-sm-6 col-xs-12"><%= image_tag @user.avatar.url(:thumb), :class => "img-circle"%>
               </div>
               <h3 class="user-name"><%= @user.full_name %></h3>
-              <p>Computer software</p>
-              <p>Boston, MA</p>
+              <p><%= @user.industry.name if @user.industry%></p>
             </div>
             <div class="profile-actions">
               <% if current_user != @user %>
@@ -21,7 +20,6 @@
                   <%= render partial: 'follows/follow_form', locals: { user: @user} %>
                 </li></ul>
               <%end%>
-              <!-- <span><a href="" class="btn btn-primary">Give Credit</a></span> -->
             </div>
           </div>
           <!-- Render aside user stats-->
