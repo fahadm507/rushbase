@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623130216) do
+ActiveRecord::Schema.define(version: 20150624002426) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -275,15 +275,13 @@ ActiveRecord::Schema.define(version: 20150623130216) do
   end
 
   create_table "upvotes", force: true do |t|
-    t.integer  "user_id",      null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_post_id"
+    t.integer "user_id",      null: false
+    t.integer "user_post_id", null: false
   end
 
-  add_index "upvotes", ["user_id"], name: "index_upvotes_on_meetup_post_id_and_user_id"
   add_index "upvotes", ["user_id"], name: "index_upvotes_on_user_id"
-  add_index "upvotes", ["user_id"], name: "index_upvotes_on_user_post_id_and_user_id", unique: true
+  add_index "upvotes", ["user_post_id", "user_id"], name: "index_upvotes_on_user_post_id_and_user_id", unique: true
+  add_index "upvotes", ["user_post_id"], name: "index_upvotes_on_user_post_id"
 
   create_table "user_posts", force: true do |t|
     t.text     "description", null: false
@@ -317,16 +315,16 @@ ActiveRecord::Schema.define(version: 20150623130216) do
     t.datetime "updated_at"
     t.string   "provider"
     t.string   "uid"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.string   "first_name"
     t.string   "last_name"
     t.text     "about"
     t.text     "interests"
-    t.integer  "industry_id"
     t.string   "full_name"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.integer  "industry_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

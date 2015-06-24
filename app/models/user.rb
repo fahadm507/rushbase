@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
   end
 
   def upvoted_post?(user, post)
-    Upvote.where(user_id: user.id, user_post_id: post.id).first
+    Upvote.where(user_id: user.id, user_post_id: post.id).first != nil
   end
 
 end

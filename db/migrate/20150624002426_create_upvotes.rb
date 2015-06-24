@@ -1,11 +1,11 @@
 class CreateUpvotes < ActiveRecord::Migration
-  def change
+  def up
     create_table :upvotes do |t|
-      t.integer :count, default: 0
       t.integer :user_id, null: false
       t.integer :user_post_id, null: false
-
-      t.timestamps
     end
+    add_index :upvotes, :user_post_id
+    add_index :upvotes, :user_id
+    add_index :upvotes, [:user_post_id, :user_id], unique: true
   end
 end
