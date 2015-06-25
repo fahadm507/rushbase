@@ -1,23 +1,40 @@
-<h1>Listing groups</h1>
+<h1 class="text-center">User groups</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container">
+  <div class ="study-meetups-wrapper row">
+    <div class="col-md-2 study-group-search">
+      <h>Search</head>
+    </div>
 
-  <tbody>
-    <% @groups.each do |group| %>
-      <tr>
-        <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="study-meetup-section col-md-10">
+      <div class="row all-study-groups">
+      <% @groups.each do |group| %>
+        <div id="group-card-<%=  %>" class="group-card col-lg-3 col-md-2 col-sm-12 col-xs-12">
+          <div class="card-top">
+            <h4 class="text-center"> <%= group.name %> </h4>
+          </div>
+          <div class="card-bottom text-center">
+            <div class="actions group-members">
+              <a href="/groups/<%=group.id%>/group_members" class="members">
+              <%= group.users.count %> Members</a>
+              <span><a href="/groups/<%= group.id%>/group_posts" class="members">
 
-<br>
+            </div>
+            <div class="actions">
 
-<%= link_to 'New Group', new_group_path %>
+              <span><a href="/groups/<%= group.id %>" class="btn btn-primary"> view </a></span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    </div><!-- study groups section ends here -->
+      <nav>
+        <div class="pagination">
+           <%= will_paginate @groups %>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+</div>

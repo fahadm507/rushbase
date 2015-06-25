@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     get '/feed' => 'user_posts#feed'
     get '/profile' => 'users#show'
     get '/finish' => 'users#finish'
-    resources :comments
+
     resources :users do
       member do
         get :finish
@@ -40,6 +40,10 @@ Rails.application.routes.draw do
 
     resources :organizations do
       resources :courses
+    end
+
+    resources :groups do
+      resources :group_members
     end
 
     resources :user_posts do
