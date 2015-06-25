@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row profile-footer">
     <div class="user-stats col-sm-6">
-      <div class="col-md-3 col-sm-3 stat">
-        <%= @meetup.meetup_members.count %>
+      <div class="col-md-3 col-sm-3 stat" onclick="$('#meetup-members-id-<% @meetup.id %>').toggle();">
+        <%=link_to @meetup.meetup_members.count, meetup_meetup_members_path(@meetup) %>
         <div>Members</div>
       </div>
       <div class="col-md-3 col-sm-3 col-xs-12 stat">

@@ -1,0 +1,20 @@
+
+<div class ="container">
+  <div class="row">
+    <div class="all-users">
+      <% meetup.meetup_members.each do |member| %>
+        <% user = member.user %>
+        <ul class="col-md-3 col-sm-3 col-xs-12 text-center">
+          <%=image_tag user.avatar.url(:thumb), :class => "user-avatar img-circle  "%>
+          <h4 class=""><%= user.full_name %></h4>
+          <p><%= user.industry.name if user.industry%></p>
+          <ul class="actions list-inline">
+            <span><%= link_to 'view', user, class: "btn btn-default" %></span>
+            <span id="<%= user.id %>-follow-form" class="follow-form">
+            <%= render partial: 'follows/follow_form', locals: { user: user } if current_user %>
+            </span>
+          </ul>
+        </ul>
+      <%end%>
+    </div>
+</div>

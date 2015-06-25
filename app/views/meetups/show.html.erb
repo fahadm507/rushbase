@@ -3,8 +3,8 @@
     <div class="meetup-banner-wrapper col-md-12 col-sm-12 col-xs-12 text-center">
       <div class="meetup-banner">
         <h1 class="meetup-headline"><%= @meetup.name %></h1>
-        <%if @meetup.provider%>
-          <p>by <strong><%= @meetup.provider %></strong></p>
+        <%if @meetup.course.organization %>
+          <p>by <strong><%= @meetup.course.organization.name  %></strong></p>
         <%end%>
         <br>
         <div class="meetup-join" id="meetup-join-<%= @meetup.id %>">
@@ -17,6 +17,9 @@
     </div>
   </div>
 </div>
+<div class="show-members meetup-members" id="meetup-members-id-<% @meetup.id %>" style="display:none;">
+  <%= render partial: 'meetups/members', locals: { meetup: @meetup } %>
+</div></div>
 <div class="container">
   <div class="row meetup-content">
   <p class="notice"><%= notice %></p>
@@ -46,4 +49,3 @@
    </div>
 
 </div>
-
