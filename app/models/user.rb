@@ -19,11 +19,11 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   has_many   :organizations
-  has_many   :team_members
+  has_many   :group_members
   has_many   :meetup_members
   has_many   :recommendations
   has_many   :meetups, through: :meetup_members
-  has_many   :user_teams, through: :team_members
+  has_many   :groups, through: :group_members
   has_many   :course_posts
   has_many   :course_reviews
   has_many   :course_comments

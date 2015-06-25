@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624002426) do
+ActiveRecord::Schema.define(version: 20150625004120) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -128,6 +128,27 @@ ActiveRecord::Schema.define(version: 20150624002426) do
   add_index "future_courses", ["organization"], name: "index_future_courses_on_organization"
   add_index "future_courses", ["user_id", "name", "organization"], name: "index_future_courses_on_user_id_and_name_and_organization", unique: true
   add_index "future_courses", ["user_id"], name: "index_future_courses_on_user_id"
+
+  create_table "group_members", force: true do |t|
+    t.integer "user_id",                     null: false
+    t.integer "group_id",                    null: false
+    t.boolean "group_admin", default: false
+  end
+
+  add_index "group_members", ["group_id", "user_id"], name: "index_group_members_on_group_id_and_user_id", unique: true
+  add_index "group_members", ["group_id"], name: "index_group_members_on_group_id"
+  add_index "group_members", ["user_id"], name: "index_group_members_on_user_id"
+
+  create_table "groups", force: true do |t|
+    t.string   "name",                        null: false
+    t.text     "description",                 null: false
+    t.string   "organization"
+    t.boolean  "public",       default: true
+    t.integer  "industry_id",                 null: false
+    t.integer  "user_id",                     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "industries", force: true do |t|
     t.string   "name"
