@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row search-bar" >
+      <div class="col-xs-8 col-xs-offset-2">
+
+          <div class="input-group">
+              <div class="input-group-btn search-panel">
+                <%= collection_select(:industry, :industry_id, Industry.all, :id, :name,
+                    {include_blank: "Filter", hide_label: true},
+                    required: true, class: "btn btn-default select") %>
+              </div>
+              <input type="hidden" name="search_param" value="all" id="search_param">
+              <input type="text" class="form-control row" name="x" placeholder="Search term...">
+              <span class="input-group-btn">
+                  <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+              </span>
+          </div>
+      </div>
+  </div>
+</div>

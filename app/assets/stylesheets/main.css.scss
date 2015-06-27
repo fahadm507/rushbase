@@ -39,3 +39,8 @@ a {
 a:visited {
   color: none;
 }
+
+.btn-primary, .btn-default, .btn-success {
+  min-height: 40px;
+  min-width: 100px;
+}

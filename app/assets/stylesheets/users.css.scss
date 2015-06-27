@@ -1,7 +1,7 @@
 
 /* users index page*/
 .all-users {
-  background-color: #fff;
+  //background-color: #f4f4f4;
   padding:20px;
   border-radius:3px;
 
@@ -11,8 +11,8 @@
   }
 
   ul li {
-    margin:10px;
-    padding:5px;
+    margin:0px;
+    padding:0px;
     text-decoration: none;
     list-style-type: none;
     text-align: center;
@@ -21,23 +21,49 @@
   h4 {
     font-size:14pt;
     color:#777;
-    padding:5px;
+    padding:0px;
   }
-
-  .btn {
-    margin-top:5px;
-    width:100px;
-  }
-
-
-
 }
 
+.top-header{
+  position: relative;
+  min-height: 250px;
+  background-color:#2dbe60;
 
+  .hero-headline {
+    font-weight: 500px;
+    width:50%;
+    height: 50%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0; left:0; bottom:0; right:0;
+  }
 
-
-
-
-
-
-
+  h1 {
+    text-align: center;
+    color: #FFF;
+    font-size: 56px;
+    //text-shadow: 1px 1px 2px rgba(0,0,0,.65);
+    // padding-top: 32px;
+    // padding-bottom: 0;
+    // z-index: 2;
+    // letter-spacing: -1px;
+  }
+}
+.search-bar {
+  .input-group {
+    height: 60px;
+    margin-top: -30px;
+  }
+  .form-control {
+    height:60px;
+  }
+  .btn {
+    height: 60px;
+    width:100px;
+  }
+  .input-group-btn .select{
+    width:140px;
+  }
+}

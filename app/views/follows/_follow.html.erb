@@ -1,7 +1,6 @@
 <div class="follow-partial">
   <%= form_for(current_user.follows.build, remote: true) do |f| %>
   <div><%= hidden_field :user_id, user.id %></div>
-  <%= f.submit "Follow", class: "btn follow-btn" %>
+  <%= f.submit "Follow", class: "btn btn-primary follow-btn" %>
   <% end %>
 </div>
-

@@ -1,28 +1,31 @@
-<div class ="container">
-  <h1 class="text-center"> All Users</h1>
-  <hr>
-  <div class="row">
-    <div class="all-users">
-      <% @users.each do |user| %>
-        <ul class="col-md-3 col-sm-3 col-xs-12 text-center">
-          <%= image_tag user.avatar.url(:thumb), :class => "user-avatar img-circle  "%>
-          <h4 class=""><%= user.full_name %></h4>
-          <p><%= user.industry.name if user.industry%></p>
-          <ul class="actions list-inline">
-            <span><%= link_to 'view', user, class: "btn btn-default" %></span>
-            <span id="<%= user.id %>-follow-form" class="follow-form">
-            <%= render partial: 'follows/follow_form', locals: { user: user } if current_user %>
-            </span>
-          </ul>
 
-        </ul>
-      <%end%>
+  <div class="top-header top-header-users">
+    <div class="hero-headline">
+      <h1>Find Like Minded Learners </h1>
     </div>
-
   </div>
-    <%= will_paginate @users %>
-
+  <%= render partial: 'users/search_bar' %>
+<div class="all-users">
+  <div class ="container">
+    <div class="row">
+      <div class="">
+        <% @users.each do |user| %>
+        <div class="card">
+          <div class="col-md-3 col-sm-3 col-xs-12 text-center card">
+            <%= image_tag user.avatar.url(:thumb), :class => "user-avatar img-circle  "%>
+            <h4 class=""><%= user.full_name %></h4>
+            <p><%= user.industry.name if user.industry%></p>
+            <ul class="actions list-inline">
+              <li><%=link_to 'view', user, class: "btn btn-default" %></li>
+              <li id="<%= user.id %>-follow-form" class="follow-form">
+                <%= render partial: 'follows/follow_form', locals: { user: user } if current_user %>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <%end%>
+      </div>
+    </div>
+      <%= will_paginate @users %>
   </div>
-
 </div>
-
