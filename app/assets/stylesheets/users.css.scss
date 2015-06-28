@@ -27,14 +27,13 @@
 
 .top-header{
   position: relative;
-  min-height: 250px;
+  min-height: 350px;
   background-color:#2dbe60;
 
   .hero-headline {
     font-weight: 500px;
     width:50%;
     height: 50%;
-    overflow: auto;
     margin: auto;
     position: absolute;
     top: 0; left:0; bottom:0; right:0;

@@ -13,7 +13,7 @@
 .all-study-meetups {
   .meetup-card {
     border-radius: 3px;
-    margin: 4px ;
+    margin: 5px ;
   }
 
 }
@@ -26,14 +26,29 @@
 .meetup-card {
   min-height: 200px;
   min-width: 298px;
+  padding:10px;
+  //border:1px solid red;
+
   .card-top {
+    position:relative;
     width:100%;
     background:#05767E;
     background-position: cover;
     color:#E5E4D7;
     min-height:170px;
     margin-right: 0px;
-    h4 { padding: 15px 15px; }
+
+    .hero-headline {
+      font-weight: 200px;
+      width:50%;
+      text-align: left;
+      height: 50%;
+      margin: auto;
+      position: absolute;
+      top: 0; left:0; bottom:0; right:0;
+    }
+
+
   }
 
   .card-bottom {
@@ -143,6 +158,5 @@
 
 .meetup-members {
   margin:0px 5px 0px 5px;
-  border:1px solid #ddd;
 
 }
