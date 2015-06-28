@@ -13,10 +13,9 @@
         <div class="card">
           <div class="col-md-3 col-sm-3 col-xs-12 text-center card">
             <%= image_tag user.avatar.url(:thumb), :class => "user-avatar img-circle  "%>
-            <h4 class=""><%= user.full_name %></h4>
+            <h4 class=""><%=link_to user.full_name, user_path(user) %></h4>
             <p><%= user.industry.name if user.industry%></p>
             <ul class="actions list-inline">
-              <li><%=link_to 'view', user, class: "btn btn-default" %></li>
               <li id="<%= user.id %>-follow-form" class="follow-form">
                 <%= render partial: 'follows/follow_form', locals: { user: user } if current_user %>
               </li>

@@ -1,48 +1,48 @@
-<div class="top-header top-header-users"style="background-color:#57a4d8;">
-  <div class="hero-headline">
-    <h1> Find Groups and share knowledge with other learners </h1>
-  </div>
-</div>
-<%= render partial: 'users/search_bar'%>
-<div class="container">
-  <div class ="study-meetups-wrapper row">
-
-    <div class="study-meetups-section col-md-10 col-md-offset-1 text-center">
-      <div class="row all-study-meetups">
-      <% @meetups.each do |meetup| %>
-        <div id="meetup-card-<%=  %>" class="meetup-card col-lg-3 col-md-2 col-sm-12 col-xs-12">
-          <div class="card-top">
-            <p class="text-center hero-headline"> <%= meetup.name %> </p>
-
-              <p class="text-center">by<%= meetup.course.organization.name %></p>
-
-          </div>
-          <div class="card-bottom text-center">
-            <div class="actions meetup-members">
-              <a href="/meetups/<%=meetup.id%>/meetup_members" class="members">
-              <%= meetup.users.count %> Members</a>
-              <span><a href="/meetups/<%= meetup.id%>/meetup_posts" class="members">
-              <%= meetup.meetup_posts.count %> posts</a></span>
-            </div>
-            <div class="actions">
-              <span class="meetup-join" id="meetup-join-<%= meetup.id %>">
-                <%= render partial: 'meetup_members/form', locals: {meetup: meetup}%>
-              </span>
-              <span><a href="/meetups/<%= meetup.id %>" class="btn btn-primary"> view </a></span>
-            </div>
-          </div>
-        </div>
-      <% end %>
-
-      </div><!-- study meetups section ends here -->
-      <nav>
-        <div class="pagination">
-           <%= will_paginate @meetups %>
-        </div>
-      </nav>
-
+<div class="wrapper" style="background:#e6e9ec;">
+  <div class="top-header top-header-users">
+    <div class="hero-headline">
+      <h1> Find Groups and share knowledge with other learners </h1>
     </div>
   </div>
-</div>
+  <%= render partial: 'users/search_bar'%>
+  <div class="container">
+    <div class ="study-meetups-wrapper row">
+      <div class="study-meetups-section col-md-10 col-md-offset-1 text-center">
+        <div class="row all-study-meetups">
+        <% @meetups.each do |meetup| %>
+          <div id="meetup-card-<%=  %>" class="meetup-card col-lg-3 col-md-2 col-sm-12 col-xs-12">
+            <div class="card-top">
+              <p class="text-center hero-headline"> <%= meetup.name %><br>
+              <% if meetup.course.organization%>
+                <i class="text-center">by <%= meetup.course.organization.name %></i>
+              <%end%>
+              </p>
+            </div>
+            <div class="card-bottom text-center">
+              <div class="actions meetup-members">
+                <a href="/meetups/<%=meetup.id%>/meetup_members" class="members">
+                <%= meetup.users.count %> Members</a>
+                <span><a href="/meetups/<%= meetup.id%>/meetup_posts" class="members">
+                <%= meetup.meetup_posts.count %> posts</a></span>
+              </div>
+              <div class="actions">
+                <span class="meetup-join" id="meetup-join-<%= meetup.id %>">
+                  <%= render partial: 'meetup_members/form', locals: {meetup: meetup}%>
+                </span>
+                <span><a href="/meetups/<%= meetup.id %>" class="btn btn-primary"> view </a></span>
+              </div>
+            </div>
+          </div>
+        <% end %>
 
-<%= link_to 'New Study meetup', new_meetup_path %>
+        </div><!-- study meetups section ends here -->
+        <nav>
+          <ul class="pagination"><li><%= will_paginate @meetups %></li></ul>
+        </nav>
+
+      </div>
+    </div>
+  </div>
+
+  <%= link_to 'New Study meetup', new_meetup_path %>
+</div>

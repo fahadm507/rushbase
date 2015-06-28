@@ -11,43 +11,45 @@
 }
 
 .all-study-meetups {
+  margin-top: 15px;
   .meetup-card {
     border-radius: 3px;
     margin: 5px ;
   }
-
 }
-
 .study-meetups-section {
-  background: #fff;
   padding-left:15px;
 }
 
 .meetup-card {
   min-height: 200px;
   min-width: 298px;
-  padding:10px;
+  //padding:10px;
   //border:1px solid red;
 
   .card-top {
     position:relative;
     width:100%;
-    background:#05767E;
+    background:#585858;
     background-position: cover;
-    color:#E5E4D7;
-    min-height:170px;
+    color:#FFF;
+    min-height:200px;
     margin-right: 0px;
 
     .hero-headline {
       font-weight: 200px;
       width:50%;
-      text-align: left;
+      padding:0px;
+      text-align: center;
       height: 50%;
       margin: auto;
       position: absolute;
       top: 0; left:0; bottom:0; right:0;
     }
-
+    .btn-primary {
+      background-color: #fff;
+      border-color: #2e6da4;
+    }
 
   }
 
