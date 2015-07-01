@@ -1,3 +1,4 @@
+
 .new-meetup-form {
   margin:20px;
 }
@@ -160,5 +161,8 @@
 
 .meetup-members {
   margin:0px 5px 0px 5px;
+  background-color: #e6e9ec;
+  border:3px solid #ddd;
 
+  .glyphicon {width:60px;}
 }

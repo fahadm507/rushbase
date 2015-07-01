@@ -1,20 +1,24 @@
 
-<div class ="container">
-  <div class="row">
-    <div class="all-users">
-      <% meetup.meetup_members.each do |member| %>
+
+    <div class="row">
+      <% meetup.meetup_members.limit(4).each do |member| %>
         <% user = member.user %>
         <ul class="col-md-3 col-sm-3 col-xs-12 text-center">
           <%=image_tag user.avatar.url(:thumb), :class => "user-avatar img-circle  "%>
-          <h4 class=""><%= user.full_name %></h4>
+          <h4 class=""><%=link_to user.full_name, user_path(user) %></h4>
           <p><%= user.industry.name if user.industry%></p>
           <ul class="actions list-inline">
-            <span><%= link_to 'view', user, class: "btn btn-default" %></span>
-            <span id="<%= user.id %>-follow-form" class="follow-form">
-            <%= render partial: 'follows/follow_form', locals: { user: user } if current_user %>
-            </span>
+            <li id="<%= user.id %>-follow-form" class="follow-form">
+              <%= render partial: 'follows/follow_form', locals: { user: user } if current_user %>
+            </li>
           </ul>
         </ul>
       <%end%>
     </div>
-</div>
+
+    <hr>
+    <ul class="row slider-actions list-inline text-center">
+      <li><a class="circle glyphicon glyphicon-chevron-left" href="#"></a></li>
+      <li><a class="circle glyphicon glyphicon-chevron-right" href="#"></a></li>
+      <li><a href="#">View All <span class="badge"><%= meetup.meetup_members.count %></span></a></li>
+    </ul>
