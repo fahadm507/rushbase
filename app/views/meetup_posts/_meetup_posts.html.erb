@@ -17,12 +17,12 @@
           </div>
         <%end%>
       </div>
-      <div class="post-body panel-body">
+      <div class="post-body panel-body col-md-10 col-md-offset-2">
         <h1><%= post.title %></h1><br>
         <p><%= post.description %></p>
       </div>
       <!-- Comments start here-->
-        <div class="post-comments">
+        <div class="post-comments col-md-10 col-md-offset-2">
         <ul class="list-inline row">
           <li class="col-md-3 col-sm-3 col-xs-6"><a class="add-comment" id="add-comment-<%= post.id %>" data-comment="<%= post.id %>"><i class="glyphicon glyphicon-plus-sign"></i> Comment </a></li>
           <li class="col-md-3 col-sm-3 col-xs-6" class="glyphicon glyphicon-comment">
@@ -54,4 +54,3 @@
     </div><!-- Post body ends here-->
   </div>
 <%end%>
-

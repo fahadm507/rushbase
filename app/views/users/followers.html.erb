@@ -1,22 +1,23 @@
 <div class="top-header following-users">
   <div class="hero-headline ">
-    <h1 class="text-center">  Followers <%= @user.following_users.count %> users</h1>
+    <h1 class="text-center"><%= @user.following_users.count %> Followers </h1>
   </div>
 </div>
 <div class ="container">
+  <div class="all-users">
   <% @followers.each do |user| %>
-  <div class="card">
+
     <div class="col-md-3 col-sm-3 col-xs-12 text-center card">
       <%= image_tag user.avatar.url(:thumb), :class => "user-avatar img-circle  "%>
       <h4 class=""><%= user.full_name %></h4>
       <p><%= user.industry.name if user.industry%></p>
       <ul class="actions list-inline">
-        <li><%=link_to 'view', user, class: "btn btn-default" %></li>
         <li id="<%= user.id %>-follow-form" class="follow-form">
           <%= render partial: 'follows/follow_form', locals: { user: user } if current_user %>
         </li>
       </ul>
     </div>
-  </div>
+
   <%end%>
+  </div>
 </div>

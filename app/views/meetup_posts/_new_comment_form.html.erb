@@ -4,8 +4,8 @@
     <div class="input-append pull-left col-md-8">
       <%= f.text_area :description, hide_label: true, size: "",required: true, placeholder: "Add a comment here" %>
     </div>
-    <div ng-init="disabled = true" class="button pull-left" ng-disabled="disabled">
-      <%= f.submit "Comment", class: "comment_button btn btn-success", size: '10x10' %>
+    <div class="comment-button pull-left">
+      <%= f.submit "Comment", class: "comment_button btn btn-success"%>
     </div>
   </div>
   <%end%>

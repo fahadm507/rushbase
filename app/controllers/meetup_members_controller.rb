@@ -3,7 +3,7 @@ class MeetupMembersController < ApplicationController
   before_action :set_meetup_member, only: [:show, :edit, :update, :destroy]
   before_action :meetup_member?, only: [:create, :edit, :update, :destroy]
   def index
-    @meetup_members = MeetupMember.all
+    @meetup = Meetup.find(params[:meetup_id])
   end
 
   def show

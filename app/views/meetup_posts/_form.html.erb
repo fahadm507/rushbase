@@ -1,4 +1,4 @@
-<div class="">
+<div class="container">
   <%= bootstrap_form_for([meetup, @new_post]) do |f| %>
     <% if @new_post.errors.any? %>
       <div id="error_explanation">
@@ -11,16 +11,20 @@
         </ul>
       </div>
     <% end %>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="">
+          <%= f.text_field :title %>
+        </div>
+        <div class="">
+          <%= f.text_area :description, required: true %>
+        </div>
 
-    <div class="field">
-      <%= f.text_field :title %>
-    </div>
-    <div class="field">
-      <%= f.text_area :description, required: true %>
+        <div class="actions">
+          <%= f.submit "post" %>
+        </div>
+      </div>
     </div>
 
-    <div class="actions">
-      <%= f.submit "post" %>
-    </div>
   <% end %>
 </div>
