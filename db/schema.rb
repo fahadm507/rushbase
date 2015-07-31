@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150625004120) do
+ActiveRecord::Schema.define(version: 20150731024350) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -141,13 +141,16 @@ ActiveRecord::Schema.define(version: 20150625004120) do
 
   create_table "groups", force: true do |t|
     t.string   "name",                        null: false
-    t.text     "description",                 null: false
+    t.string   "description"
     t.string   "organization"
     t.boolean  "public",       default: true
-    t.integer  "industry_id",                 null: false
-    t.integer  "user_id",                     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "banner_image"
+    t.string   "provider"
+    t.string   "course_link"
+    t.integer  "user_id"
+    t.integer  "industry_id"
   end
 
   create_table "industries", force: true do |t|
