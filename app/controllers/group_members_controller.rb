@@ -1,48 +1,45 @@
 class GroupMembersController < ApplicationController
-  before_action :set_group_member, only: [:show, :edit, :update, :destroy]
-
-  # GET /group_members
-  # GET /group_members.json
+  respond_to :js, :json, :html
+  before_action :set_Group_member, only: [:show, :edit, :update, :destroy]
+  before_action :Group_member?, only: [:create, :edit, :update, :destroy]
   def index
-    @group_members = GroupMember.all
+    @group = Group.find(params[:group_id])
   end
 
-  # GET /group_members/1
-  # GET /group_members/1.json
   def show
+    @group_member = GroupMember.find(params[:id])
   end
 
-  # GET /group_members/new
   def new
     @group_member = GroupMember.new
   end
 
-  # GET /group_members/1/edit
   def edit
+    @group_member = GroupMember.find(params[:id])
   end
 
-  # POST /group_members
-  # POST /group_members.json
   def create
     @group_member = GroupMember.new(group_member_params)
+    @group_member.user_id = current_user.id
+    @group_member.Group_id = params[:Group_id]
 
     respond_to do |format|
       if @group_member.save
-        format.html { redirect_to @group_member, notice: 'Group member was successfully created.' }
+        format.html { redirect_to group_url(@group_member.group), notice: 'GroupMember was successfully created.' }
+        format.js {}
         format.json { render :show, status: :created, location: @group_member }
       else
         format.html { render :new }
+        format.js {}
         format.json { render json: @group_member.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /group_members/1
-  # PATCH/PUT /group_members/1.json
   def update
     respond_to do |format|
       if @group_member.update(group_member_params)
-        format.html { redirect_to @group_member, notice: 'Group member was successfully updated.' }
+        format.html { redirect_to @group_member.Group, notice: 'GroupMember was successfully updated.' }
         format.json { render :show, status: :ok, location: @group_member }
       else
         format.html { render :edit }
@@ -51,24 +48,22 @@ class GroupMembersController < ApplicationController
     end
   end
 
-  # DELETE /group_members/1
-  # DELETE /group_members/1.json
   def destroy
     @group_member.destroy
     respond_to do |format|
-      format.html { redirect_to group_members_url, notice: 'Group member was successfully destroyed.' }
+      format.js {}
+      format.html { redirect_to group_url(@group_member.group), notice: 'GroupMember was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_group_member
+
+    def set_Group_member
       @group_member = GroupMember.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def group_member_params
-      params[:group_member]
+    def Group_member_params
+      params[:Group_member]
     end
 end

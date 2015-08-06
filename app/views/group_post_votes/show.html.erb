@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @group_post_vote.user_id %>
+</p>
+
+<p>
+  <strong>group post:</strong>
+  <%= @group_post_vote.group_post_id %>
+</p>
+
+<%= link_to 'Edit', edit_group_post_vote_path(@group_post_vote) %> |
+<%= link_to 'Back', group_post_votes_path %>

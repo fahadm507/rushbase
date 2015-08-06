@@ -28,10 +28,10 @@ Rails.application.routes.draw do
       resources :future_courses
       resources :educations
     end
-    resources :meetups do
-      resources :meetup_members
-      resources :meetup_posts do
-        resources :meetup_post_votes, only: [:create, :destroy]
+    resources :groups do
+      resources :group_members
+      resources :group_posts do
+        resources :group_post_votes, only: [:create, :destroy]
         resources :comments, shallow: true
       end
     end
@@ -42,9 +42,9 @@ Rails.application.routes.draw do
       resources :courses
     end
 
-    resources :groups do
-      resources :group_members
-    end
+    # resources :groups do
+    #   resources :group_members
+    # end
 
     resources :user_posts do
       resources :post_comments

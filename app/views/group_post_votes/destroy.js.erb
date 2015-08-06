@@ -1,0 +1,11 @@
+var targetUpvoteForm = $("#upvote-btn-<%= @group_post_vote.group_post.id %>")
+var upvoteTarget = $("#count-upvotes-<%= @group_post_vote.group_post.id %>")
+
+targetUpvoteForm.html("<%= j(render partial: 'group_post_votes/group_post_vote',
+  locals: {
+    post: @group_post_vote.group_post,
+    group: @group_post_vote.group_post.group
+  })%>")
+
+upvoteTarget.html("<%= j(render partial: 'group_post_votes/count_upvotes',
+  locals: {post: @group_post_vote.group_post})%>");

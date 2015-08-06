@@ -1,5 +1,0 @@
-<span id="upvote-btn-<%=post.id%>">
-  <%=link_to(meetup_meetup_post_meetup_post_vote_path(meetup,post.id, MeetupPostVote.where(user_id: current_user, meetup_post_id: post).first),remote: true, method: :delete) do %>
-    <i class="glyphicon glyphicon-thumbs-up"></i>
-  <%end%>
-</span

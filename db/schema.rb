@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150731024350) do
+ActiveRecord::Schema.define(version: 20150806012555) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -139,6 +139,15 @@ ActiveRecord::Schema.define(version: 20150731024350) do
   add_index "group_members", ["group_id"], name: "index_group_members_on_group_id"
   add_index "group_members", ["user_id"], name: "index_group_members_on_user_id"
 
+  create_table "group_posts", force: true do |t|
+    t.string   "title"
+    t.text     "description", null: false
+    t.integer  "group_id",    null: false
+    t.integer  "user_id",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "groups", force: true do |t|
     t.string   "name",                        null: false
     t.string   "description"
@@ -195,15 +204,6 @@ ActiveRecord::Schema.define(version: 20150731024350) do
   add_index "meetup_post_votes", ["meetup_post_id", "user_id"], name: "index_meetup_post_votes_on_meetup_post_id_and_user_id", unique: true
   add_index "meetup_post_votes", ["meetup_post_id"], name: "index_meetup_post_votes_on_meetup_post_id"
   add_index "meetup_post_votes", ["user_id"], name: "index_meetup_post_votes_on_user_id"
-
-  create_table "meetup_posts", force: true do |t|
-    t.string   "title"
-    t.text     "description", null: false
-    t.integer  "meetup_id",   null: false
-    t.integer  "user_id",     null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "meetups", force: true do |t|
     t.string   "name"

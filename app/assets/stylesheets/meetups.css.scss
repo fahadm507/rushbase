@@ -1,9 +1,9 @@
 
-.new-meetup-form {
+.new-group-form {
   margin:20px;
 }
 
-.new-meetup {
+.new-group {
   margin-top:30px;
   .actions-links {
     padding:10px;
@@ -11,18 +11,18 @@
   }
 }
 
-.all-study-meetups {
+.all-study-groups {
   margin-top: 15px;
-  .meetup-card {
+  .group-card {
     border-radius: 3px;
     margin: 5px ;
   }
 }
-.study-meetups-section {
+.study-groups-section {
   padding-left:15px;
 }
 
-.meetup-card {
+.group-card {
   min-height: 200px;
   min-width: 298px;
   //padding:10px;
@@ -67,7 +67,7 @@
   }
 }
 
-.study-meetup-header {
+.study-group-header {
   min-height:400px;
   background-position: cover;
   padding:0px;
@@ -84,17 +84,17 @@
     padding-top: 20px;
   }
 
-  .meetup-banner-wrapper {
+  .group-banner-wrapper {
      position:relative;
      min-height:270px;
   }
 
-  .meetup-banner {
+  .group-banner {
     background:green;
     min-height: 300px;
     margin-top:-20px;
 
-    .meetup-actions {
+    .group-actions {
       background-color: #dddddd;
       position:absolute;
       bottom:0;
@@ -106,7 +106,7 @@
     }
 
   }
-  .meetup-stats {
+  .group-stats {
     background-color: #393d41;
     color:#fff;
     min-height:280px;
@@ -118,12 +118,12 @@
     }
   }
 
-  .meetup-actions {
+  .group-actions {
     margin-left:0px;
     padding-left:20px;
     background: #DDE8E8;
   }
-  .meetup-headline {
+  .group-headline {
     margin-left:20px;
     margin-top:0px;
     padding:60px 0px 0px;
@@ -131,7 +131,7 @@
   }
 }
 
-.meetup-content {
+.group-content {
   margin-top:5px;
   .content-section {
     //border:1px solid black;
@@ -158,7 +158,7 @@
   }
 }
 
-.meetup-members {
+.group-members {
   margin:0px 5px 0px 5px;
   background-color: #e6e9ec;
   border:3px solid #ddd;

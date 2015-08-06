@@ -1,0 +1,52 @@
+div class="wrapper">
+  <div class="top-header top-header-users">
+    <div class="hero-headline">
+      <h1> Find Groups and share knowledge with other learners </h1>
+    </div>
+  </div>
+  <%= render partial: 'users/search_bar'%>
+  <div class="container">
+    <div class ="study-groups-wrapper row">
+      <div class="study-groups-section col-md-10 col-md-offset-1 text-center">
+        <div class="row all-study-groups">
+        <% @groups.each do |group| %>
+          <div id="group-card-<%=  %>" class="group-card col-lg-3 col-md-2 col-sm-12 col-xs-12">
+            <div class="card-top">
+              <p class="text-center hero-headline"> <%= group.name %><br>
+              <% if group.provider%>
+                <i class="text-center">by <%= group.provider %></i>
+              <%end%>
+              </p>
+            </div>
+            <div class="card-bottom text-center">
+              <div class="actions">
+                <a href="/groups/<%=group.id%>/group_members" class="members">
+                <%= group.users.count %> Members</a>
+                <span><a href="/groups/<%= group.id%>/group_posts" class="members">
+                <%= group.group_posts.count %> posts</a></span>
+              </div>
+              <div class="actions">
+                <span class="group-join" id="group-join-<%= group.id %>">
+                  
+                </span>
+                <span><a href="/groups/<%= group.id %>" class="btn btn-primary"> view </a></span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        </div><!-- study groups section ends here -->
+        <nav>
+          <ul class="pagination"><li><%= will_paginate @groups %></li></ul>
+        </nav>
+
+      </div>
+    </div>
+  </div>
+
+  <%= link_to 'New Study group', new_group_path %>
+</div>
+
+    </div>
+  </div>
+</div>

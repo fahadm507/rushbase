@@ -1,0 +1,6 @@
+var target = $("#group-post-<%=@group_post.id%>")
+target.html("<%= j(render partial: 'group_posts/update_form',
+  locals: {
+    group_post: @group_post,
+    group: @group_post.group
+  })%>");

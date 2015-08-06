@@ -1,0 +1,30 @@
+<div class="container">
+  <%= bootstrap_form_for([group, @new_post]) do |f| %>
+    <% if @new_post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@new_post.errors.count, "error") %> prohibited this new_post from being saved:</h2>
+
+        <ul>
+        <% @new_post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="">
+          <%= f.text_field :title %>
+        </div>
+        <div class="">
+          <%= f.text_area :description, required: true %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "post" %>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+</div>

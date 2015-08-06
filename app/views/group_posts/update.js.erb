@@ -1,0 +1,7 @@
+var target = $("#group-post-<%=@group_post.id%>")
+target.html("<%= j(render partial: 'group_posts/group_post_update',
+  locals: {
+     group: @group_post.group,
+     post: @group_post,
+     user: @group_post.user
+  })%>");

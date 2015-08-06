@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="study-group-header row">
+    <div class="group-banner-wrapper col-md-12 col-sm-12 col-xs-12 text-center">
+      <div class="group-banner">
+        <h1 class="group-headline"><%= @group.name %></h1>
+        <%if @group.provider %>
+          <p>by <strong><%= @group.provider %></strong></p>
+        <%end%>
+        <br>
+        <div class="group-join" id="group-join-<%= @group.id %>">
+          <%= render partial: 'group_members/form', locals: {group: @group}%>
+        </div>
+      </div>
+      <div class="group-actions">
+          <%= render partial: 'users/user_profile_footer', locals: { user: current_user } %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="show-members group-members" id="group-members-id-<% @group.id %>" style="display:none;">
+  <%= render partial: 'groups/members', locals: { group: @group } %>
+</div></div>
+<div class="container">
+  <div class="row group-content">
+  <p class="notice"><%= notice %></p>
+    <span id="explore" style="display:none;" >
+      <% if @group.member?(current_user)%>
+        <%= render partial: 'group_posts/form', locals: {group: @group} %>
+      <%else%>
+        <p>Before you can post anything you need to join this group</p>
+      <%end%>
+    </span>
+    <div class="col-md-8 content-section">
+      <%= render partial: 'group_posts/group_posts', locals: {group: @group}%>
+    </div>
+
+  <div class="col-md-4 side-bar text-center">
+      <div class="side-bar-content">
+        <div class="popular-group-posts">
+          <p>Most popular posts</p>
+        </div>
+        <div class="related-groups">
+          <p>related groups</p>
+          <%= @group.name%>
+        </div>
+      </div>
+    </div>
+   </div>
+
+</div>

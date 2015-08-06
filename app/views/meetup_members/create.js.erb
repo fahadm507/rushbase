@@ -1,6 +1,6 @@
-target = $("#meetup-join-<%=@meetup_member.meetup.id%>")
-target.html("<%= j(render partial: 'meetup_members/destroy_form',
+target = $("#group-join-<%=@group_member.group.id%>")
+target.html("<%= j(render partial: 'group_members/destroy_form',
   locals: {
-    meetup: @meetup_member.meetup,
-    meetup_member: @meetup_member
+    group: @group_member.group,
+    group_member: @group_member
   })%>")

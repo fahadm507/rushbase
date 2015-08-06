@@ -1,6 +1,0 @@
-var target = $("#meetup-post-<%=@meetup_post.id%>")
-target.html("<%= j(render partial: 'meetup_posts/update_form',
-  locals: {
-    meetup_post: @meetup_post,
-    meetup: @meetup_post.meetup
-  })%>");

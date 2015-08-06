@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row profile-footer">
     <div class="user-stats col-sm-6">
-      <div class="col-md-3 col-sm-3 stat" onclick="$('#meetup-members-id-<% @meetup.id %>').toggle();">
-        <%=link_to @meetup.meetup_members.count, meetup_meetup_members_path(@meetup) %>
+      <div class="col-md-3 col-sm-3 stat" onclick="$('#group-members-id-<% @group.id %>').toggle();">
+        <%=link_to @group.group_members.count, group_group_members_path(@group) %>
         <div>Members</div>
       </div>
       <div class="col-md-3 col-sm-3 col-xs-12 stat">
-        <%= link_to @meetup.meetup_posts.count, meetup_meetup_posts_path(@meetup) %>
+        <%= link_to @group.group_posts.count, group_group_posts_path(@group) %>
         <div>Posts</div>
       </div>
 
