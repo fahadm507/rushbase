@@ -4,7 +4,7 @@ class RenameMeetupPostsToGroupPosts < ActiveRecord::Migration
     rename_column :group_posts, :meetup_id, :group_id
   end 
   def self.down
-    rename_table :group_posts, :meetup_posts
+    rename_table :group_post_votes, :meetup_post_votes
     rename_column :group_posts,  :group_id, :meetup_id
   end
 end

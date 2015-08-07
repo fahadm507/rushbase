@@ -22,7 +22,6 @@ class User < ActiveRecord::Base
   has_many   :group_members
   has_many   :meetup_members
   has_many   :recommendations
-  has_many   :meetups, through: :meetup_members
   has_many   :groups, through: :group_members
   has_many   :course_posts
   has_many   :course_reviews
@@ -30,7 +29,7 @@ class User < ActiveRecord::Base
   has_many   :meetup_post_votes
   has_many   :future_courses
   has_many   :user_posts
-  has_many   :meetup_posts
+  has_many   :group_posts
   has_many   :study_meetups
   has_many   :taken_courses
   has_many   :upvotes

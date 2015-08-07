@@ -1,7 +1,7 @@
 class GroupMembersController < ApplicationController
   respond_to :js, :json, :html
-  before_action :set_Group_member, only: [:show, :edit, :update, :destroy]
-  before_action :Group_member?, only: [:create, :edit, :update, :destroy]
+  before_action :set_group_member, only: [:show, :edit, :update, :destroy]
+
   def index
     @group = Group.find(params[:group_id])
   end
@@ -21,11 +21,11 @@ class GroupMembersController < ApplicationController
   def create
     @group_member = GroupMember.new(group_member_params)
     @group_member.user_id = current_user.id
-    @group_member.Group_id = params[:Group_id]
+    @group_member.group_id = params[:group_id]
 
     respond_to do |format|
       if @group_member.save
-        format.html { redirect_to group_url(@group_member.group), notice: 'GroupMember was successfully created.' }
+        format.html { redirect_to group_url(@group_member.group), notice: 'groupMember was successfully created.' }
         format.js {}
         format.json { render :show, status: :created, location: @group_member }
       else
@@ -39,7 +39,7 @@ class GroupMembersController < ApplicationController
   def update
     respond_to do |format|
       if @group_member.update(group_member_params)
-        format.html { redirect_to @group_member.Group, notice: 'GroupMember was successfully updated.' }
+        format.html { redirect_to @group_member.group, notice: 'GroupMember was successfully updated.' }
         format.json { render :show, status: :ok, location: @group_member }
       else
         format.html { render :edit }
@@ -59,11 +59,11 @@ class GroupMembersController < ApplicationController
 
   private
 
-    def set_Group_member
+    def set_group_member
       @group_member = GroupMember.find(params[:id])
     end
 
-    def Group_member_params
-      params[:Group_member]
+    def group_member_params
+      params[:group_member]
     end
 end

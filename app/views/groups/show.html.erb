@@ -8,7 +8,7 @@
         <%end%>
         <br>
         <div class="group-join" id="group-join-<%= @group.id %>">
-          <%= render partial: 'group_members/form', locals: {group: @group}%>
+          <%= render partial: 'group_members/create_form', locals: {group: @group}%>
         </div>
       </div>
       <div class="group-actions">
