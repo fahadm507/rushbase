@@ -1,5 +1,5 @@
-var target = $(".comments-details ul#comment-for-post-<%= @comment.meetup_post.id %>")
+var target = $(".comments-details ul#comment-for-post-<%= @comment.group_post.id %>")
 target.html("");
-  var postTarget = $("#count-comments-<%= @comment.meetup_post.id %>")
+  var postTarget = $("#count-comments-<%= @comment.group_post.id %>")
   postTarget.html("<%= j(render partial: 'comments/count_comments',
-    locals: {post: @comment.meetup_post})%>");
+    locals: {post: @comment.group_post})%>");

@@ -1,8 +1,8 @@
-var target = $(".comments-details ul#comment-for-post-<%= @comment.meetup_post.id %>")
+var target = $(".comments-details ul#comment-for-post-<%= @comment.group_post.id %>")
 target.html("<%= j(render partial: 'comments/comment',
   locals: {
     user: @comment.user,
-    post: @comment.meetup_post,
+    post: @comment.group_post,
     comment: @comment
   })%>");
 

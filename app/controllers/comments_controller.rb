@@ -1,10 +1,9 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :update, :destroy]
-  before_action :meetup_member?, only: [:create, :edit, :update, :destroy]
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.meetup_post_id = params[:meetup_post_id]
+    @comment.group_post_id = params[:group_post_id]
     @comment.user_id = current_user.id
 
     respond_to do |format|
@@ -23,14 +22,14 @@ class CommentsController < ApplicationController
   def show
     @comment = Comment.find(params[:id])
     respond_to do |format|
-      format.json { render json: @comment, location:  user_comment_url(@comment.user_meetup_post, @comment) }
+      format.json { render json: @comment, location:  user_comment_url(@comment.user_group_post, @comment) }
     end
   end
 
   def edit
     @comment = Comment.find(params[:id])
     respond_to do |format|
-      format.json { render json: @comment, location:  user_comment_url(@comment.user_meetup_post, @comment) }
+      format.json { render json: @comment, location:  user_comment_url(@comment.user_group_post, @comment) }
       format.js {}
       format.html {}
     end

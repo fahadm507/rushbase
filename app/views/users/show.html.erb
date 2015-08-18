@@ -38,10 +38,10 @@
         <%=render partial: "taken_courses/view"%>
         <%=render partial: "future_courses/view"%>
         <%=render partial: "educations/view"%>
-        <div class="row meetups item">
-          <h3>Course Meetups</h3>
-          <%@user.meetups.each do |meetup|%>
-            <p><%= meetup.name %></p>
+        <div class="row groups item">
+          <h3>User G=roups</h3>
+          <%@user.groups.each do |group|%>
+            <p><%= group.name %></p>
           <%end%>
         </div>
         <div class="row projects item">
@@ -54,7 +54,7 @@
           <p>Learners like you</p>
         </div>
         <div class="user-suggestions">
-          <p>Course Meetups</p>
+          <p>Course groups</p>
         </div>
 
       </div>
