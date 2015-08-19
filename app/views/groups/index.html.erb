@@ -12,9 +12,9 @@
         <% @groups.each do |group| %>
           <div id="group-card-<%=  %>" class="group-card col-lg-3 col-md-2 col-sm-12 col-xs-12">
             <div class="card-top">
-              <p class="text-center hero-headline"> <%= group.name %><br>
-              <% if group.provider%>
-                <i class="text-center">by <%= group.provider %></i>
+              <p class="text-center hero-headline"> <%= group.course.name %><br>
+              <% if group.course.provider %>
+                <i class="text-center">by <%= group.course.provider %></i>
               <%end%>
               </p>
             </div>
@@ -44,7 +44,6 @@
     </div>
   </div>
 
-  <%= link_to 'New Study group', new_group_path %>
 </div>
 
     </div>

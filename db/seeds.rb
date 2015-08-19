@@ -67,15 +67,60 @@ array_of_categories.each do |cat|
 end
 
 #seed 50 users to the database
-def users
-  n= 55
+def seed_users
   Industry.all.each do |ind|
-    User.create(email: "exampleemail#{n}") do |user|
-                        user.full_name =  "Cool#{n} User#{n}",
-                        user.encrypted_password = "example20#{n}",
-                        user.industry_id = ind
-    end
-    n += 1
+    User.create(email: "example#{ind.id}@gmail.com",
+                        full_name: "Cool#{ind.id} User#{ind.id}",
+                        password: 'password',
+                        encrypted_password:  "password",
+                        industry_id: ind.id)
   end
 end
-users
+
+def create_udacity_courses
+    response = HTTParty.get("https://www.udacity.com/public-api/v0/courses")
+    courses = response["courses"]
+
+    courses.each do |course|
+      org = Organization.find_or_create_by(name: "Udacity")
+
+      c = Course.find_or_create_by(
+        name: course['title'],
+        description: course['summary'],
+        provider: "Udacity",
+        banner_image: course['banner_image'],
+        course_link: course['course_link'],
+        organization_id: org.id
+        )
+
+      Group.find_or_create_by(
+        name: c.name,
+        course_id: c.id
+      )
+    end
+  end
+def create_coursera_courses
+  coursera_res = HTTParty.get("https://api.coursera.org/api/catalog.v1/courses")
+  courses = coursera_res["elements"]
+
+  courses.each do |course|
+    org = Organization.find_or_create_by(name: "Coursera")
+    c = Course.find_or_create_by(
+      name: course['name'],
+      provider: "Coursera",
+      organization_id: org.id,
+      description: " "
+    )
+
+    Group.find_or_create_by(
+      name: c.name,
+      course_id: c.id
+    )
+  end
+end
+
+#functions calls to seed the database
+seed_users
+create_udacity_courses
+create_coursera_courses
+

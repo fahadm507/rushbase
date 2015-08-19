@@ -15,12 +15,12 @@
            <p>by <%=link_to "#{course.organization.name}",organization_path(course.organization) %></p>
           </div>
           <div class="course-info col-md-3 col-sm-6 col-xs-12">
-            <p><%= link_to course.meetup.meetup_members.count, meetup_path(course.meetup) %>meetup members</p>
+            <p><%= link_to course.group.group_members.count, group_path(course.group) %>group members</p>
             <p><%= link_to course.course_reviews.count, course_path(course) %> Reviews</p>
 
           </div>
           <div class="course-action col-md-3">
-            <a href="" class="btn btn-primary">Join meetup</a>
+            <%= link_to "View Group", group_path(course.group), class: 'btn btn-primary' %>
             <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               Add To
@@ -58,7 +58,7 @@
        <%end%>
        <nav>
           <div class="pagination">
-             <%= will_paginate @meetups %>
+             <%= will_paginate @groups %>
           </div>
         </nav>
     </div>

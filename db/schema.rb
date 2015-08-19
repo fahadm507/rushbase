@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150807060422) do
+ActiveRecord::Schema.define(version: 20150819093347) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -171,6 +171,7 @@ ActiveRecord::Schema.define(version: 20150807060422) do
     t.string   "course_link"
     t.integer  "user_id"
     t.integer  "industry_id"
+    t.integer  "course_id"
   end
 
   create_table "industries", force: true do |t|

@@ -4,6 +4,7 @@ class Group < ActiveRecord::Base
   has_many   :users, through: :group_members
 
   belongs_to :user
+  belongs_to :course, dependent: false
 
   include HTTParty
 
@@ -13,29 +14,4 @@ class Group < ActiveRecord::Base
     self.users.include?(user)
   end
 
-  def self.create_groups
-    response = HTTParty.get("https://www.udacity.com/public-api/v0/courses")
-    courses = response["courses"]
-
-    courses.each do |course|
-      self.find_or_create_by(
-        name: course['title'],
-        provider: "Udacity",
-        banner_image: course['banner_image'],
-        course_link: course['course_link']
-        )
-    end
-  end
-
-  def self.create_coursera_groups
-    coursera_res = HTTParty.get("https://api.coursera.org/api/catalog.v1/courses")
-    courses = coursera_res["elements"]
-
-    courses.each do |course|
-      self.find_or_create_by(
-        name: course['name'],
-        provider: "Coursera"
-      )
-    end
-  end
 end
