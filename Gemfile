@@ -45,6 +45,7 @@ gem 'ratyrate'
 gem 'ckeditor_rails'
 gem 'public_activity'
 gem 'pry-rails'
+gem 'pg'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

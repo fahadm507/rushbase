@@ -16,7 +16,7 @@
 .user-info {
   margin-top:-200px;
   .main-profile {
-    min-height:300px;
+    height:320px;
     //background-color:#464646;
     background: #E2EAE9;
     //background-color: #FFFFFF;
@@ -114,7 +114,8 @@
     text-align:center;
     min-height:150px;
     border:none;
-    padding-top:40px;
+    padding-top:20px;
+    padding-bottom: 20px;
 
   }
 
@@ -136,18 +137,12 @@
     }
   }
 
-  .special-item {
-    padding-top:40px;
+  #post-stats {
     text-align:center;
     background-color:#777777;
-    min-height:150px;
     padding-left:0px;
     color:#2dbe60;
 
-    .numbers {
-      font-size: 40px;
-      color:#fff;
-    }
   }
 
   .text {
@@ -157,7 +152,6 @@
     padding-top:4px;
   }
 }
-
 
 .user-action-icons .icon {
   margin-top: 5px;

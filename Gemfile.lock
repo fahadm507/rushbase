@@ -149,6 +149,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    pg (0.18.3)
     polyglot (0.3.5)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -274,6 +275,7 @@ DEPENDENCIES
   jquery-rails
   omniauth-facebook
   paperclip (~> 4.2)
+  pg
   pry-rails
   public_activity
   rails (= 4.1.1)

@@ -97,7 +97,7 @@ def create_udacity_courses
         name: c.name,
         course_id: c.id
       )
-    end
+    end 
   end
 def create_coursera_courses
   coursera_res = HTTParty.get("https://api.coursera.org/api/catalog.v1/courses")
