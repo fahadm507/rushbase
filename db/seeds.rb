@@ -119,8 +119,24 @@ def create_coursera_courses
   end
 end
 
+def api_data
+  create_udacity_courses
+  create_coursera_courses
+end
+
+def add_schools
+
+  schools = ['Udacity', 'Edx', 'Launch Academy', 'Coursera','Hacker Reactor', 'Udemy' ]
+
+  schools.each do |s|
+    School.find_or_create_by(name: s.name);
+  end
+
+end
+
 #functions calls to seed the database
 seed_users
-create_udacity_courses
-create_coursera_courses
+add_schools
+api_data
+
 

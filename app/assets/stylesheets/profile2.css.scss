@@ -1,0 +1,33 @@
+.add-border {
+  border-color: black;
+  border-radius: 1px;
+  border-width:medium;
+  border-style: solid;
+  color: 1px solid black;
+  margin:2px;
+}
+
+.user-section-wrapper {
+  margin-top: 10px;
+}
+
+.stats-card .stat {
+  font-size: 14px;
+  color: #999;
+  text-transform: uppercase;
+
+  li {
+    margin:10px;
+
+  }
+  .glyphicon, .fa {
+    color: green;
+  }
+}
+.content-sec {
+  .label {
+    color: #000;
+    margin-top: 15px;
+    font-weight: 700;
+  }
+}

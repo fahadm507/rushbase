@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819093347) do
+ActiveRecord::Schema.define(version: 20160521185520) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -219,14 +219,6 @@ ActiveRecord::Schema.define(version: 20150819093347) do
     t.integer  "course_id"
   end
 
-  create_table "organizations", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-    t.text     "description"
-    t.integer  "user_id"
-  end
-
   create_table "overall_averages", force: true do |t|
     t.integer  "rateable_id"
     t.string   "rateable_type"
@@ -241,6 +233,15 @@ ActiveRecord::Schema.define(version: 20150819093347) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "programs", force: true do |t|
+    t.string   "name",        null: false
+    t.text     "description"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "school_id"
   end
 
   create_table "rates", force: true do |t|
@@ -281,6 +282,14 @@ ActiveRecord::Schema.define(version: 20150819093347) do
     t.string  "name"
     t.string  "organization"
     t.integer "user_id"
+  end
+
+  create_table "schools", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
   end
 
   create_table "taken_courses", force: true do |t|

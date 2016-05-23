@@ -6,6 +6,7 @@ body {
   font-family: Georgia,Times,"Times New Roman",serif;
   font-size: 16px;
   line-height: 1.5;
+
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -37,6 +38,9 @@ ul li, a {
 a {
   background: transparent;
   text-decoration: none;
+}
+a:hover, body {
+  color: #444;
 }
 
 a:visited {

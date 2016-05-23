@@ -1,6 +1,6 @@
 angular.module("rushBase")
-  .controller("PostCommentController",["$scope", "UserPost", "PostComment",
-    function($scope, UserPost, PostComment){
+  .controller("PostCommentController",["$scope","$http", "UserPost", "PostComment",
+    function($scope, $http, UserPost, PostComment){
       //$scope.userPosts = UserPost.query();
       $scope.postComment = new PostComment();
       $scope.savePostComment = function(postComment){
@@ -27,4 +27,20 @@ angular.module("rushBase")
         });
       }
     };
-  }]);
+
+     // Simple GET request example:
+  // $http({
+  //   method: 'GET',
+  //   //this includes a token with access to public_content of sandbox user
+  //   url:'https://api.instagram.com/v1/users/self/?access_token=233406681.2df93bc.b3f21cd8e6d9414ebc65079572d58bc1'
+  //   }).then(function(response) {
+  //     // this callback will be called asynchronously
+  //     $scope.test = "response.data"
+  //     console.log(response.data)
+  //     // when the response is available
+  //   }, function(response) {
+  //     // called asynchronously if an error occurs
+  //     $scope.test = "failed"
+  //     // or server returns response with an error status.
+  //   });
+}]);

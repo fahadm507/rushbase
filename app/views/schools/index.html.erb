@@ -1,0 +1,8 @@
+<h1>All Organizations</h1>
+  <ul>
+    <% @schools.each do |school| %>
+      <%= link_to school.name, school_path(school) %></li>
+      <p><%=  school.description%></p>
+    <% end %>
+  </ul>
+<br>

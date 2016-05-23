@@ -19,11 +19,11 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @organization = Organization.find(params[:organization_id])
+    @school = School.find(params[:school_id])
     instructor = Instructor.find_by(id: current_user.id)
     if instructor.present?
       @course = instructor.courses.build(course_params)
-      @course.organization_id = @organization.id
+      @course.school_id = @school.id
 
       respond_to do |format|
         if @course.save
@@ -64,6 +64,6 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:name, :description, :organization_id, :instructor_id)
+    params.require(:course).permit(:name, :description, :school_id, :instructor_id)
   end
 end

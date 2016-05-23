@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     get '/feed' => 'user_posts#feed'
     get '/profile' => 'users#show'
     get '/finish' => 'users#finish'
+    get '/a' => 'welcome#a'
+     get '/csrf' => 'welcome#csrf'
 
     resources :users do
       member do
@@ -38,7 +40,7 @@ Rails.application.routes.draw do
 
     resources :follows, only: [:create, :destroy]
 
-    resources :organizations do
+    resources :schools do
       resources :courses
     end
 

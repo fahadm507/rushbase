@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   has_attached_file :avatar, styles: { medium: "300x300>",
-    thumb: "100x100>", thumbnail: "50x50>", tiny: "30x30>" },
+    thumb: "250x250>", thumbnail: "50x50>", tiny: "30x30>" },
     default_url: "user-default_:style.jpeg",
     storage: :s3,
     url: ":s3_domain_url",
@@ -18,7 +18,6 @@ class User < ActiveRecord::Base
 
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
-  has_many   :organizations
   has_many   :group_members
   has_many   :meetup_members
   has_many   :recommendations

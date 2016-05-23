@@ -7,16 +7,14 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-
     <header>
-      <% if user_signed_in? %>
+      <%if user_signed_in? %>
         <%= render partial: "layouts/logged_in_nav"%>
       <%else%>
         <%= render partial: "layouts/home_nav"%>
       <%end%>
     </header>
-
     <%= yield %>
-
+    <%= render :partial => 'layouts/footer'%>
   </body>
 </html>

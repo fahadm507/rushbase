@@ -14,7 +14,15 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
+        
+        <ul class="nav navbar-nav ">
+
+          <li><a href="#">Getting Started</a></li>
+          <li><%= link_to 'courses', main_app.a_path(anchor: '/courses')%></li>
+
+          <li><a href="/schools">schools</a></li>
+          <li><a href="/users">Users</a></li>
+          
          <li><%= link_to 'Notifications', edit_user_registration_path, class: "glyphicon glyphicon-bell" %></li>
          <li><a href="/feed" data-method="get"><span class="glyphicon glyphicon-home"></span> Home</a></li>
           <li class="dropdown">

@@ -1,8 +1,0 @@
-<h1>All Organizations</h1>
-  <ul>
-    <% @organizations.each do |organization| %>
-      <%= link_to organization.name, organization_path(organization) %></li>
-      <p><%= link_to organization.description, organization_path(organization)%></p>
-    <% end %>
-  </ul>
-<br>

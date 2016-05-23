@@ -23,7 +23,6 @@
 //= require angular/angular
 //= require angular-resource/angular-resource
 //= require angular-route/angular-route
-//= require angular-ui-router
 //= require rails-timeago
 //= require rails-timeago-all
 //= require_tree .
